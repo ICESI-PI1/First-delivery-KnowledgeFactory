@@ -1,14 +1,17 @@
-<html>
-    <body>
-        <h1> proyecto </h1>
-        
-        <form action="/signup/" method="POST">
+{% extends 'test_app/base.html' %}
 
-            {% csrf_token %}
-            {{form.as_p}}
+{% block content %}
+<body>
+    <h1> proyecto </h1>
+    
+    <form action="/signup/" method="POST">
 
-            <button>
-                Signup
-            </button>
-        </form>
-    </body>
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button>
+            Signup
+        </button>
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'test_app/base.html' %}
+
+{% block content %}
+<h1>tasks</h1>
+{% if user.is_authenticated %}
+<button name="buttonLogout" onclick="location.href='/logout'">
+    LogOut
+</button>
+{% else %}
+<button name="buttonSignup" onclick="location.href='/signup'">
+    SignUp
+</button>
+{% endif %}
+{% endblock %}
