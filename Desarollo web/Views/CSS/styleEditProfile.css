@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+}
+
+.image_locate{
+    text-align: left;
+}
+
+.items_search_locate{
+    text-align: center;
+    align-self: center;
+}
+
+#input_search {
+    height: 50px;
+    border: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #525151;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
