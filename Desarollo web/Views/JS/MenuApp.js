@@ -1,11 +1,3 @@
-let projects = [];
-
-if(projects!=null){
-    
-}else{
-
-}
-
 const iconMenu = document.querySelector('#icon_menu'),
         menu = document.querySelector('#menu')
 

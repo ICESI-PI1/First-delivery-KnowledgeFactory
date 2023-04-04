@@ -1,9 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: auto;
+    text-decoration: none;
 }
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+    transition: all .5s ease;
+  }
+  .sidebar header {
+    font-size: 22px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #063146;
+    user-select: none;
+  }
+  .sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: .4s;
+  }
+  ul li:hover a{
+    padding-left: 50px;
+  }
+  .sidebar ul a i{
+    margin-right: 16px;
+  }
+  #check{
+    display: none;
+  }
+  label #btn,label #cancel{
+    position: absolute;
+    background: #042331;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    transition: all .5s;
+  }
+  label #cancel{
+    z-index: 1111;
+    left: -195px;
+    top: 17px;
+    font-size: 30px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+  }
+  #check:checked ~ .sidebar{
+    left: 0;
+  }
+  #check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #check:checked ~ label #cancel{
+    left: 195px;
+  }
+  #check:checked ~ section{
+    margin-left: 250px;
+  }
+  section{
+    background: url(bg.jpeg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: all .5s;
+  }
+
+/***/
+
+.icon_menu_bar{
+    z-index: 10;
+}
+
+.icon_menu_bar img{
+    vertical-align: top;
+    width: 40px;
+    cursor: pointer;
+}
+
+.cont_menu{
+    background-color: #3b3939;
+    box-shadow: 2px 0px 5px 2px #737373;
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s ease;
+}
+
+.active{
+    transform: translate(-600px);
+}
+
+.opacity{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 5s ease;
+}
+
+.cont_menu ul{
+    padding: 100px 0px 20px 0px;
+    list-style: none;
+}
+
+.cont_menu ul li{
+    color: white;
+    display: block;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.cont_menu ul li:hover{
+    background-color: rgb(228, 228, 228);
+    color: rgb(42, 42, 42);
+}
+
+/*
+Código para el resto
+*/
 
 .Primarybox {
     padding: 0px;
@@ -14,98 +154,74 @@
     justify-content: center;
 }
 
-#app_bar_primary{
-    background-color: #0A4D77;
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    justify-content: space-between;
-    align-items: center;
-}
-        #image_dreamsBank {
-            width: 100px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: left;
-            z-index: -1;
+
+    .image_locate{
+        text-align: left;
+    }
+
+        .items_search_locate{
+            text-align: center;
+            align-self: center;
         }
+
             #input_search {
-                width: 50%;
-                height: 55px;
+                height: 50px;
+                border: 0px;
                 border-top-left-radius: 5px;
                 border-bottom-left-radius: 5px;
-                background-color: #F8F8F8;
-                color: #B4B4B4;
+                color: #525151;
                 font-weight: bold;
                 padding-left: 10px;
                 padding-right: 10px;
                 font-size: 20px;
                 text-align: left;
-                border: 0;
-            }
-            .locate_btn{
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;
-                width: 55px;
-                height: 55px;
             }
 
-#app_bar_secundary{
-    background-color: #093D5E;
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: hidden;
-    justify-content: space-between;
-    align-items: center;
-} 
-    header nav ul{
+
+    .menu-bar{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         overflow: hidden;
-        justify-content: space-between;
+        justify-content:left;
         align-items: center;
     }
-        header nav ul li{
+
+        header div a{
+            display: flex;
+            align-self: center;
+            justify-content: center;
+        }
+
+        .menu-item{
+            color: #fff;
             list-style: none;
             margin-right: 15px;
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: bold;
+            color: #F8F8F8;
+            font-family: "Roboto Flex", "Arial", sans-serif;
         }
-            header nav ul li a{
-                color: #fff;
-                text-decoration: none;
-                font-size: 20px;
-                font-weight: bold;
+
+            .menu-bar menu-item :hover{
+                color: #F8F8F8;
             }
-                header nav ul li a:hover{
-                    color: #F8F8F8;
-                }
-                    .text_style_li_apSec{
-                        color: #F8F8F8;
-                        font-size: 20px;
-                        font-weight: bold;
-                        font-family: "Roboto Flex", "Arial", sans-serif;
-                    }
+
 .Title{
     padding-left: 30px;
-    padding-top: 15px;
+    padding-top: 20px;
     color: #9f9999;
     font-size: 30px;
     font-weight: bold;
     font-family: "Roboto Flex", "Arial", sans-serif;
 }    
-
+/*
 .gridProducts{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    padding: 10px;
+    padding-top: 5px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -149,7 +265,3 @@
                             font-weight: bold;
                             font-family: "Roboto Flex", "Arial", sans-serif;
                         }
-
-
-
-
