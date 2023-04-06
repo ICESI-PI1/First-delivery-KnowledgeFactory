@@ -6,6 +6,23 @@ from django.db import IntegrityError
 
 # Create your views here.
 
+def login(req):
+    return render(req, 'test_app/login.html')
+
+def register(req):
+    return render(req, 'test_app/Register.html')
+
+def homePage(req):
+    return render(req, 'test_app/MainPageEnterprise.html')
+
+def profile(req):
+    return render(req, 'test_app/Profile.html')
+
+def editProfile(req):
+    return render(req, 'test_app/EditProfile.html')
+
+
+#Vistas por defecto de Django
 
 def home(req):
     return render(req, 'test_app/home.html')
