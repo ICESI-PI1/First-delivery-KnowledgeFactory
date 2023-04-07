@@ -64,6 +64,18 @@
     font-size: medium;
 }
 
+
+.btn_dropdown{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border: 0px;
+}
+
 .register_button {
     width: 100%;
     height: 40px;

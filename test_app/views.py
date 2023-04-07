@@ -11,6 +11,13 @@ def login(req):
 
 def register(req):
     return render(req, 'test_app/Register.html')
+    #if req.method == 'GET':
+    #    return render(req, 'test_app/Register.html')
+    #else:
+    #    User.objects.create_user()
+    
+    #Deben intentar entrar a ese "create_user" y cambiar los datos o crear su propio formulario para hacer un register
+
 
 def homePage(req):
     return render(req, 'test_app/MainPageEnterprise.html')
