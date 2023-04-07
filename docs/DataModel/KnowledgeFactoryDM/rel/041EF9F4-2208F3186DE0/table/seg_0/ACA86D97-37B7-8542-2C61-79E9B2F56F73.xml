@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ACA86D97-37B7-8542-2C61-79E9B2F56F73" name="Roles">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:04:01 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdRol" id="2442D928-E6B6-7FB9-0798-4438D2A367BD">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:05:50 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IdUser" id="9F49F68A-AD67-53A0-B887-9EAB1A617FEB">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:05:50 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Role_IdRole" id="9225E74B-66DE-C515-4506-A2BEA2D482E1">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:13:05 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="19C1BA1A-F27C-4004-37B2-1A4954BE6A27" referredColumn="22CD08B1-09C3-E91C-A5B7-133433A2F994"/>
+</associations>
+</Column>
+<Column name="User_cc" id="7FC78521-9550-1E79-C7C7-8010D3FC643C">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:13:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E14FF366-6CBC-FAF4-53C2-B420C22BE0C2" referredColumn="B4C37857-F209-F609-688B-C5255C1E58B5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9ADEAB9A-804F-712C-6886-4130CA76ACE8" name="Roles_PK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:14:36 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9225E74B-66DE-C515-4506-A2BEA2D482E1"/>
+<colUsage columnID="7FC78521-9550-1E79-C7C7-8010D3FC643C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90A2C50C-1EE2-AD48-1BBA-427D453C9609" name="Roles_IdRole">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:13:05 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9225E74B-66DE-C515-4506-A2BEA2D482E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04FE5986-CAC6-EECE-BDA3-2FC6A6317459" name="User_cc">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:13:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7FC78521-9550-1E79-C7C7-8010D3FC643C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

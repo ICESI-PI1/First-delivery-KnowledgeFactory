@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E8AE996-490B-B3ED-827F-D333862B2373" name="Project">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 14:58:20 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProject" id="FB40CA6B-798E-0EA8-FAE7-200E766D2365">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:00:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="objective" id="9569EF3F-30D6-FEAE-22B6-5A32B3FB9DA1">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:00:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RESULTS" id="3528B8B4-EC08-AC68-33F8-C84ED73C5B52">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:00:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="reach" id="38A8DD92-43BF-CB32-FD3E-85590CCFACCB">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:00:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="C8026044-FDAA-2903-9198-4FDA527620C0">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:01:16 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Company_nit" id="E33625DA-B18C-9E55-2E94-44F73A14E8BC">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:01:32 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3223EF01-25B2-BB4B-6907-6FF26591B1C1" referredColumn="6CA09A5D-2EE2-A604-A8C8-44C9196C7B3A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB1AD381-9AD6-06D3-DC19-F66CF0A1887A" name="Project_PK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:00:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB40CA6B-798E-0EA8-FAE7-200E766D2365"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="127A406A-5CB6-708D-C922-4BDDC8464F9D" name="Company_FK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 15:01:32 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E33625DA-B18C-9E55-2E94-44F73A14E8BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

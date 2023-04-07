@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="proyecto_fav" directorySegmentName="seg_0" id="F5DCDDEA-BC94-27F5-2E59-80B3C8C48476">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 21:06:40 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<sourcePk>59A1D4C1-63D8-519E-24E0-C1E8552288D6</sourcePk>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A287F0AD-09A2-1368-EC55-5EE3DBF21739</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>951AB77C-439B-C954-768E-91096767BE06</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

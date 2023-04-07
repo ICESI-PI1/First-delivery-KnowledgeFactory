@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2C61CBAE-BD4B-5509-47DE-DF1D47FDA242" mainViewID="B8DDB780-EE23-03B3-17DF-87CA3557D11D">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-16 16:16:31 UTC</createdTime>
+<ownerDesignName>Integrador</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

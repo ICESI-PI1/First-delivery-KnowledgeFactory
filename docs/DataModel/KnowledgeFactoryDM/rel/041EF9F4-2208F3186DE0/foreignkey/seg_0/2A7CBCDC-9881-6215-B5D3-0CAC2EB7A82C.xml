@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2A7CBCDC-9881-6215-B5D3-0CAC2EB7A82C" containerWithKeyObject="99EF0D5E-B348-1CEC-9DAA-266E5D0E9EE7" localFKIndex="C48132C2-A5BA-D210-AA73-66569127BB5A" name="IdQuotes">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:31 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<referredTableLongName>Quote</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4D80A227-D57A-0DCE-9C7A-123054811520</referredTableID>
+<keyObject>5DE80E50-FEE5-4903-FEC2-F37EAEB6AD97</keyObject>
+<referredKeyID>5DE80E50-FEE5-4903-FEC2-F37EAEB6AD97</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Id_Quote</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

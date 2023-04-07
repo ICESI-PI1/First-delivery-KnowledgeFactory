@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CITAS_EN_BITACORA" directorySegmentName="seg_0" id="97A3AF2C-2ECF-AA38-BCFE-5D7F179BBD15">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 18:14:48 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<sourcePk>47B3F57A-6CFE-A734-7B15-40643C90F3F6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E8543A65-F5E4-5F6D-8BEE-59650EFCF0A6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E4546000-3728-7537-7C87-C932DB66B9E1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

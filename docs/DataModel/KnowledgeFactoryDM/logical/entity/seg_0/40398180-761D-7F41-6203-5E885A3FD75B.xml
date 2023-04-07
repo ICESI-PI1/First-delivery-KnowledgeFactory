@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="40398180-761D-7F41-6203-5E885A3FD75B" name="Admin">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 18:58:07 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_ADMIN" id="13EA3C4D-56AD-93A2-70E0-0164E344AA1E">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 18:58:14 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE" id="9E7B9C0A-7A10-1457-9D8C-6FFF06867833">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 19:03:32 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_COTIZACION" id="AFC29925-7E32-4410-E0CB-E349D07337A8">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 19:06:23 UTC</createdTime>
+<generatorID>DB2B8A1B-0650-5B65-AFA7-B59083B60148</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>CA24238F-A801-3CE0-8748-BC78A6B041FE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_BITACORA" id="F4B20427-3093-841C-6762-BAD12ABCFB1A">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 18:16:25 UTC</createdTime>
+<generatorID>DB2B8A1B-0650-5B65-AFA7-B59083B60148</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>CFD318EF-CD47-08BB-4329-54DEC5631606</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIT" id="42F47077-0122-0936-EE9F-1737E23BB6D6">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:21:57 UTC</createdTime>
+<generatorID>DB2B8A1B-0650-5B65-AFA7-B59083B60148</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>329DC79D-9A92-680D-00B1-650ACE15945D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="91592023-93C1-F227-FD59-919BDE7A59A4" name="Admin PK">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 19:03:23 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>13EA3C4D-56AD-93A2-70E0-0164E344AA1E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

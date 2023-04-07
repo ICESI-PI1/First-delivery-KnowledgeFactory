@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HECHA_POR" directorySegmentName="seg_0" id="DB2B8A1B-0650-5B65-AFA7-B59083B60148">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-24 19:06:17 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<sourcePk>91592023-93C1-F227-FD59-919BDE7A59A4</sourcePk>
+<targetPk>4C7A0ACF-54A6-6677-46D3-98F555653CE6</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>40398180-761D-7F41-6203-5E885A3FD75B</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>4062C57F-383B-E33E-B96D-E293BA831834</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

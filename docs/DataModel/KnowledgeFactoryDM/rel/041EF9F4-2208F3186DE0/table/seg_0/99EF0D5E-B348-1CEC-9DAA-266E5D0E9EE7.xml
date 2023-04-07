@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="99EF0D5E-B348-1CEC-9DAA-266E5D0E9EE7" name="Binnacle">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:14:28 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdBinnacle" id="DB6373FC-F418-FCBB-A116-BB6279A60525">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:18:22 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Quote_Id_Quote" id="C57137F5-6CE3-F79E-75E5-6F1D8EE988D7">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:31 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A7CBCDC-9881-6215-B5D3-0CAC2EB7A82C" referredColumn="B201F705-0403-9B0A-EE52-5B45B5223C8B"/>
+</associations>
+</Column>
+<Column name="User_cc" id="4135F38A-C9E7-7111-3B3D-D63C1592E15E">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:31:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="704ADE64-1527-09C7-9289-2F91C5D69DC7" referredColumn="B4C37857-F209-F609-688B-C5255C1E58B5"/>
+</associations>
+</Column>
+<Column name="Project_IdProject" id="8E287F44-AA6B-AAEC-3FBC-CE4043CA7CFA">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:33:35 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="87F0D375-FE2A-E1F4-E945-5624D06ABC13" referredColumn="FB40CA6B-798E-0EA8-FAE7-200E766D2365"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1DBE1A83-1182-AFA8-B73B-8A983D6FA2A8" name="Binnacle_PK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:18:22 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB6373FC-F418-FCBB-A116-BB6279A60525"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C48132C2-A5BA-D210-AA73-66569127BB5A" name="IdQuotes">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:31 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C57137F5-6CE3-F79E-75E5-6F1D8EE988D7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5385D6CA-AC9B-3321-010D-653EABBB3DA9" name="IdBuyer">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:31:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4135F38A-C9E7-7111-3B3D-D63C1592E15E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F4909AEC-49CF-6D0D-8C07-CF9B6058DDC9" name="IdProject">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:33:35 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E287F44-AA6B-AAEC-3FBC-CE4043CA7CFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
