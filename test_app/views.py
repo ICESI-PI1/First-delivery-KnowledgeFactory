@@ -3,30 +3,46 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 
 def login(req):
     return render(req, 'test_app/login.html')
 
+class LoginView(TemplateView): 
+    template_name="test_app/login.html"
+
+
+
 def register(req):
     return render(req, 'test_app/Register.html')
-    #if req.method == 'GET':
-    #    return render(req, 'test_app/Register.html')
-    #else:
-    #    User.objects.create_user()
-    
-    #Deben intentar entrar a ese "create_user" y cambiar los datos o crear su propio formulario para hacer un register
+
+class RegisterView(TemplateView):
+    template_name="test_app/Register.html" 
 
 
 def homePage(req):
     return render(req, 'test_app/MainPageEnterprise.html')
 
+class HomePageView(TemplateView):
+    template_name="test_app/MainPageEnterprise.html" 
+
+
+
 def profile(req):
     return render(req, 'test_app/Profile.html')
 
+class ProfileView(TemplateView): 
+    template_name="test_app/Profile.html"
+
+
 def editProfile(req):
     return render(req, 'test_app/EditProfile.html')
+
+class EditProfileView(TemplateView): 
+    template_name="test_app/EditProfile.html"
+
 
 
 #Vistas por defecto de Django
