@@ -19,7 +19,7 @@
 <ownDataTypeParameters>4000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Quote_Id_Quote" id="C57137F5-6CE3-F79E-75E5-6F1D8EE988D7">
+<Column name="Id_Meeting" id="C57137F5-6CE3-F79E-75E5-6F1D8EE988D7">
 <createdBy>usuario</createdBy>
 <createdTime>2023-04-06 23:21:31 UTC</createdTime>
 <ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
@@ -77,7 +77,7 @@
 <colUsage columnID="DB6373FC-F418-FCBB-A116-BB6279A60525"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C48132C2-A5BA-D210-AA73-66569127BB5A" name="IdQuotes">
+<ind_PK_UK id="C48132C2-A5BA-D210-AA73-66569127BB5A" name="IdMeetings">
 <createdBy>usuario</createdBy>
 <createdTime>2023-04-06 23:21:31 UTC</createdTime>
 <ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
