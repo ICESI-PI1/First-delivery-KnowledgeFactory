@@ -1,0 +1,10 @@
+{% extends 'test_app\base.html' %}
+{% block content %}
+    <ul>
+        {% if projects %}
+            <li>{{projects.objective}}</li>
+        {% else %}
+        <p>There are no projects in the library.</p>
+        {% endif %}
+    </ul>
+{% endblock %}

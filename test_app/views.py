@@ -4,8 +4,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import TemplateView
+from test_app.models import Project
+from test_app.models import Company
 
 # Create your views here.
+
+def testLit(req):
+    projects=Project.objects.all()
+    if projects is None:
+        print("vacio")
+    else:
+        print("aqui hay algo")
+    return render(req, 'test_app/testLit.html', {'projects':projects})
+
+class testLitView(TemplateView):
+    template_name="test_app/testLit.html"
 
 def login(req):
     return render(req, 'test_app/login.html')
@@ -23,7 +36,10 @@ class RegisterView(TemplateView):
 
 
 def homePage(req):
-    return render(req, 'test_app/MainPageEnterprise.html')
+    projects=Project.objects.all()
+    for proyecto in projects:
+        print(proyecto.ownerCompany)
+    return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects} )
 
 class HomePageView(TemplateView):
     template_name="test_app/MainPageEnterprise.html" 

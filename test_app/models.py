@@ -25,6 +25,7 @@ class Company(models.Model):
 
 
 class Project(models.Model):
+    name = models.CharField(max_length=30)
     objective = models.TextField()
     results = models.TextField()
     reach = models.TextField()

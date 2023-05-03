@@ -55,17 +55,22 @@
       </header>
       <div class="PrimaryBox">
         <h1 class="Title">Proyectos destacados</h1>
-        <!--<div class="gridProducts">
+        {% for project in projects %}
+        <div class="gridProducts">
             <div class="card">
                 <div class="card_image">
+                    <img src='{% static "/Images/Logo_DreamsBank.png" %}' alt="Logo de DreamsBank" style="width: 100px;">
                     <div class="card_content">
-                        <h1 class="card_title"></h1>
-                        <h3 class="card_text"></h3>
+                        <h1 class="card_title">{{project.objective}}</h1>
+                        <h3 class="card_text">{{project.ownerCompany.name}}</h3>
                         <h3 class="card_price"></h3>
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
+        {% endfor %}
+        
+        </div>
     </div>
 
     <script src='{% static "JS/MainPageEnterprise.js" %}'></script>
