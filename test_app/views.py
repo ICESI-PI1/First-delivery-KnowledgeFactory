@@ -60,6 +60,12 @@ class EditProfileView(TemplateView):
     template_name="test_app/EditProfile.html"
 
 
+def infoProject(req):
+    return render(req, 'test_app/InfoProject.html')
+
+class InfoProjectView(TemplateView):
+    template_name="test_app/InfoProject.html"
+
 
 #Vistas por defecto de Django
 
