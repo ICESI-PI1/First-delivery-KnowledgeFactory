@@ -7,12 +7,10 @@ class User(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=16)
     birthday = models.DateField()
-    #photo
+    photo= models.ImageField(null=True, blank=True, upload_to="images/")
     def __str__(self):
         return self.fullname
         
-    
-
 
 class Company(models.Model):
     nit = models.CharField(auto_created=False, primary_key=True, serialize=False, verbose_name='NIT', max_length=9)
@@ -31,8 +29,9 @@ class Project(models.Model):
     reach = models.TextField()
     state = models.TextField()
     ownerCompany = models.OneToOneField(Company, on_delete=models.CASCADE)
+    photo= models.ImageField(null=True, blank=True, upload_to="images/")
     def __str__(self):
-        return self.objective
+        return self.name + " by "+ self.ownerCompany.name
 
     
 class Role(models.Model):

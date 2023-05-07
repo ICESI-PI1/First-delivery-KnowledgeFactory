@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -37,8 +37,6 @@ class RegisterView(TemplateView):
 
 def homePage(req):
     projects=Project.objects.all()
-    for proyecto in projects:
-        print(proyecto.ownerCompany)
     return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects} )
 
 class HomePageView(TemplateView):
@@ -60,8 +58,9 @@ class EditProfileView(TemplateView):
     template_name="test_app/EditProfile.html"
 
 
-def infoProject(req):
-    return render(req, 'test_app/InfoProject.html')
+def infoProject(req, id):
+    project=get_object_or_404(Project,pk=id)
+    return render(req, 'test_app/InfoProject.html', {'project':project})
 
 class InfoProjectView(TemplateView):
     template_name="test_app/InfoProject.html"
