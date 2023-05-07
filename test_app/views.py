@@ -3,16 +3,37 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from django.views.generic.base import TemplateView
+from django.views.generic.base import View, TemplateView
+from .forms import loginForm
 
 # Create your views here.
 
-def login(req):
-    return render(req, 'test_app/login.html')
 
-class LoginView(TemplateView): 
-    template_name="test_app/login.html"
+class LoginView(View): 
+    
+    template_name="test_app/signin.html"
+    form_class = loginForm
+    
+    def get(self, req):
+        form=self.form_class()
+        message=''
+        return render(req, self.template_name, context={'form': form, 'message': message})
 
+    #href="{% url 'signin' %}"
+    def post(self, req): 
+        print(req.POST)
+        form = self.form_class(req.POST)
+        user=authenticate(req, username=req.POST['email'], 
+                          password=req.POST['password'])
+        if user is None: 
+            message = 'Login failed!'
+            return render(req, self.template_name, context={'form': form, 'message': message})
+        else: 
+            login(req, user)
+            return redirect('homePage')
+
+
+    
 
 
 def register(req):
