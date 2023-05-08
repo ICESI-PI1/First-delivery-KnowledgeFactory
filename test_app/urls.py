@@ -9,6 +9,7 @@ urlpatterns = [
     path('EditarPerfil/',views.EditProfileView.as_view(),name="editProfile"),
     path('Proyecto/<int:id>/',views.infoProject,name="productInformation"),
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
+    path('ProyectosDestacados/',views.OutstandingProjectsView.as_view(), name="OutstandingProjects"),
     
     
     path('home/', views.home, name="home"), 

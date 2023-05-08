@@ -5,14 +5,6 @@
     font-family: "Roboto Flex", "Arial", sans-serif;
 }
 
-#Primarybox {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: auto;
-}
-
 .image_locate{
     text-align: left;
 }
@@ -54,10 +46,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     padding: 20px;
     border: #363434;
     border-radius: 10px;
     border-style: solid;
     border-width: 1px;
+}
+
+.textOwners{
+    color: #093D5E;
+    font-weight: bold;
+}
+
+.textInfoProject{
+    font-size: 20px;
+    color: #363434;
+    margin-bottom: 10px;
 }

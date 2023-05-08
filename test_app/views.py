@@ -66,6 +66,13 @@ class InfoProjectView(TemplateView):
     template_name="test_app/InfoProject.html"
 
 
+
+def outstandingProjects(req):
+    return render(req, 'test_app/OutstandingProjects.html')
+
+class OutstandingProjectsView(TemplateView):
+    template_name="test_app/OutstandingProjects.html"
+
 #Vistas por defecto de Django
 
 def home(req):
