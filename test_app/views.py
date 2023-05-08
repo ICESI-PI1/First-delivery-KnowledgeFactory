@@ -6,7 +6,9 @@ from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project
 from test_app.models import Company
+from test_app.models import User
 from .forms import loginForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -21,11 +23,7 @@ def testLit(req):
 class testLitView(TemplateView):
     template_name="test_app/testLit.html"
 
-def login(req):
-    return render(req, 'test_app/login.html') #Del anterior
-
-class LoginView(View): #Hecho por Luis, usando singin.hml, diferencia con el que estaba q era un liginView simple que llamaba login.html
-    
+class LoginView(View):
     template_name="test_app/signin.html"
     form_class = loginForm
     
@@ -66,16 +64,20 @@ class HomePageView(TemplateView):
     template_name="test_app/MainPageEnterprise.html" 
 
 
-
+@login_required
 def profile(req):
-    return render(req, 'test_app/Profile.html')
+    user=get_object_or_404(User,pk=req.user.cc)
+    company=get_object_or_404(Company,user=user.cc)
+    return render(req, 'test_app/Profile.html', {'user':user,'company':company})
 
+@login_required
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
 
-
+@login_required
 def editProfile(req):
     return render(req, 'test_app/EditProfile.html')
+
 
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"

@@ -60,7 +60,7 @@
               </div>
               <div class="col-9" style="display: flex; align-items: center,start; justify-content: left ;flex-direction: column; padding-top: 10px;">
                 <div class="row" style="flex: 1; align-items: end;">
-                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;"><!--Nombre de usuario-->Miguel Hernandez</h5>
+                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;">{{user.fullname}}</h5>
                 </div>
                 <div class="row" style="flex: 1;align-items: start; display: flex;">
                   <div class="col-8" style="align-items: start">
@@ -109,17 +109,17 @@
                 <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-left: 10px;">Información del usuario</h5>
                 <hr>
                 <div class="container-fluid" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px; padding-right: 40px;">
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre: <!--Nombre del usuario--> Miguel Hernandez</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo: <!--Nombre del usuario--> miguelcyc147@cyc.com</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono: <!--Nombre del usuario--> 3216478513</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre: {{user.fullname}}</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo: {{user.email}}</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono: {{user.phoneNumber}}</p>
                 </div>
                 <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
                 <hr>
                 <div class="container-fluid" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px; padding-right: 40px;">
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa: <!--Nombre del usuario--> chocolate y café</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa: <!--Nombre del usuario--> 195285645</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo de la empresa: <!--Nombre del usuario--> chocolateycafe@cyc.com</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono de la empresa: <!--Nombre del usuario--> 1578146</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa: {{company.name}}</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa: {{company.nit}}</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Dirección de la empresa: {{company.address}}</p>
+                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono de la empresa: {{company.phoneNumber}}</p>
                 </div>
       </div>
 </body>
