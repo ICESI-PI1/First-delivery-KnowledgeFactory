@@ -48,7 +48,6 @@
         </div>
         <a href="#" class="menu-item">Menu</a>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'OutstandingProjects' %}" class="menu-item">Destacados</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
   </header>
@@ -90,10 +89,10 @@
                 </div>
             </div>
               <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
-                  <button class="btn btn-primary" type="button" style="background-color:#F9B100;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Añadir a favoritos</button>
+                  <a href="#" target="_self" class="btn btn-primary" type="button" style="background-color:#F9B100;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Añadir a favoritos</a>
               </div>
               <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
-                  <button class="btn btn-primary" type="button" style="background-color: #FFCD00;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Cotizar proyecto</button>
+                <a href="{% url 'requestMeeting' %}" target="_self" class="btn btn-primary" type="button" style="background-color: #FFCD00;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Cotizar proyecto</a>
               </div>
           </div>
           <div class="DescriptionInfoProduct">

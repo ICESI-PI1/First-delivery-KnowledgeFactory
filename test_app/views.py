@@ -19,6 +19,8 @@ def testLit(req):
 
 class testLitView(TemplateView):
     template_name="test_app/testLit.html"
+    
+#Login view
 
 def login(req):
     return render(req, 'test_app/login.html')
@@ -26,7 +28,7 @@ def login(req):
 class LoginView(TemplateView): 
     template_name="test_app/login.html"
 
-
+#Register view
 
 def register(req):
     return render(req, 'test_app/Register.html')
@@ -34,6 +36,7 @@ def register(req):
 class RegisterView(TemplateView):
     template_name="test_app/Register.html" 
 
+#Home view
 
 def homePage(req):
     projects=Project.objects.all()
@@ -42,7 +45,7 @@ def homePage(req):
 class HomePageView(TemplateView):
     template_name="test_app/MainPageEnterprise.html" 
 
-
+#Profile view
 
 def profile(req):
     return render(req, 'test_app/Profile.html')
@@ -50,6 +53,7 @@ def profile(req):
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
 
+#Edit profile view
 
 def editProfile(req):
     return render(req, 'test_app/EditProfile.html')
@@ -57,6 +61,7 @@ def editProfile(req):
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"
 
+#Information project view
 
 def infoProject(req, id):
     project=get_object_or_404(Project,pk=id)
@@ -65,13 +70,42 @@ def infoProject(req, id):
 class InfoProjectView(TemplateView):
     template_name="test_app/InfoProject.html"
 
+    
+#Request Appointment view
+
+def requestAppointment(req):
+    return render(req, 'test_app/RequestAppointment.html')
+
+class RequestAppointmentView(TemplateView):
+    template_name="test_app/RequestAppointment.html" 
+    
+#Request meeting view
+
+def requestMeeting(req):
+    return render(req, 'test_app/RequestMeeting.html')
+
+class RequestMeetingView(TemplateView):
+    template_name="test_app/RequestMeeting.html"
+
+#Profile Meeting view
+
+def profileMeeting(req):
+    return render(req, 'test_app/ProfileMeeting.html')
+
+class ProfileMeetingView(TemplateView):
+    template_name="test_app/ProfileMeeting.html"
+
+#Profile Favorites view
+
+def profileFavorites(req):
+    projects=Project.objects.all()
+    return render(req, 'test_app/ProfileFavorites.html',{'projects':projects})
+
+class ProfileFavoritesView(TemplateView):
+    template_name="test_app/ProfileFavorites.html"
 
 
-def outstandingProjects(req):
-    return render(req, 'test_app/OutstandingProjects.html')
 
-class OutstandingProjectsView(TemplateView):
-    template_name="test_app/OutstandingProjects.html"
 
 #Vistas por defecto de Django
 

@@ -11,7 +11,7 @@
     <title>Perfil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href='{% static "CSS/styleProfile.css" %}'>
+    <link rel="stylesheet" href='{% static "CSS/styleProfileMeeting.css" %}'>
     <script src="https://kit.fontawesome.com/d86547990e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -53,12 +53,12 @@
         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 25px;">
           <div class="col-3" style="margin: 0px; justify-content: space-between;">
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
-              <div class="col-3" style="display: flex ;align-items: center; justify-content:center ;">
+              <div class="col-3" style="display: flex ;align-items: center; justify-content:center;">
                 <i class="bi bi-person-circle" style="color: #8a8484; font-size: 3.5em;"></i>
               </div>
               <div class="col-9" style="display: flex; align-items: center,start; justify-content: left ;flex-direction: column; padding-top: 10px;">
                 <div class="row" style="flex: 1; align-items: end;">
-                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;"><!--Nombre de usuario-->Miguel Hernandez</h5>
+                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;">Miguel Hernandez</h5>
                 </div>
                 <div class="row" style="flex: 1;align-items: start; display: flex;">
                   <div class="col-8" style="align-items: start">
@@ -73,7 +73,7 @@
                 <a href="{% url "profile" %}" target="_self" class="bi bi-person-fill" style="color: #F9B100; font-size: 3.0em;"></a>
               </div>
               <div class="col" style="align-items: center; display: flex;">
-                <a href="{% url "profile" %}" target="_self" style="color: #0A4D77; font-size: 23px; text-decoration: none; font-weight: bold;">Perfil</a>
+                <a href="{% url "profile" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Perfil</a>
               </div>
             </div>
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
@@ -81,7 +81,7 @@
                 <a href="{% url "profileMeeting" %}" target="_self" class="bi bi-clipboard2-check-fill" style="color: #F9B100; font-size: 2.7em;"></a>
               </div>
               <div class="col" style="align-items: center; display: flex;">
-                <a href="{% url "profileMeeting" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Mis cotizaciones</a>
+                <a href="{% url "profileMeeting" %}" target="_self" style="color: #0A4D77; font-size: 23px; text-decoration: none; font-weight: bold;">Mis cotizaciones</a>
               </div>
             </div>
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
@@ -93,24 +93,28 @@
               </div>
             </div>
           </div>
-          <div class="col-9">
-            <div class="card" style="width: 100%;">
-              <div class="card-body">
-                <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-left: 10px;">Información del usuario</h5>
-                <hr>
-                <div class="container-fluid" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px; padding-right: 40px;">
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre: <!--Nombre del usuario--> Miguel Hernandez</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo: <!--Nombre del usuario--> miguelcyc147@cyc.com</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono: <!--Nombre del usuario--> 3216478513</p>
+        <div class="col-9">
+            <div class="gridProducts">
+                <div class="card">
+                    <a href="#" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
+                    <div class="row">
+                        <div class="col-3 card_image">
+                            <!--Debe ir la imagen del proyecto-->
+                            <img src="{% static "/Images/galaxyWallpaper.jpg" %}" style="width: 95%;height: 95%; border-radius: 5px;;">
+                        </div>
+                        <div class="col-6 card_content">
+                            <!--Nombre del proyecto cotizado-->
+                          <h1 class="card_title">hola</h1>
+                            <!--Dueño del proyecto-->
+                          <h3 class="card_text">Dueño: Adios</h3>
+                            <!--Empresa dueña del proyecto-->
+                          <h3 class="card_text">Empresa: Adios</h3>
+                            <!--Precio de la cotización-->
+                          <h3 class="card_text">Precio: 1.000.000</h3>
+                        </div>
+                    </div>
                 </div>
-                <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
-                <hr>
-                <div class="container-fluid" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px; padding-right: 40px;">
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa: <!--Nombre del usuario--> chocolate y café</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa: <!--Nombre del usuario--> 195285645</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo de la empresa: <!--Nombre del usuario--> chocolateycafe@cyc.com</p>
-                  <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono de la empresa: <!--Nombre del usuario--> 1578146</p>
-                </div>
+            </div>
       </div>
 </body>
 </html>
