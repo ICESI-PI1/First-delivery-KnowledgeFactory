@@ -48,14 +48,13 @@
             </div>
             <a href="#" class="menu-item">Menu</a>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'OutstandingProjects' %}" class="menu-item">Destacados</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
       </header>
       <div class="PrimaryBox">
         <h1 class="Title">Proyectos</h1>
-        <div class="gridProducts">
-        {% for project in projects %}
+          <div class="gridProducts">
+          {% for project in projects %}
             <div class="card" id={{project.id}}>
               <a href="{% url 'productInformation' project.id %}" style="z-index:5;position: absolute;width: 93%;height:93%;"></a>
                 <div class="card_image" style="height: 260px;">
@@ -69,7 +68,6 @@
                   <h1 class="card_title">{{project.name}}</h1>
                   <h3 class="card_text">{{project.ownerCompany.name}}</h3>
               </div>
-
             </div>
         {% endfor %}
         </div>

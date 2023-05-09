@@ -8,8 +8,11 @@ urlpatterns = [
     path('Perfil/',views.profile, name="profile"),
     path('EditarPerfil/',views.editProfile,name="editProfile"),
     path('Proyecto/<int:id>/',views.infoProject,name="productInformation"),
+    path('Cotización de proyecto/',views.requestAppointment, name="requestAppointment"),
+    path('Solicitar cita/',views.requestMeeting, name="requestMeeting"),
+    path('Cotizaciones/',views.profileMeeting,name="profileMeeting"),
+    path('Proyectos Favoritos/',views.profileFavorites, name="profileFavorites"),
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
-    path('ProyectosDestacados/',views.OutstandingProjectsView.as_view(), name="OutstandingProjects"),
     
     
     path('home/', views.home, name="home"), 
