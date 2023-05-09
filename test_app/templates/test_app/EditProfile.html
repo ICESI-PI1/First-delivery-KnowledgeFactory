@@ -46,7 +46,6 @@
             </button>
             <a href="#" class="menu-item">Menu</a>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'OutstandingProjects' %}" class="menu-item">Destacados</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
       </header>
@@ -133,9 +132,9 @@
                     </div>
 
 
-                  <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
-                  <hr>
                   {% if company %}
+                  <hr>
+                  <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
                   <div class="row" style="margin-bottom: 25px;">
                       <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
                           <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa:</p>
@@ -163,19 +162,12 @@
                     <label for="{{ formU.phoneNumberU.id_for_label }}">Teléfono:</label>
                     {{ formC.phoneNumberC }}
                   </div>
-                  
-                  {% else %}
-                  <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">El ususario no tiene una empresa asociada</h5>
                   {% endif %}
                   <button>
                     Guardar
                   </button>
-                  <!--<div style="padding-left: 100px;">
-                      <a href="{% url 'profile' %}" id="liveAlertBtn" class="btn btn-primary btn-lg" style="font-size: 20px; background-color: #F9B100; border: 0px; border-radius: 3px;">Guardar</a>
-                  </div>-->
                   <div id="liveAlertPlaceholder" style="margin-top: 10px;"></div>
               </div>
-          
       </form>
     </div>
       <script src='{% static "JS/EditProfile.js" %}'></script>

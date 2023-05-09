@@ -70,7 +70,10 @@ class HomePageView(TemplateView):
 @login_required
 def profile(req):
     user=get_object_or_404(User,pk=req.user.cc)
-    company=get_object_or_404(Company,user=user.cc)
+    if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company 
+        company=get_object_or_404(Company,user=req.user.cc)
+    else:
+        company=None
     return render(req, 'test_app/Profile.html', {'user':user,'company':company})
 
 @login_required
@@ -82,18 +85,23 @@ class ProfileView(TemplateView):
 def editProfile(req):
     if req.method=='GET':
         user=get_object_or_404(User,pk=req.user.cc)
-        company=get_object_or_404(Company,user=user.cc)
+        if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company y del form correspondiente
+            company=get_object_or_404(Company,user=req.user.cc)
+            formC=editCompanyForm(instance=company)
+        else:
+            company=None
+            formC=None
         formU=editProfileForm(instance=user)
-        formC=editCompanyForm(instance=company)
         return render(req, 'test_app/EditProfile.html', {'user':user,'company':company, 'formU':formU, 'formC':formC})
     else:
         print(req.POST)
         user=get_object_or_404(User,pk=req.user.cc)
         formsU=editProfileForm(req.POST, instance=user)
         formsU.save()
-        company=get_object_or_404(Company,user=user.cc) 
-        forms = editCompanyForm(req.POST, instance=company)
-        forms.save()
+        if Company.objects.filter(user=user.cc).count(): #Si el usuario esta asociado a una empresa se guarda el form de esa empresa
+            company=get_object_or_404(Company,user=user.cc) 
+            forms = editCompanyForm(req.POST, instance=company)
+            forms.save()
         return redirect('profile')
 
 
