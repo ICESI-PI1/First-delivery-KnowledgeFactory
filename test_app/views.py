@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
-from .forms import loginForm
+from .forms import loginForm, registerForm
+from .models import *
 
 # Create your views here.
 
@@ -41,6 +42,38 @@ def register(req):
 
 class RegisterView(TemplateView):
     template_name="test_app/Register.html" 
+    form_class = registerForm
+
+    def get(self, req):
+        form=self.form_class(req.POST)
+        message=''
+        return render(req, self.template_name, context={'form': form, 'message': message})
+
+    def post(self, req): 
+        print(req.POST)
+        form=self.form_class(req.POST)
+        
+        companyUser =  User.objects.create_user(email=req.POST['userEmail'],
+                                         password=req.POST['userPassword'], 
+                                         fullname=req.POST['userName'], 
+                                         cc=req.POST['userCC'], 
+                                         birthday=req.POST['userBirthday'], 
+                                         phoneNumber=req.POST['userPhone']
+                                         )
+        print("user: ", companyUser.__str__())
+
+        company = Company.objects.create_company(nit=req.POST['companyNit'], 
+                                                 name = req.POST['companyName'], 
+                                                 phoneNumber = req.POST['companyPhone'], 
+                                                 address=req.POST['companyAddress'],
+                                                 user = companyUser
+                                                 )
+        print("compania", company.__str__())
+        companyUser.save()
+        company.save()
+        login(req, companyUser)
+        message=''
+        return redirect('homePage')
 
 
 def homePage(req):
