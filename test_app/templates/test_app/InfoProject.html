@@ -57,11 +57,11 @@
         <img src="{{project.photo.url}}" alt="Foto referencia" style="width: 100%;height: 100%; border-radius: 15px;">
         <div class="row" style="margin-top: 25px">
           <div class="row">
-            <h2 style="font-weight: bold;">Descripción</h2>
+            <h2 style="font-weight: bold;">Resultados</h2>
           </div>
           <div class="row">
             <!--{{project.description}}-->
-            <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+            <p class="textInfoProject">{{project.results|linebreaks}}</p>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
                   </div>
                   <div class="col-8" style="text-align: end;">
                       <!--Debe ir el dueño del proyecto-->
-                      <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
+                      <h4 class="textOwners">{{project.ownerCompany.user.fullname}}</h4>
                   </div>
               </div>
               <div class="row">
@@ -98,11 +98,11 @@
           </div>
           <div class="DescriptionInfoProduct">
               <div class="row">
-                  <h2 style="font-weight: bold;">Características del proyecto</h2>
+                  <h2 style="font-weight: bold;">Objetivo del proyecto</h2>
               </div>
               <div class="row">
                   <!--{{project.description}}-->
-                  <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+                  <p class="textInfoProject">{{project.objective|linebreaks}}</p>
               </div>
           </div>
       </div>

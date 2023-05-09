@@ -7,7 +7,7 @@ from django.views.generic.base import View, TemplateView
 from test_app.models import Project
 from test_app.models import Company
 from test_app.models import User
-from .forms import loginForm
+from .forms import loginForm, editCompanyForm, editProfileForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -76,9 +76,24 @@ class ProfileView(TemplateView):
 
 @login_required
 def editProfile(req):
-    return render(req, 'test_app/EditProfile.html')
+    if req.method=='GET':
+        user=get_object_or_404(User,pk=req.user.cc)
+        company=get_object_or_404(Company,user=user.cc)
+        formU=editProfileForm(instance=user)
+        formC=editCompanyForm(instance=company)
+        return render(req, 'test_app/EditProfile.html', {'user':user,'company':company, 'formU':formU, 'formC':formC})
+    else:
+        print(req.POST)
+        user=get_object_or_404(User,pk=req.user.cc)
+        formsU=editProfileForm(req.POST, instance=user)
+        formsU.save()
+        company=get_object_or_404(Company,user=user.cc) 
+        forms = editCompanyForm(req.POST, instance=company)
+        forms.save()
+        return redirect('profile')
 
 
+@login_required
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"
 
@@ -130,7 +145,7 @@ def signup(req):
 def tasks(req): 
     return render(req, 'test_app/tasks.html')
 
-def signout(req): 
+def signout(req):
     logout(req)
     return redirect('home')
 
