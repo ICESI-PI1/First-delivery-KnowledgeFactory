@@ -4,9 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
-from test_app.models import Project
-from test_app.models import Company
-from test_app.models import User
+from test_app.models import Project, Company, User, Meeting
 from .forms import loginForm, editCompanyForm, editProfileForm
 from django.contrib.auth.decorators import login_required
 
@@ -130,7 +128,8 @@ class RequestAppointmentView(TemplateView):
 #Request meeting view
 
 def requestMeeting(req):
-    return render(req, 'test_app/RequestMeeting.html')
+    meetings=Meeting.objects.all()
+    return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings})
 
 class RequestMeetingView(TemplateView):
     template_name="test_app/RequestMeeting.html"

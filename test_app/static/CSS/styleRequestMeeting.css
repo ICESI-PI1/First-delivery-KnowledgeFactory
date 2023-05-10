@@ -41,3 +41,53 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+.Title{
+    padding-left: 30px;
+    padding-top: 20px;
+    color: #9f9999;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+}    
+
+.gridProducts{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+    .gridProducts .card{
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 12px;
+        text-align: center;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+        .gridProducts .card .card_image{
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 5px;
+        }
+            .gridProducts .card .card_content{
+                padding: 5px;
+                text-align: left;
+                height: auto;
+            }
+                .gridProducts .card .card_content .card_title{
+                    font-size: 23px;
+                    font-weight: bold;
+                    color: #093D5E;
+                    font-family: "Roboto Flex", "Arial", sans-serif;
+                }
+                    .gridProducts .card .card_content .card_text{
+                        font-size: 18px;
+                        color: #6e6969;
+                        font-family: "Roboto Flex", "Arial", sans-serif;
+                    }   

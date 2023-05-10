@@ -108,6 +108,7 @@ class Meeting(models.Model):
     state = models.CharField(max_length=50)
     summary = models.TextField()
     date = models.DateField()
+    hour = models.TimeField(auto_now=False, auto_now_add=False)
     binnacle = models.ForeignKey(Binnacle, on_delete=models.CASCADE)
     def __str__(self):
         return self.state
