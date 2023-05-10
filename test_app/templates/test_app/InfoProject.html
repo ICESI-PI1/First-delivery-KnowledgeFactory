@@ -1,111 +1,142 @@
 {% extends 'test_app/base.html' %}
 
 {% load static %}
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Adición de manera tradicional del css-->
-    <link rel="stylesheet" href='{% static "CSS/styleInfoProject.css" %}'>
-    <title>Información del producto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href='{% static "CSS/styleInfoProject.css" %}'>
     <script src="https://kit.fontawesome.com/d86547990e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="container-fluid text-center" style="padding: 10px;  background-color: #0A4D77;">
-    <div class="row align-items-center" style="padding-left: 10px; padding-right: 10px;">
-      <div class="col-2 image_locate">
-        <img src='{% static "/Images/Logo_DreamsBank.png" %}' alt="Logo de DreamsBank" style="width: 100px;">
-      </div>
-      <div class="col-8 items_search_locate" style="display: flex; justify-content: center;">
-        <form class="form-inline">
-          <div class="input-group" style="flex-shrink: 0;">
-            <input id="input_search" type="text" class="form-control" placeholder="Buscar en KnowledgeFactoty" style="width: 700px;">
-            <div class="input-group-append">
-              <button class="btn btn-secondary" type="button" style="background-color: #F9B100; border: 0; border-radius: 0px ; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 100%; height: 100%;">
-                <i class="bi bi-search" style="font-size: 1.5em;"></i>
+    <header class="container-fluid text-center" style="padding: 10px;  background-color: #0A4D77;">
+        <div class="row align-items-center" style="padding-left: 10px; padding-right: 10px;">
+          <div class="col-2 image_locate">
+            <img src='{% static "/Images/Logo_DreamsBank.png" %}' alt="Logo de DreamsBank" style="width: 100px;">
+          </div>
+          <div class="col-8 items_search_locate" style="display: flex; justify-content: center;">
+            <form class="form-inline">
+              <div class="input-group" style="flex-shrink: 0;">
+                <input id="input_search" type="text" class="form-control" placeholder="Buscar en KnowledgeFactoty" style="width: 700px;">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" style="background-color: #F9B100; border: 0; border-radius: 0px ; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 100%; height: 100%;">
+                    <i class="bi bi-search" style="font-size: 1.5em;"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-2" style="display: flex; justify-content: end;">
+            <button class="btn btn-link">
+              <i class="bi bi-cart-fill" style="color: #fff; font-size: 1.8em;"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+      <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
+        <div class="menu-bar">
+            <div class="icon_menu_bar">
+              <button class="btn btn-link" style="padding: 0;">
+                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
               </button>
             </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-2" style="display: flex; justify-content: end;">
-        <button class="btn btn-link">
-          <i class="bi bi-cart-fill" style="color: #fff; font-size: 1.8em;"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-  <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
-    <div class="menu-bar">
-        <div class="icon_menu_bar">
-          <button class="btn btn-link" style="padding: 0;">
-            <i id="icon_menu" class="bi bi-list" style="color: #fff; font-size: 1.8em;"></i>
-          </button>
-        </div>
-        <a href="#" class="menu-item">Menu</a>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
-  </header>
-    <div id="ActionInfoProduct" class="row" style="height: auto;padding-left: 20px;padding-right: 20px">
-      <div class="col-7" style="justify-content: center;margin: 50px; height: 100%">
-        <img src="{{project.photo.url}}" alt="Foto referencia" style="width: 100%;height: 100%; border-radius: 15px;">
-        <div class="row" style="margin-top: 25px">
-          <div class="row">
-            <h2 style="font-weight: bold;">Descripción</h2>
           </div>
-          <div class="row">
-            <!--{{project.description}}-->
-            <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+      </header>
+      <div class="cont_menu active" id="menu">
+        <div class="row" style="background-color: #093D5E;width: 412px;">
+            <div class="col-3 profile_col">
+                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
+            </div>
+            <div class="col-9 profile_name_col">
+                <!--Debe aparecer el nombre-->
+                <h3 class="profile_name">Nombre</h3>
+            </div>
+        </div>
+        <ul>
+            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
+            <a>Automóviles</a>
+            <a>Hogar</a>
+            <a>Dispositivos electrónicos</a>
+            <a>Cuidado personal</a>
+            <a>Ciencia</a>
+            <a>Entretenimiento y multimedia</a>
+            <a>Mostrar más</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Cuenta</h4>
+            <a href="{% url 'profile' %}">Perfil</a>
+            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
+            <a href="{% url "profileFavorites" %}">Favoritos</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Ayuda y configuración</h4>
+            <a>Servicio al cliente</a>
+            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
+        </ul>
+      </div>
+      <div class="PrimaryBox">
+        <div id="ActionInfoProduct" class="row" style="height: auto;padding-left: 20px;padding-right: 20px">
+          <div class="col-7" style="justify-content: center;margin: 50px; height: 100%">
+            <img src="{{project.photo.url}}" alt="Foto referencia" style="width: 100%;height: 100%; border-radius: 15px;">
+            <div class="row" style="margin-top: 25px">
+              <div class="row">
+                <h2 style="font-weight: bold;">Descripción</h2>
+              </div>
+              <div class="row">
+                <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+              </div>
+            </div>
           </div>
+          <div class="col-4">
+            <div class="ActBox">
+                  <div class="row">
+                      <h1 style="font-weight: bold;color: #093D5E;">{{project.name}}</h1>
+                  </div>
+                  <div class="row">
+                      <div class="col-4">
+                          <h4 style="color: grey">Dueño</h4>
+                      </div>
+                      <div class="col-8" style="text-align: end;">
+                          <!--Debe ir el dueño del proyecto-->
+                          <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                        <h4 style="color: grey">Empresa</h4>
+                    </div>
+                    <div class="col-8" style="text-align: end;">
+                        <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
+                    </div>
+                </div>
+                  <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
+                      <a href="#" target="_self" class="btn btn-primary" type="button" style="background-color:#F9B100;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Añadir a favoritos</a>
+                  </div>
+                  <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
+                    <a href="{% url 'requestMeeting' %}" target="_self" class="btn btn-primary" type="button" style="background-color: #FFCD00;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Cotizar proyecto</a>
+                  </div>
+              </div>
+              <div class="DescriptionInfoProduct">
+                  <div class="row">
+                      <h2 style="font-weight: bold;">Características del proyecto</h2>
+                  </div>
+                  <div class="row">
+                      <!--{{project.description}}-->
+                      <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+                  </div>
+              </div>
+            </div>
         </div>
       </div>
-      <div class="col-4">
-          <div class="ActionBox">
-              <div class="row">
-                  <!--Debe ir el nombre del proyecto-->
-                  <h1 style="font-weight: bold;color: #093D5E;">{{project.name}}</h1>
-              </div>
-              <div class="row">
-                  <div class="col-4">
-                      <h4 style="color: grey">Dueño</h4>
-                  </div>
-                  <div class="col-8" style="text-align: end;">
-                      <!--Debe ir el dueño del proyecto-->
-                      <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                    <h4 style="color: grey">Empresa</h4>
-                </div>
-                <div class="col-8" style="text-align: end;">
-                    <!--Debe ir el nombre de la empresa-->
-                    <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
-                </div>
-            </div>
-              <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
-                  <a href="#" target="_self" class="btn btn-primary" type="button" style="background-color:#F9B100;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Añadir a favoritos</a>
-              </div>
-              <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
-                <a href="{% url 'requestMeeting' %}" target="_self" class="btn btn-primary" type="button" style="background-color: #FFCD00;border-radius: 20px;border: 0px;color: black;font-weight: bold;font-size: 20px;" >Cotizar proyecto</a>
-              </div>
-          </div>
-          <div class="DescriptionInfoProduct">
-              <div class="row">
-                  <h2 style="font-weight: bold;">Características del proyecto</h2>
-              </div>
-              <div class="row">
-                  <!--{{project.description}}-->
-                  <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
-              </div>
-          </div>
-      </div>
-  </div>
-</body>
+    <script src='{% static "JS/SideMenu.js" %}'></script>
+  </body>
 </html>
 {% endblock %}
+

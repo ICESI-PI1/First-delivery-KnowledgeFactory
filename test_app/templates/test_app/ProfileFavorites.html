@@ -41,14 +41,47 @@
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <button class="btn btn-link" style="padding: 0;">
-              <i class="bi bi-list" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
-            <a href="#" class="menu-item">Menu</a>
+            <div class="icon_menu_bar">
+              <button class="btn btn-link" style="padding: 0;">
+                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
+              </button>
+            </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+          </div>
       </header>
+      <div class="cont_menu active" id="menu">
+        <div class="row" style="background-color: #093D5E;width: 412px;">
+            <div class="col-3 profile_col">
+                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
+            </div>
+            <div class="col-9 profile_name_col">
+                <!--Debe aparecer el nombre-->
+                <h3 class="profile_name">Nombre</h3>
+            </div>
+        </div>
+        <ul>
+            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
+            <a>Automóviles</a>
+            <a>Hogar</a>
+            <a>Dispositivos electrónicos</a>
+            <a>Cuidado personal</a>
+            <a>Ciencia</a>
+            <a>Entretenimiento y multimedia</a>
+            <a>Mostrar más</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Cuenta</h4>
+            <a href="{% url 'profile' %}">Perfil</a>
+            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
+            <a href="{% url "profileFavorites" %}">Favoritos</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Ayuda y configuración</h4>
+            <a>Servicio al cliente</a>
+            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
+        </ul>
+    </div>
+    <div class="PrimaryBox">
       <div class="container-fluid" style="padding: 10px; padding-top: 20px; padding-bottom: 20px">
         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 25px;">
           <div class="col-3" style="margin: 0px; justify-content: space-between;">
@@ -70,7 +103,7 @@
             </div>
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
               <div class="col-3"  style="display: flex ;align-items: center; justify-content:center ;">
-                <a href="#" target="_self" class="bi bi-person-fill" style="color: #F9B100; font-size: 3.0em;"></a>
+                <a href="{% url "profile" %}" target="_self" class="bi bi-person-fill" style="color: #F9B100; font-size: 3.0em;"></a>
               </div>
               <div class="col" style="align-items: center; display: flex;">
                 <a href="{% url "profile" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Perfil</a>
@@ -78,7 +111,7 @@
             </div>
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
               <div class="col-3"  style="display: flex ;align-items: center; justify-content:center ;">
-                <a href="#" target="_self" class="bi bi-clipboard2-check-fill" style="color: #F9B100; font-size: 2.7em;"></a>
+                <a href="{% url "profileMeeting" %}" target="_self" class="bi bi-clipboard2-check-fill" style="color: #F9B100; font-size: 2.7em;"></a>
               </div>
               <div class="col" style="align-items: center; display: flex;">
                 <a href="{% url "profileMeeting" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Mis cotizaciones</a>
@@ -93,7 +126,7 @@
               </div>
             </div>
           </div>
-        <div class="col-9">
+          <div class="col-9">
             <div class="gridProducts">
             {% for project in projects %}
                 <div class="card" id={{project.id}}>
@@ -122,6 +155,9 @@
             {% endfor %}
             </div>
       </div>
+    </div>  
+    <script src='{% static "JS/SideMenu.js" %}'></script>
 </body>
 </html>
 {% endblock %}
+

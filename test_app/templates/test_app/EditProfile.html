@@ -41,15 +41,47 @@
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <button class="btn btn-link" style="padding: 0;">
-              <i class="bi bi-list" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
-            <a href="#" class="menu-item">Menu</a>
+            <div class="icon_menu_bar">
+              <button class="btn btn-link" style="padding: 0;">
+                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
+              </button>
+            </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'OutstandingProjects' %}" class="menu-item">Destacados</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+          </div>
       </header>
+      <div class="cont_menu active" id="menu">
+        <div class="row" style="background-color: #093D5E;width: 412px;">
+            <div class="col-3 profile_col">
+                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
+            </div>
+            <div class="col-9 profile_name_col">
+                <!--Debe aparecer el nombre-->
+                <h3 class="profile_name">Nombre</h3>
+            </div>
+        </div>
+        <ul>
+            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
+            <a>Automóviles</a>
+            <a>Hogar</a>
+            <a>Dispositivos electrónicos</a>
+            <a>Cuidado personal</a>
+            <a>Ciencia</a>
+            <a>Entretenimiento y multimedia</a>
+            <a>Mostrar más</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Cuenta</h4>
+            <a href="{% url 'profile' %}">Perfil</a>
+            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
+            <a href="{% url "profileFavorites" %}">Favoritos</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Ayuda y configuración</h4>
+            <a>Servicio al cliente</a>
+            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
+        </ul>
+    </div>
+    <div class="Primarybox">
       <div class="container-fluid" style="padding: 10px; padding-top: 20px; padding-bottom: 20px">
         <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 25px;">
           <div class="col-3" style="margin: 0px;">
@@ -79,14 +111,6 @@
             </div>
             <div class="row" style="margin: 0px; margin-bottom: 10px;">
               <div class="col-3"  style="display: flex ;align-items: center; justify-content:center ;">
-                <a href="#" target="_self" class="bi bi-file-earmark-text-fill" style="color: #F9B100; font-size: 2.7em;"></a>
-              </div>
-              <div class="col" style="align-items: center; display: flex;">
-                <a href="#" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Mis proyectos</a>
-              </div>
-            </div>
-            <div class="row" style="margin: 0px; margin-bottom: 10px;">
-              <div class="col-3"  style="display: flex ;align-items: center; justify-content:center ;">
                 <a href="#" target="_self" class="bi bi-clipboard2-check-fill" style="color: #F9B100; font-size: 2.7em;"></a>
               </div>
               <div class="col" style="align-items: center; display: flex;">
@@ -101,8 +125,8 @@
                 <a href="#" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Favoritos</a>
               </div>
             </div>
-            <div class="row" style="text-align: end; align-items: end; display: flex;">
-                <a href="{% url 'login' %}" id="btn_logout" class="btn btn-link" style="font-size: 20px;">Cerrar sesión</a>
+            <div class="col h-50" id="btn_logout">
+              <a href="{% url 'login' %}" id="btn_lgout" class="btn btn-link">Cerrar sesión</a>
             </div>
           </div>
           <div class="col-9">
@@ -181,12 +205,14 @@
                     </div>
                 </div>
                 <div style="padding-left: 100px;">
-                    <a href="{% url 'profile' %}" id="liveAlertBtn" class="btn btn-primary btn-lg" style="font-size: 20px; background-color: #F9B100; border: 0px; border-radius: 3px;">Guardar</a>
+                    <a href="{% url 'profile' %}" id="liveAlertBtn" class="btn btn-primary btn-lg">Guardar</a>
                 </div>
-                <div id="liveAlertPlaceholder" style="margin-top: 10px;"></div>
-            </div>
+              <div id="liveAlertPlaceholder" style="margin-top: 10px;"></div>
+          </div>
       </div>
-      <script src='{% static "JS/EditProfile.js" %}'></script>
+    </div>
+  <script src='{% static "JS/SideMenu.js" %}'></script>
 </body>
 </html>
 {% endblock %}
+
