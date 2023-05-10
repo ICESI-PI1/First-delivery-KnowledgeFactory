@@ -78,7 +78,7 @@
                                 <label for="InputDate" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Fecha de la reunión</label>
                             </div>
                             <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <input type="date" value="{% now "Y-m-d H:i" %}" class="form-control" id="InputDate" style="width: 270px;" min="{% now "Y-m-d H:i" %}">
+                                <input type="date" class="form-control" id="InputDate" style="width: 270px;">
                             </div>
                         </div>
                         <div class="row" style="margin-top: 15px">
@@ -98,6 +98,12 @@
                           <div class="row" style="margin-top: 15px">
                             <div class="row" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
                                 <label for="InputPrice" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Administradores disponibles</label>
+                            </div>
+                            <div>
+                              <label for="admin">Administrador:</label>
+                              <select name="admin" id="admin" required>
+                                <option value="">Seleccione un administrador...</option>
+                              </select>
                             </div>
                             <div class="row">
                               <div class="gridProducts">
