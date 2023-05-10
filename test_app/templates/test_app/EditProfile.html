@@ -116,27 +116,44 @@
                     <!--{{formU.as_p}}-->
                     {{ formU.non_field_errors }}
                     <div class="fieldWrapper">
+                      <div class="row" style="margin-bottom: 25px;">
                         {{ formU.fullname.errors }}
-                        <label for="{{ formU.fullname.id_for_label }}">Nombre:</label>
-                        {{ formU.fullname }}
+                        <div class="col-3" style="padding: left; display: flex;">
+                          <p for="{{ formU.fullname.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.fullname }}
+                        </div>
+                      </div>
                     </div>
                     <div class="fieldWrapper">
-                      {{ formU.email.errors }}
-                      <label for="{{ formU.email.id_for_label }}">Correo:</label>
-                      {{ formU.email }}
+                      <div class="row" style="margin-bottom: 25px;">
+                        {{ formU.email.errors }}
+                        <div class="col-3" style="align-items: center; display: flex;">
+                          <p for="{{ formU.email.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.email }}
+                        </div>
+                      </div>
                     </div>
                     <div class="fieldWrapper">
-                      {{ formU.phoneNumberU.errors }}
-                      <label for="{{ formU.phoneNumberU.id_for_label }}">Teléfono:</label>
-                      {{ formU.phoneNumberU }}
+                      <div class="row" style="margin-bottom: 25px;">
+                        {{ formU.phoneNumberU.errors }}
+                        <div class="col-3" style="align-items: center; display: flex;">
+                          <p for="{{ formU.phoneNumberU.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.phoneNumberU }}
+                        </div>
+                      </div>
                     </div>
-
 
                   {% if company %}
                   <hr>
                   <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
                   <div class="row" style="margin-bottom: 25px;">
-                      <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
+                      <div class="col-3" style="align-items: center; display: flex;">
                           <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa:</p>
                       </div>
                       <div class="col-7">
@@ -144,7 +161,7 @@
                       </div>
                   </div>
                   <div class="row" style="margin-bottom: 25px;">
-                      <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
+                      <div class="col-3" style="align-items: center; display: flex;">
                           <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa:</p>
                       </div>
                       <div class="col-7">
@@ -153,14 +170,26 @@
                   </div>
                   <!--{{formC.as_p}}-->
                   <div class="fieldWrapper">
-                    {{ formC.address.errors }}
-                    <label for="{{ formC.address.id_for_label }}">Dirección de la empresa:</label>
-                    {{ formC.address }}
+                    <div class="row" style="margin-bottom: 25px;">
+                      {{ formC.address.errors }}
+                      <div class="col-3" style="align-items: center; display: flex;">
+                        <p for="{{ formU.address.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Dirección de la empresa:</p>
+                      </div>
+                      <div class="col-7">
+                        {{ formC.address }}
+                      </div>
+                    </div>
                   </div>
                   <div class="fieldWrapper">
-                    {{ formC.phoneNumberC.errors }}
-                    <label for="{{ formU.phoneNumberU.id_for_label }}">Teléfono:</label>
-                    {{ formC.phoneNumberC }}
+                    <div class="row" style="margin-bottom: 25px;">
+                      {{ formC.phoneNumberC.errors }}
+                      <div class="col-3" style="align-items: center; display: flex; ">
+                        <p for="{{ formC.phoneNumberC.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono:</p>
+                      </div>
+                      <div class="col-7">
+                        {{ formC.phoneNumberC }}
+                      </div>
+                    </div>
                   </div>
                   {% endif %}
                   <button>
