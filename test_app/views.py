@@ -105,6 +105,14 @@ class ProfileFavoritesView(TemplateView):
     template_name="test_app/ProfileFavorites.html"
 
 
+#Meeting Binnacle profile view
+
+def meetingBinnacle(req):
+    return render(req, 'test_app/MeetingBinnacleProfile.html')
+
+class MeetingBinnacleView(TemplateView):
+    template_name="test_app/MeetingBinnacleProfile.html"
+
 
 
 #Vistas por defecto de Django

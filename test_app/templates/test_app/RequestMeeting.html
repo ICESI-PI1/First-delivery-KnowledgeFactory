@@ -41,23 +41,54 @@
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <button class="btn btn-link" style="padding: 0;">
-              <i class="bi bi-list" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
-            <a href="#" class="menu-item">Menu</a>
+            <div class="icon_menu_bar">
+              <button class="btn btn-link" style="padding: 0;">
+                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
+              </button>
+            </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'OutstandingProjects' %}" class="menu-item">Destacados</a>
             <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
       </header>
-    <div class="container-fluid" style="padding: 30px;">
+      <div class="cont_menu active" id="menu">
+        <div class="row" style="background-color: #093D5E;width: 412px;">
+            <div class="col-3 profile_col">
+                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
+            </div>
+            <div class="col-9 profile_name_col">
+                <!--Debe aparecer el nombre-->
+                <h3 class="profile_name">Nombre</h3>
+            </div>
+        </div>
+        <ul>
+            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
+            <a>Automóviles</a>
+            <a>Hogar</a>
+            <a>Dispositivos electrónicos</a>
+            <a>Cuidado personal</a>
+            <a>Ciencia</a>
+            <a>Entretenimiento y multimedia</a>
+            <a>Mostrar más</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Cuenta</h4>
+            <a href="{% url 'profile' %}">Perfil</a>
+            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
+            <a href="{% url "profileFavorites" %}">Favoritos</a>
+            <hr style="margin: 0px;">
+            <h4 class="title_side_menu">Ayuda y configuración</h4>
+            <a>Servicio al cliente</a>
+            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
+        </ul>
+    </div>
+    <div class="PrimaryBox">
+      <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">
             <div class="card-body">
                 <h2 class="card-title" style="font-size: 40px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif';">Solicitar cita</h2>
                 <hr>
                 <div class="row">
                     <!--Se debe poner el número de la cita y el proyecto de la cita-->
-                    <h4 style="font-weight: bold; color: #0A4D77">Cita 1 con Pan dulce</h4>
+                    <h4 style="font-weight: bold; color: #0A4D77">Cita 1 con pan dulce</h4>
                 </div>
                 <div class="row">
                   <!--Aquí el estado depende de como vaya la cita. Puede ser *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77. Cada una tiene un color.-->
@@ -89,11 +120,12 @@
                         <a type="button" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
                     </div>
                     <div class="col-2" style="text-align: center; width: auto;">
-                        <a type="button" class="btn btn-primary" style="background-color: #2FB670; border: 0; border-radius: 5px; height: 100%;">Enviar cita</a>
+                        <a type="button" class="btn btn-primary" style="background-color: #F9B100; border: 0; border-radius: 5px; height: 100%;">Enviar cita</a>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </div>
 </body>
 </html>

@@ -12,6 +12,7 @@ urlpatterns = [
     path('Solicitar cita/',views.requestMeeting, name="requestMeeting"),
     path('Cotizaciones/',views.profileMeeting,name="profileMeeting"),
     path('Proyectos Favoritos/',views.profileFavorites, name="profileFavorites"),
+    path('Bitácora de /',views.meetingBinnacle, name="meetingBinnacle"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
