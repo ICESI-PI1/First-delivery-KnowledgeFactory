@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     fullname = models.CharField(max_length=50)
     phoneNumberU = models.CharField(max_length=15)
     email = models.EmailField(max_length=100, verbose_name="email", unique=True)
-    password = models.CharField(max_length=16)
+    password = models.CharField(max_length=100)
     birthday = models.DateField()
     photo= models.ImageField(null=True, blank=True, upload_to="images/")
     

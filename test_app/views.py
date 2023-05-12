@@ -1,12 +1,35 @@
-from django.shortcuts import render, HttpResponse, redirect,get_object_or_404
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting
-from .forms import loginForm, editCompanyForm, editProfileForm
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+from django.db.models import Q
+
+
+
+@require_GET
+def get_available_admins(request):
+    date = request.GET.get('date')
+    time = request.GET.get('time')
+    meetings = Meeting.objects.filter(date=date ,hour=time)
+    busy_admin = [meeting.binnacle.admin.cc for meeting in meetings]
+    available_admins = User.objects.filter(
+        Q(is_staff=True) & ~Q(cc__in=busy_admin)
+    )
+    data = {
+        'available_admins': [
+            {'id': admin.cc, 'name': admin.fullname}
+            for admin in available_admins
+        ]
+    }
+    print(data)
+    return JsonResponse(data)
 
 # Create your views here.
 
@@ -128,8 +151,12 @@ class RequestAppointmentView(TemplateView):
 #Request meeting view
 
 def requestMeeting(req):
-    meetings=Meeting.objects.all()
-    return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings})
+    if req.method=='GET':
+        meetings=Meeting.objects.all()
+        formM=crateMeetingBinacle()
+        return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings, 'formM':formM})
+    else:
+        print("a")
 
 class RequestMeetingView(TemplateView):
     template_name="test_app/RequestMeeting.html"
@@ -197,7 +224,7 @@ def signin(req):
         user=authenticate(req, username=req.POST['username'], password=req.POST['password'])
         if user is None: 
             return render(req, 'test_app/signin.html', {'form': AuthenticationForm, 'error': 'User Does Not Exists'})
-        else: 
+        else:
             login(req, user)
             print("ingreso exitoso")
             return redirect('tasks')

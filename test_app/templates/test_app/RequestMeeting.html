@@ -58,15 +58,7 @@
                     <!--Se debe poner el número de la cita y el proyecto de la cita-->
                     <h4 style="font-weight: bold; color: #0A4D77">Abrir una bitacora de compra</h4>
                 </div>
-                <div class="row">
-                  <!--Aquí el estado depende de como vaya la cita. Puede ser *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77. Cada una tiene un color.-->
-                  <div class="col-1" style="width: auto">
-                    <h4 style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif';">Estado: </h4>
-                  </div>
-                  <div class="col-2" style="width: auto">
-                    <h4 style="color: #E82215;font-family: 'Roboto Flex', 'Arial', 'sans-serif'";>Solicitada</h4>
-                  </div>
-                </div>
+                <form>
                 <div class="row">
                     <div class="col" style="justify-content: left;text-align: left;align-items: center;">
                         <div class="row" style="text-align: left;">
@@ -78,7 +70,7 @@
                                 <label for="InputDate" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Fecha de la reunión</label>
                             </div>
                             <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <input type="date" class="form-control" id="InputDate" style="width: 270px;">
+                                <input type="date" required class="form-control" id="InputDate" style="width: 270px;">
                             </div>
                         </div>
                         <div class="row" style="margin-top: 15px">
@@ -96,34 +88,13 @@
                               </datalist>
                           </div>
                           <div class="row" style="margin-top: 15px">
-                            <div class="row" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
+                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
                                 <label for="InputPrice" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Administradores disponibles</label>
                             </div>
-                            <div>
-                              <label for="admin">Administrador:</label>
-                              <select name="admin" id="admin" required>
-                                <option value="">Seleccione un administrador...</option>
+                            <div class="col" style="justify-content: left;text-align: left;align-items: center;">
+                              <select name="admin" id="admin" required style="width: 300px;" class="form-control">
+                                <option value=-1>Seleccione un administrador...</option>
                               </select>
-                            </div>
-                            <div class="row">
-                              <div class="gridProducts">
-                                {% for project in projects %}
-                                  <div class="card" id={{project.id}}>
-                                    <a href="{% url 'productInformation' project.id %}" style="z-index:5;position: absolute;width: 93%;height:93%;"></a>
-                                      <div class="card_image" style="height: 260px;">
-                                          {% if project.photo %}
-                                          <img src="{{project.photo.url}}" alt={{project.id}} style="width: 100%; height: 100%;border-radius: 5px">
-                                          {% else %}
-                                          <h3 class="no foto">No hay foto</h3>
-                                          {% endif %}
-                                      </div>
-                                      <div class="card_content">
-                                        <h1 class="card_title">{{project.name}}</h1>
-                                        <h3 class="card_text">{{project.ownerCompany.name}}</h3>
-                                    </div>
-                                  </div>
-                                {% endfor %}
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -131,17 +102,18 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px; margin-bottom: 10px;display:flex;justify-content: end;">
+                    <!--<div class="col-2" style="text-align: center; width: auto;">
+                        <a href="" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
+                    </div>-->
                     <div class="col-2" style="text-align: center; width: auto;">
-                        <a type="button" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
-                    </div>
-                    <div class="col-2" style="text-align: center; width: auto;">
-                        <a type="button" class="btn btn-primary" style="background-color: #2FB670; border: 0; border-radius: 5px; height: 100%;">Enviar cita</a>
+                      <button class="btn btn-primary" style="background-color: #2FB670; border: 0; border-radius: 5px; height: 100%;">Enviar cita</button>
                     </div>
                 </div>
             </div>
+          </form>
         </div>
     </div>
+  <script src='{% static "JS/RequestMeeting.js" %}'></script>
 </body>
-<script src='{% static "JS/RequestMeeting.js" %}'></script>
 </html>
 {% endblock %}

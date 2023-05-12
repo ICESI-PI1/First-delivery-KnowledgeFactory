@@ -13,7 +13,7 @@ urlpatterns = [
     path('Cotizaciones/',views.profileMeeting,name="profileMeeting"),
     path('Proyectos Favoritos/',views.profileFavorites, name="profileFavorites"),
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
-    
+    path('get_available_admins/', views.get_available_admins, name='get_available_admins'),
     
     path('home/', views.home, name="home"), 
     path('signup/', views.signup, name='signup'), 
