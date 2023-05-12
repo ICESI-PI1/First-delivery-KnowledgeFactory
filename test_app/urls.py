@@ -5,18 +5,18 @@ urlpatterns = [
     path('', views.LoginView.as_view(), name="signin"),
     path('Registro/', views.RegisterView.as_view(), name="register"),
     path('Inicio/',views.homePage, name="homePage"),
-    path('Perfil/',views.ProfileView.as_view(), name="profile"),
-    path('Editar Perfil/',views.editProfile,name="editProfile"),
-    path('Proyecto /<int:id>/',views.infoProject,name="productInformation"),
+    path('Perfil/',views.profile, name="profile"),
+    path('EditarPerfil/',views.editProfile,name="editProfile"),
+    path('Proyecto/<int:id>/',views.infoProject,name="productInformation"),
     path('Cotización de proyecto/',views.requestAppointment, name="requestAppointment"),
-    path('Solicitar cita/',views.requestMeeting, name="requestMeeting"),
+    path('Solicitar_cita/',views.requestMeeting, name="requestMeeting"),
     path('Cotizaciones/',views.profileMeeting,name="profileMeeting"),
     path('Proyectos Favoritos/',views.profileFavorites, name="profileFavorites"),
     path('Bitácora de /',views.meetingBinnacle, name="meetingBinnacle"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
-    
+    path('get_available_admins/', views.get_available_admins, name='get_available_admins'),
     
     path('home/', views.home, name="home"), 
     path('signup/', views.signup, name='signup'), 

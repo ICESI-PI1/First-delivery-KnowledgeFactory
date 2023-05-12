@@ -1,14 +1,53 @@
-from django.shortcuts import render, HttpResponse, redirect,get_object_or_404
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
-from test_app.models import Project
-from test_app.models import Company
-from .forms import loginForm
+from test_app.models import Project, Company, User, Meeting
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+from django.db.models import Q
+
+
+
+@require_GET
+def get_available_admins(request):
+    date = request.GET.get('date')
+    time = request.GET.get('time')
+    meetings = Meeting.objects.filter(date=date ,hour=time)
+    busy_admin = [meeting.binnacle.admin.cc for meeting in meetings]
+    available_admins = User.objects.filter(
+        Q(is_staff=True) & ~Q(cc__in=busy_admin)
+    )
+    data = {
+        'available_admins': [
+            {'id': admin.cc, 'name': admin.fullname}
+            for admin in available_admins
+        ]
+    }
+    print(data)
+    return JsonResponse(data)
 
 # Create your views here.
+
+def testLit(req):
+    projects=Project.objects.all()
+    if projects is None:
+        print("vacio")
+    else:
+        print("aqui hay algo")
+    return render(req, 'test_app/testLit.html', {'projects':projects})
+
+class testLitView(TemplateView):
+    template_name="test_app/testLit.html"
+    
+#Login view
+
+def login(req):
+    return render(req, 'test_app/login.html')
 
 
 class LoginView(View): 
@@ -37,6 +76,8 @@ class LoginView(View):
 
     
 
+#Register view
+>>>>>>>>> Temporary merge branch 2
 
 def register(req):
     return render(req, 'test_app/Register.html')
@@ -54,18 +95,45 @@ class HomePageView(TemplateView):
     template_name="test_app/MainPageEnterprise.html" 
 
 #Profile view
-
+@login_required
 def profile(req):
-    return render(req, 'test_app/Profile.html')
+    user=get_object_or_404(User,pk=req.user.cc)
+    if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company 
+        company=get_object_or_404(Company,user=req.user.cc)
+    else:
+        company=None
+    return render(req, 'test_app/Profile.html', {'user':user,'company':company})
 
+@login_required
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
 
 #Edit profile view
-
+@login_required
 def editProfile(req):
-    return render(req, 'test_app/EditProfile.html')
+    if req.method=='GET':
+        user=get_object_or_404(User,pk=req.user.cc)
+        if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company y del form correspondiente
+            company=get_object_or_404(Company,user=req.user.cc)
+            formC=editCompanyForm(instance=company)
+        else:
+            company=None
+            formC=None
+        formU=editProfileForm(instance=user)
+        return render(req, 'test_app/EditProfile.html', {'user':user,'company':company, 'formU':formU, 'formC':formC})
+    else:
+        print(req.POST)
+        user=get_object_or_404(User,pk=req.user.cc)
+        formsU=editProfileForm(req.POST, instance=user)
+        formsU.save()
+        if Company.objects.filter(user=user.cc).count(): #Si el usuario esta asociado a una empresa se guarda el form de esa empresa
+            company=get_object_or_404(Company,user=user.cc) 
+            forms = editCompanyForm(req.POST, instance=company)
+            forms.save()
+        return redirect('profile')
 
+
+@login_required
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"
 
@@ -90,7 +158,12 @@ class RequestAppointmentView(TemplateView):
 #Request meeting view
 
 def requestMeeting(req):
-    return render(req, 'test_app/RequestMeeting.html')
+    if req.method=='GET':
+        meetings=Meeting.objects.all()
+        formM=crateMeetingBinacle()
+        return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings, 'formM':formM})
+    else:
+        print("a")
 
 class RequestMeetingView(TemplateView):
     template_name="test_app/RequestMeeting.html"
@@ -158,7 +231,7 @@ def signup(req):
 def tasks(req): 
     return render(req, 'test_app/tasks.html')
 
-def signout(req): 
+def signout(req):
     logout(req)
     return redirect('home')
 
@@ -169,7 +242,7 @@ def signin(req):
         user=authenticate(req, username=req.POST['username'], password=req.POST['password'])
         if user is None: 
             return render(req, 'test_app/signin.html', {'form': AuthenticationForm, 'error': 'User Does Not Exists'})
-        else: 
+        else:
             login(req, user)
             print("ingreso exitoso")
             return redirect('tasks')

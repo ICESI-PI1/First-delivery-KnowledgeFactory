@@ -91,7 +91,7 @@
               </div>
               <div class="col-9" style="display: flex; align-items: center,start; justify-content: left ;flex-direction: column; padding-top: 10px;">
                 <div class="row" style="flex: 1; align-items: end;">
-                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;"><!--Nombre de usuario-->Miguel Hernandez</h5>
+                  <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;">{{user.fullname}}</h5>
                 </div>
                 <div class="row" style="flex: 1;align-items: start; display: flex;">
                   <div class="col-8" style="align-items: start">
@@ -130,88 +130,99 @@
             </div>
           </div>
           <div class="col-9">
-            <div class="card" style="width: 100%; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
-              <div class="card-body">
-                <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-left: 10px;">Información del usuario</h5>
-                <hr>
-                <div class="container-fluid" style="padding-left: 40px; padding-top: 10px; padding-bottom: 20px; padding-right: 40px;">
+          <form method="POST">
+              <div class="card" style="width: 100%; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-left: 10px;">Información del usuario</h5>
+                  <hr>
+                  
+                    {% csrf_token %}
+
+                    <!--{{formU.as_p}}-->
+                    {{ formU.non_field_errors }}
+                    <div class="fieldWrapper">
+                      <div class="row" style="margin-bottom: 25px;">
+                        {{ formU.fullname.errors }}
+                        <div class="col-3" style="padding: left; display: flex;">
+                          <p for="{{ formU.fullname.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.fullname }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      <div class="row" style="margin-bottom: 25px;">
+                        {{ formU.email.errors }}
+                        <div class="col-3" style="align-items: center; display: flex;">
+                          <p for="{{ formU.email.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.email }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      <div class="row" style="margin-bottom: 25px;">
+                        {{ formU.phoneNumberU.errors }}
+                        <div class="col-3" style="align-items: center; display: flex;">
+                          <p for="{{ formU.phoneNumberU.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono:</p>
+                        </div>
+                        <div class="col-7">
+                          {{ formU.phoneNumberU }}
+                        </div>
+                      </div>
+                    </div>
+
+                  {% if company %}
+                  <hr>
+                  <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
+                  <div class="row" style="margin-bottom: 25px;">
+                      <div class="col-3" style="align-items: center; display: flex;">
+                          <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa:</p>
+                      </div>
+                      <div class="col-7">
+                          <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;"> {{company.name}}</p>
+                      </div>
+                  </div>
+                  <div class="row" style="margin-bottom: 25px;">
+                      <div class="col-3" style="align-items: center; display: flex;">
+                          <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa:</p>
+                      </div>
+                      <div class="col-7">
+                          <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">{{company.nit}}</p>
+                      </div>
+                  </div>
+                  <!--{{formC.as_p}}-->
+                  <div class="fieldWrapper">
                     <div class="row" style="margin-bottom: 25px;">
-                        <div class="col-2" style="align-items: center; display: flex; justify-content: end;">
-                            <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre:</p>
-                        </div>
-                        <div class="col-8">
-                            <form action="">
-                                <input type="text" class="form-control" style="border: 2; border-color: #555353; background-color: #f8f4f4;" placeholder="Miguel Hernandez"><!--Nombre de la persona-->
-                            </form>
-                        </div>
+                      {{ formC.address.errors }}
+                      <div class="col-3" style="align-items: center; display: flex;">
+                        <p for="{{ formU.address.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Dirección de la empresa:</p>
+                      </div>
+                      <div class="col-7">
+                        {{ formC.address }}
+                      </div>
                     </div>
+                  </div>
+                  <div class="fieldWrapper">
                     <div class="row" style="margin-bottom: 25px;">
-                        <div class="col-2" style="align-items: center; display: flex; justify-content: end;">
-                            <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo:</p>
-                        </div>
-                        <div class="col-8">
-                            <form action="">
-                                <input type="text" class="form-control" style="border: 2; border-color: #555353; background-color: #f8f4f4;" placeholder="miguelcyc147@cyc.com"><!--Correo de la persona-->
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 25px;">
-                        <div class="col-2" style="align-items: center; display: flex; justify-content: end;">
-                            <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono:</p>
-                        </div>
-                        <div class="col-8">
-                            <form action="">
-                                <input type="text" class="form-control" style="border: 2; border-color: #555353; background-color: #f8f4f4;" placeholder="3216478513"><!--Teléfono de la persona-->
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <h5 class="card-title" style="font-size: 30px; font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; padding-top: 30px; padding-left: 10px;">Información de la empresa</h5>
-                <hr>
-                <div class="row" style="margin-bottom: 25px;">
-                    <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Nombre de la empresa:</p>
-                    </div>
-                    <div class="col-7">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">chocolate y café</p>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom: 25px;">
-                    <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">NIT de la empresa:</p>
-                    </div>
-                    <div class="col-7">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">195285645</p>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom: 25px;">
-                    <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Correo de la empresa:</p>
-                    </div>
-                    <div class="col-7">
-                        <form action="">
-                            <input type="text" class="form-control" style="border: 2; border-color: #555353; background-color: #f8f4f4;" placeholder="chocolateycafe@cyc.com"><!--Correo de la empresa-->
-                        </form>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom: 25px;">
-                    <div class="col-3" style="align-items: center; display: flex; justify-content: end;">
-                        <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono de la empresa:</p>
-                    </div>
-                    <div class="col-7">
-                        <form action="">
-                            <p class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">1578146</p>
-                        </form>
+                      {{ formC.phoneNumberC.errors }}
+                      <div class="col-3" style="align-items: center; display: flex; ">
+                        <p for="{{ formC.phoneNumberC.id_for_label}}" class="card-text" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Teléfono:</p>
+                      </div>
+                      <div class="col-7">
+                        {{ formC.phoneNumberC }}
+                      </div>
                     </div>
                 </div>
                 <div style="padding-left: 100px;">
-                    <a href="{% url 'profile' %}" id="liveAlertBtn" class="btn btn-primary btn-lg">Guardar</a>
+                    <a href="{% url 'profile' %}" id="liveAlertBtn" class="btn btn-primary btn-lg" style="font-size: 20px; background-color: #F9B100; border: 0px; border-radius: 3px;">Guardar</a>
                 </div>
-              <div id="liveAlertPlaceholder" style="margin-top: 10px;"></div>
-          </div>
+                <div id="liveAlertPlaceholder" style="margin-top: 10px;"></div>
+            </div>
       </div>
-    </div>
-  <script src='{% static "JS/SideMenu.js" %}'></script>
+      <script src='{% static "JS/EditProfile.js" %}'></script>
 </body>
 </html>
 {% endblock %}

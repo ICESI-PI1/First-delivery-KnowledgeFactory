@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<<<< Temporary merge branch 1
+set VIRTUAL_ENV=C:\Users\luisb\OneDrive\Escritorio\First-delivery-KnowledgeFactory\venv
+=========
 set VIRTUAL_ENV=C:\Users\Juan Esteban\OneDrive\Escritorio\First-delivery-KnowledgeFactory\venv
+>>>>>>>>> Temporary merge branch 2
 
 if not defined PROMPT set PROMPT=$P$G
 
