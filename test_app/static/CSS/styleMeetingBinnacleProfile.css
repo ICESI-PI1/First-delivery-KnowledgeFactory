@@ -263,3 +263,18 @@ Side menu
                                 background-color: rgb(228, 228, 228);
                                 color: rgb(153, 150, 150);
                             }
+
+/*
+Modal
+*/
+
+#modal::backdrop{
+    background-color: rgba(50, 32, 32, 0.55);
+}
+
+#modal{
+    max-width: 120ch;
+    border: 1;
+    border-radius: 15px;
+    border-color: rgb(101, 97, 97);
+}

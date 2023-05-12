@@ -130,7 +130,7 @@
             <div class="gridProducts">
             {% for project in projects %}
                 <div class="card" id={{project.id}}>
-                    <a href="#" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
+                    <a href="{% url 'productInformation' project.id %}" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
                     <div class="row">
                         <div class="col-3 card_image">
                             {% if project.photo %}

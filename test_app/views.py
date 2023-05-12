@@ -115,6 +115,9 @@ class MeetingBinnacleView(TemplateView):
 
 
 
+
+
+
 #Vistas por defecto de Django
 
 def home(req):
