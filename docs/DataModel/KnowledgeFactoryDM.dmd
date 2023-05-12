@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="KnowledgeFactoryDM" id="FD3BE38D-5140-68EA-AEDD-9B73B1189890" version="3.5">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-16 16:16:31 UTC</createdTime>
+<ownerDesignName>Integrador</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>FD3BE38D-5140-68EA-AEDD-9B73B1189890</designId>
+</OSDM_Design>

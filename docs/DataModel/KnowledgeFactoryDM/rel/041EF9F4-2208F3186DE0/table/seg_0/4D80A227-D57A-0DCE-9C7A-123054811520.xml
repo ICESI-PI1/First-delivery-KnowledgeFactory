@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4D80A227-D57A-0DCE-9C7A-123054811520" name="Meeting">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:18:44 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id_Meeting" id="B201F705-0403-9B0A-EE52-5B45B5223C8B">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:11 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="6CDD5B7C-F618-169B-F002-AE3F28030B36">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:11 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="summary" id="E918E7FD-A62F-8167-27D3-4F430EF3E3C4">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:11 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="CE347879-2E43-4311-8915-468A08BE9CFA">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:11 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Binnacle_IdBinnacle" id="7403945C-2F8F-A871-177E-F61BCA24142C">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:29:38 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC4DDE1A-89AC-F08C-BB20-E14EBCC41B4C" referredColumn="DB6373FC-F418-FCBB-A116-BB6279A60525"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5DE80E50-FEE5-4903-FEC2-F37EAEB6AD97" name="Quote_PK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:21:11 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B201F705-0403-9B0A-EE52-5B45B5223C8B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BF5F2C3C-C4F8-BEEC-48B2-36CE1657CF9C" name="IdBinnacle">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:29:38 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7403945C-2F8F-A871-177E-F61BCA24142C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

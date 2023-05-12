@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC4DDE1A-89AC-F08C-BB20-E14EBCC41B4C" containerWithKeyObject="4D80A227-D57A-0DCE-9C7A-123054811520" localFKIndex="BF5F2C3C-C4F8-BEEC-48B2-36CE1657CF9C" name="IdBinnacle">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-06 23:29:38 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<referredTableLongName>Binnacle</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>99EF0D5E-B348-1CEC-9DAA-266E5D0E9EE7</referredTableID>
+<keyObject>1DBE1A83-1182-AFA8-B73B-8A983D6FA2A8</keyObject>
+<referredKeyID>1DBE1A83-1182-AFA8-B73B-8A983D6FA2A8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdBinnacle</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
