@@ -1,11 +1,26 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import TemplateView
+from test_app.models import Project
+from test_app.models import Company
 
 # Create your views here.
+
+def testLit(req):
+    projects=Project.objects.all()
+    if projects is None:
+        print("vacio")
+    else:
+        print("aqui hay algo")
+    return render(req, 'test_app/testLit.html', {'projects':projects})
+
+class testLitView(TemplateView):
+    template_name="test_app/testLit.html"
+    
+#Login view
 
 def login(req):
     return render(req, 'test_app/login.html')
@@ -13,7 +28,7 @@ def login(req):
 class LoginView(TemplateView): 
     template_name="test_app/login.html"
 
-
+#Register view
 
 def register(req):
     return render(req, 'test_app/Register.html')
@@ -21,14 +36,16 @@ def register(req):
 class RegisterView(TemplateView):
     template_name="test_app/Register.html" 
 
+#Home view
 
 def homePage(req):
-    return render(req, 'test_app/MainPageEnterprise.html')
+    projects=Project.objects.all()
+    return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects} )
 
 class HomePageView(TemplateView):
     template_name="test_app/MainPageEnterprise.html" 
 
-
+#Profile view
 
 def profile(req):
     return render(req, 'test_app/Profile.html')
@@ -36,12 +53,68 @@ def profile(req):
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
 
+#Edit profile view
 
 def editProfile(req):
     return render(req, 'test_app/EditProfile.html')
 
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"
+
+#Information project view
+
+def infoProject(req, id):
+    project=get_object_or_404(Project,pk=id)
+    return render(req, 'test_app/InfoProject.html', {'project':project})
+
+class InfoProjectView(TemplateView):
+    template_name="test_app/InfoProject.html"
+
+    
+#Request Appointment view
+
+def requestAppointment(req):
+    return render(req, 'test_app/RequestAppointment.html')
+
+class RequestAppointmentView(TemplateView):
+    template_name="test_app/RequestAppointment.html" 
+    
+#Request meeting view
+
+def requestMeeting(req):
+    return render(req, 'test_app/RequestMeeting.html')
+
+class RequestMeetingView(TemplateView):
+    template_name="test_app/RequestMeeting.html"
+
+#Profile Meeting view
+
+def profileMeeting(req):
+    return render(req, 'test_app/ProfileMeeting.html')
+
+class ProfileMeetingView(TemplateView):
+    template_name="test_app/ProfileMeeting.html"
+
+#Profile Favorites view
+
+def profileFavorites(req):
+    projects=Project.objects.all()
+    return render(req, 'test_app/ProfileFavorites.html',{'projects':projects})
+
+class ProfileFavoritesView(TemplateView):
+    template_name="test_app/ProfileFavorites.html"
+
+
+#Meeting Binnacle profile view
+
+def meetingBinnacle(req):
+    return render(req, 'test_app/MeetingBinnacleProfile.html')
+
+class MeetingBinnacleView(TemplateView):
+    template_name="test_app/MeetingBinnacleProfile.html"
+
+
+
 
 
 
