@@ -41,7 +41,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, verbose_name="email", unique=True)
     password = models.CharField(max_length=100)
     birthday = models.DateField()
-<<<<<<<<< Temporary merge branch 1
     
     is_staff = models.BooleanField(default=True) #esto es necesario para el login. Aunque podemos ignorarlo en el modelo de datos. 
     is_active = models.BooleanField(default=True) #esto es necesario para el login. Aunque podemos ignorarlo en el modelo de datos.

@@ -77,8 +77,6 @@ class LoginView(View):
     
 
 #Register view
->>>>>>>>> Temporary merge branch 2
-
 def register(req):
     return render(req, 'test_app/Register.html')
 
