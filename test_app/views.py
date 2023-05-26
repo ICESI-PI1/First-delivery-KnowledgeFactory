@@ -45,11 +45,6 @@ class testLitView(TemplateView):
     template_name="test_app/testLit.html"
     
 #Login view
-
-def login(req):
-    return render(req, 'test_app/login.html')
-
-
 class LoginView(View): 
     
     template_name="test_app/signin.html"

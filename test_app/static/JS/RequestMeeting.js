@@ -28,7 +28,7 @@ function getAvailableOptions() {
   const date = fechaInput.value;
   const time = horaInput.value;
   if (date && time) {
-    url = `/get_available_admins/?date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}`;
+    url = 'get_available_admins/?date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}';
     fetch(url)
       .then(response => response.json())
       .then(data => {
