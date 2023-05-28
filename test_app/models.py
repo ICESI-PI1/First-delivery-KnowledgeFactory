@@ -19,7 +19,7 @@ class CustomUserManager(BaseUserManager):
 
         user.set_password(password)
         user.save(using = self._db)
-        return 
+        return user
     
     def create_user(self, email, password, fullname, cc, birthday, phoneNumberU,**extra_fields) :
         extra_fields.setdefault('is_staff', True)
@@ -59,12 +59,29 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'Users'
         
 
+class CompanyManager(models.Manager): 
+    def create_company(self, nit, name, phoneNumberC, address, user): 
+            
+        company = self.model(
+            nit=nit, 
+            name = name, 
+            phoneNumberC = phoneNumberC, 
+            address = address, 
+            user = user, 
+        )   
+        return company
+
+
 class Company(models.Model):
     nit = models.CharField(auto_created=False, primary_key=True, serialize=False, verbose_name='NIT', max_length=9)
     name = models.CharField(max_length=50)
     phoneNumberC = models.CharField(max_length=15)
     address = models.CharField(max_length=300)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    objects = CompanyManager()
+    
+    REQUIRED_FIELDS = ['nit', 'name', 'phoneNumber', 'address', 'user']
+
     def __str__(self):
         return self.name
 

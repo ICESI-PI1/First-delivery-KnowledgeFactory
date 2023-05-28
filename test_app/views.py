@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting
-from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
@@ -84,8 +84,41 @@ def homePage(req):
     projects=Project.objects.all()
     return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects} )
 
-class HomePageView(TemplateView):
-    template_name="test_app/MainPageEnterprise.html" 
+
+class RegisterView(TemplateView):
+    template_name="test_app/Register.html" 
+    form_class = registerForm
+
+    def get(self, req):
+        form=self.form_class(req.POST)
+        message=''
+        return render(req, self.template_name, context={'form': form, 'message': message})
+
+    def post(self, req): 
+        print(req.POST)
+        form=self.form_class(req.POST)
+        
+        companyUser =  User.objects.create_user(email=req.POST['userEmail'],
+                                         password=req.POST['userPassword'], 
+                                         fullname=req.POST['userName'], 
+                                         cc=req.POST['userCC'], 
+                                         birthday=req.POST['userBirthday'], 
+                                         phoneNumberU=req.POST['userPhone']
+                                         )
+        print("user: ", companyUser.__str__())
+
+        company = Company.objects.create_company(nit=req.POST['companyNit'], 
+                                                 name = req.POST['companyName'], 
+                                                 phoneNumberC = req.POST['companyPhone'], 
+                                                 address=req.POST['companyAddress'],
+                                                 user = companyUser
+                                                 )
+        print("compania", company.__str__())
+        companyUser.save()
+        company.save()
+        login(req, companyUser)
+        message=''
+        return redirect('homePage')
 
 #Profile view
 @login_required
