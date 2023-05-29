@@ -13,7 +13,7 @@ class loginForm(forms.Form):
 
 YEARS = [x for x in range(1940, 1)]
 
-class registerForm(forms.Form): 
+class registerForm(forms.Form):
     companyName = forms.CharField(label = "Nombre de la empresa", max_length = 50, widget = forms.TextInput(attrs={'class': 'form-control enter_input'}))
     
     companyNit = forms.CharField(label = "NIT de la empresa", max_length=9, widget = forms.TextInput(attrs={'class': 'form-control enter_input'}))

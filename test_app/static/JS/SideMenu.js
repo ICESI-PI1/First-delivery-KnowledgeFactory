@@ -24,6 +24,7 @@ function countElement(option){
 
 window.addEventListener('click', (e) => {
     if (document.getElementById("sideMenu").contains(e.target)){
+        document.body.classList.add("body-no-scroll")
         if(estado == false){
             menu.classList.toggle('active')
             document.getElementById("sideMenu").style.visibility = "hidden"
@@ -33,6 +34,7 @@ window.addEventListener('click', (e) => {
         }
         
     }else{
+        document.body.classList.remove("body-no-scroll")
         if(estado){
             menu.classList.toggle('active')
             document.body.classList.toggle('opacity')

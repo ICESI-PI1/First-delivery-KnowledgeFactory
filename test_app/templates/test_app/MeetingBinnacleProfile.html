@@ -87,7 +87,7 @@
           <div class="col-3">
             <div class="ActBox">
               <div class="row">
-                  <h2 style="font-weight: bold;color: #093D5E;">Proyecto {{project.name}}</h2>
+                  <h2 class="titleDescription">Proyecto {{project.name}}</h2>
               </div>
               <div class="row">
                   <div class="col-4">
@@ -119,7 +119,7 @@
             <div>
               <div class="row" style="margin-top: 25px">
                 <div class="row">
-                  <h2 style="font-weight: bold;color: #093D5E">Características</h2>
+                  <h2 class="titleDescription">Características</h2>
                 </div>
                 <div class="row">
                   <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
@@ -130,16 +130,29 @@
           <div class="col-9">
             <div class="binnacle-box">
               <div class="card">
-                <button type="button" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal" style="z-index:0;position: absolute;width: 100%;height: 100%;visibility: hidden">.</button>
                 <div class="row">
-                    <div class=" card_content">
-                        <!--Nombre de la cita completa-->
-                      <h1 class="card_title">hola</h1>
-                        <!--Fecha de la cita-->
-                      <h3 class="card_text">Dueño: Adios</h3>
-                        <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
-                      <h3 class="card_text" style="color: #F9B100">Estado: EN PROCESO</h3>
+                  <div class="col-4">
+                    <div class="row">
+                      <div class=" card_content">
+                          <!--Nombre de la cita completa-->
+                        <h1 class="card_title">hola</h1>
+                          <!--Fecha de la cita-->
+                        <h3 class="card_text">Fecha: Adios</h3>
+                          <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
+                        <div class="row">
+                          <div class="col" style="display: flex;">
+                            <h3 class="card_text" style="margin-right: 2px">Estado: </h3>
+                            <h3 class="card_text" style="color: #F9B100">EN PROCESO</h3>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <div class="col-8" style="justify-content: right; align-items: center; display: flex">
+                    <button type="button" class="btn btn-secondary infoMeeting" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      Información de la cita
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,11 +160,11 @@
         </div>
         <div class="row" style="margin-bottom: 15px; margin-top: 0px">
           <div class="col-7">
-            <img src="{% static "/Images/galaxyWallpaper.jpg" %}" alt="Foto referencia" style="width: 100%;height: 100%; border-radius: 15px;">
+            <img id="imageCol" src="{% static "/Images/galaxyWallpaper.jpg" %}" alt="Foto referencia">
           </div>
           <div class="col-5">
             <div class="row">
-              <h2 style="font-weight: bold;color: #093D5E">Resultados</h2>
+              <h2 class="titleDescription">Resultados</h2>
             </div>
             <div class="container-textResults">
               <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
@@ -161,10 +174,98 @@
       </div>
     </div>
 
-    <!---->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">                           
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--Nombre de la cita completa-->
+            <h1 class="modal-title fs-3 titleMODAL" id="staticBackdropLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!--Fecha de la cita-->
+            <div class="row">
+              <div class="col" style="display: flex;">
+                <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Fecha: </p>
+                <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
+              </div>
+            </div>
+              <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
+            <div class="row">
+              <div class="col" style="display: flex;">
+                <p class="card_text_modal" style="margin-right: 2px; margin-bottom: 4px">Estado: </p>
+                <p class="card_text_modal" style="color: #F9B100; margin-bottom: 4px; font-weight: bold;">EN PROCESO</p>
+              </div>
+            </div>
+              <!--Descripción de la cita-->
+            <div class="row">
+              <div class="col">
+                <p class="card_text_modal" style="margin-bottom: 1px;font-size: 20px">Descripción:</p>
+                <p class="card_text_modal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tin</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary editConfirmMeeting" data-bs-target="#staticBackdropEdit" data-bs-toggle="modal">
+              Editar cita
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    
+    <div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">                           
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--Nombre de la cita completa-->
+            <h1 class="modal-title fs-3 titleMODAL" id="staticBackdropLabel">Editar cita</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!--Nombre de la cita-->
+              <div class="row">
+                <div class="col" style="display: flex;">
+                  <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Nombre: </p>
+                  <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
+                </div>
+              </div>
+              <!--Fecha de la cita-->
+            <div class="row">
+              <div class="col" style="display: flex;">
+                <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Fecha: </p>
+                <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
+              </div>
+            </div>
+              <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
+            <div class="row">
+              <div class="col" style="display: flex;">
+                <p class="card_text_modal" style="margin-right: 2px; margin-bottom: 4px">Estado: </p>
+                <p class="card_text_modal" style="color: #F9B100; margin-bottom: 4px; font-weight: bold;">EN PROCESO</p>
+              </div>
+            </div>
+              <!--Descripción de la cita-->
+            <div class="row">
+              <div class="col">
+                <p class="card_text_modal" style="margin-bottom: 1px;font-size: 20px">Descripción:</p>
+                <form>
+                  <textarea class="form-control" id="meetDescription" rows="3"></textarea>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary editConfirmMeeting" data-bs-dismiss="modal">Confirmar edición</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src='{% static "JS/PopupInfoMeeting.js" %}'></script>
     <script src='{% static "JS/SideMenu.js" %}'></script>
 </body>
