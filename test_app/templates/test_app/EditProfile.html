@@ -136,7 +136,6 @@
                   
                     {% csrf_token %}
 
-                    <!--{{formU.as_p}}-->
                     {{ formU.non_field_errors }}
                     <div class="fieldWrapper">
                       <div class="row" style="margin-bottom: 15px;">
@@ -217,7 +216,9 @@
                   {% endif %}
                   <div class="row" style="display: flex; align-items: center; justify-content: right">
                     <div class="col-2">
-                      <a href="{% url "profile" %}" target="_self" class="btn-btn primary btn-saveEdit" type="button">Guardar</a>
+                      <button target="_self" class="btn-btn primary btn-saveEdit">
+                        Guardar
+                      </button>
                     </div>
               </div>
             </form>
