@@ -113,6 +113,22 @@
 
 
 
+.favoritesBTN{
+    background-color:#F9B100;
+    border-radius: 20px;
+    border: 0px;
+    color: black;
+    font-weight: bold;font-size: 20px;
+}
+
+.meetingBTN{
+    background-color: #FFCD00;
+    border-radius: 20px;
+    border: 0px;
+    color: black;
+    font-weight: bold;font-size: 20px;
+}
+
 
 
 .profile_col{

@@ -31,8 +31,6 @@ def get_available_admins(request):
     print(data)
     return JsonResponse(data)
 
-# Create your views here.
-
 def testLit(req):
     projects=Project.objects.all()
     if projects is None:
@@ -44,8 +42,10 @@ def testLit(req):
 class testLitView(TemplateView):
     template_name="test_app/testLit.html"
     
+# Create your views here.
+    
 #Login view
-class LoginView(View): 
+class LoginView(TemplateView): 
     
     template_name="test_app/signin.html"
     form_class = loginForm
@@ -68,22 +68,7 @@ class LoginView(View):
             login(req, user)
             return redirect('homePage')
 
-
-    
-
 #Register view
-def register(req):
-    return render(req, 'test_app/Register.html')
-
-class RegisterView(TemplateView):
-    template_name="test_app/Register.html" 
-
-#Home view
-
-def homePage(req):
-    projects=Project.objects.all()
-    return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects} )
-
 
 class RegisterView(TemplateView):
     template_name="test_app/Register.html" 
@@ -120,24 +105,33 @@ class RegisterView(TemplateView):
         message=''
         return redirect('homePage')
 
-#Profile view
-@login_required
-def profile(req):
-    user=get_object_or_404(User,pk=req.user.cc)
-    if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company 
-        company=get_object_or_404(Company,user=req.user.cc)
-    else:
-        company=None
-    return render(req, 'test_app/Profile.html', {'user':user,'company':company})
+#Home view
 
-@login_required
+class homePageView(TemplateView):
+    template_name = "test_app/MainPageEnterprise.html"
+    
+    def get(self, req):
+        projects = Project.objects.all()
+        return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects})
+
+#Profile view    
+
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
+    
+    def get (self, req):
+        user=get_object_or_404(User,pk=req.user.cc)
+        if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company 
+            company=get_object_or_404(Company,user=req.user.cc)
+        else:
+            company=None
+        return render(req, 'test_app/Profile.html', {'user':user,'company':company})
 
 #Edit profile view
-@login_required
-def editProfile(req):
-    if req.method=='GET':
+class EditProfileView(TemplateView): 
+    template_name="test_app/EditProfile.html"
+    
+    def get(self, req):
         user=get_object_or_404(User,pk=req.user.cc)
         if Company.objects.filter(user=user.cc).count(): # Si el usuario tiene empresa asociada se hace get de la company y del form correspondiente
             company=get_object_or_404(Company,user=req.user.cc)
@@ -147,7 +141,8 @@ def editProfile(req):
             formC=None
         formU=editProfileForm(instance=user)
         return render(req, 'test_app/EditProfile.html', {'user':user,'company':company, 'formU':formU, 'formC':formC})
-    else:
+    
+    def post(self, req):
         print(req.POST)
         user=get_object_or_404(User,pk=req.user.cc)
         formsU=editProfileForm(req.POST, instance=user)
@@ -158,64 +153,50 @@ def editProfile(req):
             forms.save()
         return redirect('profile')
 
-
-@login_required
-class EditProfileView(TemplateView): 
-    template_name="test_app/EditProfile.html"
-
 #Information project view
-
-def infoProject(req, id):
-    project=get_object_or_404(Project,pk=id)
-    return render(req, 'test_app/InfoProject.html', {'project':project})
 
 class InfoProjectView(TemplateView):
     template_name="test_app/InfoProject.html"
+    
+    def get(self, req):
+        project = get_object_or_404(Project,pk=id)
+        return render(req, 'test_app/InfoProject.html', {'project': project})
 
     
 #Request Appointment view
-
-def requestAppointment(req):
-    return render(req, 'test_app/RequestAppointment.html')
 
 class RequestAppointmentView(TemplateView):
     template_name="test_app/RequestAppointment.html" 
     
 #Request meeting view
 
-def requestMeeting(req):
-    if req.method=='GET':
+class RequestMeetingView(TemplateView):
+    template_name="test_app/RequestMeeting.html"
+    
+    def get(self, req):
         meetings=Meeting.objects.all()
         formM=crateMeetingBinacle()
         return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings, 'formM':formM})
-    else:
-        print("a")
-
-class RequestMeetingView(TemplateView):
-    template_name="test_app/RequestMeeting.html"
+    
+    def post(self, req):
+         print("a")
 
 #Profile Meeting view
-
-def profileMeeting(req):
-    return render(req, 'test_app/ProfileMeeting.html')
 
 class ProfileMeetingView(TemplateView):
     template_name="test_app/ProfileMeeting.html"
 
 #Profile Favorites view
 
-def profileFavorites(req):
-    projects=Project.objects.all()
-    return render(req, 'test_app/ProfileFavorites.html',{'projects':projects})
-
 class ProfileFavoritesView(TemplateView):
     template_name="test_app/ProfileFavorites.html"
+    
+    def get(self, req):
+        projects = Project.objects.all()
+        return render(req, 'test_app/ProfileFavorites.html',{'projects': projects})
 
 
 #Meeting Binnacle profile view
-
-def meetingBinnacle(req):
-    return render(req, 'test_app/MeetingBinnacleProfile.html')
 
 class MeetingBinnacleView(TemplateView):
     template_name="test_app/MeetingBinnacleProfile.html"

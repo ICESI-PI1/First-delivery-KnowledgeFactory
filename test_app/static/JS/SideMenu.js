@@ -1,8 +1,9 @@
 iconMenu = document.querySelector('#sideMenu'),
 menu = document.querySelector('#menu'),
+restWindow = document.querySelector('#Box'),
 estado = false
 
-function ola(){
+function visibleBTN(){
     document.getElementById("sideMenu").style.visibility = "visible";
 }
 
@@ -24,7 +25,7 @@ function countElement(option){
 
 window.addEventListener('click', (e) => {
     if (document.getElementById("sideMenu").contains(e.target)){
-        document.body.classList.add("body-no-scroll")
+        restWindow.style.visibility = "hidden"
         if(estado == false){
             menu.classList.toggle('active')
             document.getElementById("sideMenu").style.visibility = "hidden"
@@ -34,11 +35,11 @@ window.addEventListener('click', (e) => {
         }
         
     }else{
-        document.body.classList.remove("body-no-scroll")
+        restWindow.style.visibility = "hidden"
         if(estado){
             menu.classList.toggle('active')
             document.body.classList.toggle('opacity')
-            setTimeout(ola, 0300)
+            setTimeout(visibleBTN, 0300)
             countElement(2)
             estado = false;
         }

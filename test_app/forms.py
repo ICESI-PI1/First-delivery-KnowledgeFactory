@@ -44,15 +44,15 @@ class editProfileForm(ModelForm):
         widgets = {
             'fullname': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;'
+                'style': 'max-width: 500px; font-size: 17px;'
                 }),
             'email': EmailInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px; padding:left;'
+                'style': 'max-width: 500px; font-size: 17px;'
                 }),
             'phoneNumberU': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;'
+                'style': 'max-width: 500px; font-size: 17px;'
                 })
         }
 
@@ -63,11 +63,11 @@ class editCompanyForm(ModelForm):
         widgets = {
             'address': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;'
+                'style': 'max-width: 400px; font-size: 17px;'
                 }),
             'phoneNumberC': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;'
+                'style': 'max-width: 400px; font-size: 17px;'
                 })
         }
 
