@@ -90,19 +90,20 @@
                     <!--Se debe poner el número de la cita y el proyecto de la cita-->
                     <h4 style="font-weight: bold; color: #0A4D77">Abrir una bitacora de compra</h4>
                 </div>
-                <form>
+                <form method="post">
+                  {% csrf_token %}
                 <div class="row">
                     <div class="col" style="justify-content: left;text-align: left;align-items: center;">
                         <div class="row" style="text-align: left;">
                             <label for="InputText" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Resumen de la cita</label>
-                            <textarea class="form-control" id="FormControlTextarea1" rows="4" style="width: 68%;margin-left: 1%"></textarea>
+                            <textarea class="form-control" name="FormControlTextarea1" id="FormControlTextarea1" rows="4" style="width: 68%;margin-left: 1%"></textarea>
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
                                 <label for="InputDate" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Fecha de la reunión</label>
                             </div>
                             <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <input type="date" required class="form-control" id="InputDate" style="width: 270px;">
+                                <input type="date" required class="form-control" name="InputDate" id="InputDate" style="width: 270px;">
                             </div>
                         </div>
                         <div class="row" style="margin-top: 15px">
@@ -110,7 +111,7 @@
                               <label for="InputTime" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Hora de la reunión</label>
                           </div>
                           <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                              <input type="time" required step="7200" list="time_list" class="form-control" id="InputTime" style="width: 270px;">
+                              <input type="time" required step="7200" list="time_list" class="form-control" name="InputTime" id="InputTime" style="width: 270px;">
                               <datalist id="time_list">
                                 <option value="08:00">
                                 <option value="10:00">
@@ -124,7 +125,7 @@
                                 <label for="InputPrice" style="color: #454343; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-size: 20px;">Administradores disponibles</label>
                             </div>
                             <div class="col" style="justify-content: left;text-align: left;align-items: center;">
-                              <select name="admin" id="admin" required style="width: 300px;" class="form-control">
+                              <select name="adminInput" id="admin" required style="width: 300px;" class="form-control">
                                 <option value=-1>Seleccione un administrador...</option>
                               </select>
                             </div>
@@ -134,9 +135,6 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px; margin-bottom: 10px;display:flex;justify-content: end;">
-                    <!--<div class="col-2" style="text-align: center; width: auto;">
-                        <a href="" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
-                    </div>-->
                     <div class="col-2" style="text-align: center; width: auto;">
                         <a type="button" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
                     </div>
@@ -145,10 +143,11 @@
                         <a type="button" class="btn btn-primary" style="background-color: #E82215; border: 0; border-radius: 5px; height: 100%;">Cancelar cita</a>
                       </div>
                       <div class="col-2" style="text-align: center; width: auto;">
-                          <a type="button" class="btn btn-primary" style="background-color: #F9B100; border: 0; border-radius: 5px; height: 100%;">Enviar cita</a>
+                        <button class="btn btn-primary" style="background-color: #F9B100; border: 0; border-radius: 5px; height: 100%;">Enviar cita</button>
                       </div>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
       </div>

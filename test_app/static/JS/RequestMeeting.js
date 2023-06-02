@@ -28,7 +28,7 @@ function getAvailableOptions() {
   const date = fechaInput.value;
   const time = horaInput.value;
   if (date && time) {
-    url = 'get_available_admins/?date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}';
+    url = '/get_available_admins/?date=' + encodeURIComponent(date) + '&time=' + encodeURIComponent(time);
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -41,7 +41,7 @@ function getAvailableOptions() {
         }else{
           for (admin of data.available_admins) {
             const option = document.createElement('option');
-            option.value = admin.cc;  
+            option.value = admin.id;  
             option.textContent = admin.name;
             adminField.appendChild(option);
           }

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
-from test_app.models import Project, Company, User, Meeting
+from test_app.models import Project, Company, User, Meeting, Role, Roles, Quotation, Binnacle
 from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -19,8 +19,12 @@ def get_available_admins(request):
     time = request.GET.get('time')
     meetings = Meeting.objects.filter(date=date ,hour=time)
     busy_admin = [meeting.binnacle.admin.cc for meeting in meetings]
+
+    admin_id = Role.objects.get(rolName='Admin')
+    admin_role = Roles.objects.filter(role=admin_id.id)
+    admin_role_id = [admin.user.cc for admin in admin_role]
     available_admins = User.objects.filter(
-        Q(is_staff=True) & ~Q(cc__in=busy_admin)
+        Q(cc__in=admin_role_id) & ~Q(cc__in=busy_admin)
     )
     data = {
         'available_admins': [
@@ -158,7 +162,7 @@ class EditProfileView(TemplateView):
 class InfoProjectView(TemplateView):
     template_name="test_app/InfoProject.html"
     
-    def get(self, req):
+    def get(self, req, id):
         project = get_object_or_404(Project,pk=id)
         return render(req, 'test_app/InfoProject.html', {'project': project})
 
@@ -169,17 +173,51 @@ class RequestAppointmentView(TemplateView):
     template_name="test_app/RequestAppointment.html" 
     
 #Request meeting view
-
 class RequestMeetingView(TemplateView):
     template_name="test_app/RequestMeeting.html"
     
-    def get(self, req):
+    def get(self, req, id):
+        project = get_object_or_404(Project,pk=id)
         meetings=Meeting.objects.all()
         formM=crateMeetingBinacle()
-        return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings, 'formM':formM})
+        return render(req, 'test_app/RequestMeeting.html', {'meetings':meetings, 'formM':formM, 'project':project})
     
-    def post(self, req):
-         print("a")
+    def post(self, req, id):
+        quotation = Quotation.objects.create(
+            description='Pendiente de llenar',
+            price=0
+        )
+        quotation.save()
+
+        project = get_object_or_404(Project,pk=id)
+        admin_id = req.POST.get('adminInput')
+        admin= get_object_or_404(User,pk=admin_id)
+        buy = get_object_or_404(Company,user=req.user.cc)
+
+
+
+        binnacle = Binnacle.objects.create(
+            project = project,
+            buyer = buy,
+            admin = admin,
+            quotation = quotation
+        )
+        binnacle.save()
+
+        date = req.POST.get('InputDate')
+        time = req.POST.get('InputTime')
+        summary = req.POST.get('FormControlTextarea1')
+        meeting = Meeting.objects.create(
+            state='Pendiente',
+            date=date,
+            hour=time,
+            summary=summary,
+            binnacle=binnacle
+        )
+        meeting.save()
+        return redirect('productInformation',id)
+        
+
 
 #Profile Meeting view
 

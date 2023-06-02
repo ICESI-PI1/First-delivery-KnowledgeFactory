@@ -72,7 +72,7 @@ class editCompanyForm(ModelForm):
         }
 
 class crateMeetingBinacle(forms.Form):
-    class Mera:
+    class Meta:
         fields=['date', 'hour', 'summary']
         widgets={
             'date': forms.widgets.DateInput(attrs={
