@@ -194,8 +194,6 @@ class RequestMeetingView(TemplateView):
         admin= get_object_or_404(User,pk=admin_id)
         buy = get_object_or_404(Company,user=req.user.cc)
 
-
-
         binnacle = Binnacle.objects.create(
             project = project,
             buyer = buy,
@@ -223,6 +221,12 @@ class RequestMeetingView(TemplateView):
 
 class ProfileMeetingView(TemplateView):
     template_name="test_app/ProfileMeeting.html"
+
+    def get(self, req):
+        user=req.user
+        company=get_object_or_404(Company,user=user)
+        binnacles=Binnacle.objects.filter(buyer=company)
+        return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
 
 #Profile Favorites view
 
