@@ -16,7 +16,7 @@ urlpatterns = [
     path('Solicitar$cita$<int:id>/', views.RequestMeetingView.as_view(), name="requestMeeting"),
     path('Cotizaciones/',views.ProfileMeetingView.as_view(), name="profileMeeting"),
     path('Proyectos$Favoritos/',views.ProfileFavoritesView.as_view(), name="profileFavorites"),
-    path('Bitácora$de$/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
+    path('Bitácora$de$<int:id>/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),

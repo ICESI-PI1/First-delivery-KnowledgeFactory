@@ -242,6 +242,10 @@ class ProfileFavoritesView(TemplateView):
 
 class MeetingBinnacleView(TemplateView):
     template_name="test_app/MeetingBinnacleProfile.html"
+    def get(self, req, id):
+        binnacle = get_object_or_404(Binnacle, pk=id)
+        meetings = Meeting.objects.filter(binnacle=id)
+        return render(req, 'test_app/MeetingBinnacleProfile.html',{'binnacle': binnacle, 'meetings':meetings})
 
 
 

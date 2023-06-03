@@ -128,7 +128,7 @@
           <div class="gridProducts">
             {% for bin in binnacles %}
               <div class="card" id="{{bin.id}}">
-                  <a href="{% url 'meetingBinnacle' %}" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
+                  <a href="{% url 'meetingBinnacle' bin.id %}" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
                   <div class="row">
                       <div class="col-3 card_image">
                           <!--Debe ir la imagen del proyecto-->
