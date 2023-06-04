@@ -16,33 +16,25 @@ infoMeetingButtons.forEach(button => {
   
 
 function createDynamicModal(title, date, status, description) {
-        // Clonar la plantilla del contenido del modal
-        const modalContent = modalContentTemplate.innerHTML;
-        const dynamicModalContent = document.createElement('div');
-        dynamicModalContent.innerHTML = modalContent;
-        // Actualizar los elementos del modal con los datos de la cita
-        const modalTitle = dynamicModalContent.querySelector('.modal-title');
-        modalTitle.textContent = title;
+    const dynamicModal = document.querySelector('#dynamic-modal');
 
-        const modalDate = dynamicModalContent.querySelector('.row:nth-child(1) .card_text_modal:nth-child(2)');
-        modalDate.textContent = date;
+    // Actualiza los elementos del modal con los datos de la cita
+    const modalTitle = dynamicModal.querySelector('.modal-title');
+    modalTitle.textContent = title;
 
-        const modalStatus = dynamicModalContent.querySelector('.row:nth-child(2) .card_text_modal:nth-child(2)');
-        modalStatus.textContent = status;
+    const modalDate = dynamicModal.querySelector('.row:nth-child(1) .card_text_modal:nth-child(2)');
+    modalDate.textContent = date;
 
-        const modalDescription = dynamicModalContent.querySelector('.row:nth-child(3) .card_text_modal:nth-child(2)');
-        modalDescription.textContent = description;
+    const modalStatus = dynamicModal.querySelector('.row:nth-child(2) .card_text_modal:nth-child(2)');
+    modalStatus.textContent = status;
 
-        // Crear el modal usando Bootstrap
-        const modal = new bootstrap.Modal(document.querySelector('#dynamic-modal'));
+    const modalDescription = dynamicModal.querySelector('.row:nth-child(3) .card_text_modal:nth-child(2)');
+    modalDescription.textContent = description;
 
-        // Limpiar el contenido anterior del modal
-        const modalBody = document.querySelector('#dynamic-modal .modal-content');
-        modalBody.innerHTML = '';
 
-        // Agregar el contenido dinámico al modal
-        modalBody.appendChild(dynamicModalContent);
+    // Abre el modal usando Bootstrap
+    const modal = new bootstrap.Modal(dynamicModal);
 
-        // Abrir el modal
-        modal.show();
+    // Abre el modal
+    modal.show();
   }
