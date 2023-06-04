@@ -47,7 +47,6 @@
               </button>
             </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
           </div>
       </header>
@@ -117,10 +116,11 @@
                     </div>
                 </div>
                   <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
-                      <a href="#" target="_self" class="btn btn-primary favoritesBTN" type="button" >Añadir a favoritos</a>
+                      <!--Debe haber un "IF" para que aparezca este botón solo si NO tiene el proyecto añadido a fav-->
+                      <a href="#" target="_self" class="btn btn-warning favoritesBTN" type="button" >Añadir a favoritos</a>
                   </div>
                   <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
-                    <a href="{% url 'requestMeeting' project.id %}" target="_self" class="btn btn-primary meetingBTN" type="button" >Solicitar cita</a>
+                    <a href="{% url 'requestMeeting' project.id %}" target="_self" class="btn btn-warning meetingBTN" type="button" >Solicitar cita</a>
                   </div>
               </div>
               <div class="DescriptionInfoProduct">

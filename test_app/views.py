@@ -213,7 +213,7 @@ class RequestMeetingView(TemplateView):
             binnacle=binnacle
         )
         meeting.save()
-        return redirect('productInformation',id)
+        return redirect('projectInformation',id)
         
 
 
@@ -248,7 +248,34 @@ class MeetingBinnacleView(TemplateView):
         return render(req, 'test_app/MeetingBinnacleProfile.html',{'binnacle': binnacle, 'meetings':meetings})
 
 
+#Edit Meeting view
 
+class EditMeetingView(TemplateView):
+    template_name="test_app/EditMeeting.html"
+    
+    def get(self, req):
+        #meeting = get_object_or_404(Meeting, pk=id)
+        return render(req, 'test_app/EditMeeting.html')
+    
+
+# Add new meeting view
+
+class AddNewMeetingView(TemplateView):
+    template_name="test_app/AddNewMeeting.html"
+    
+    def get(self, req):
+        #meeting = get_object_or_404(Meeting, pk=id)
+        return render(req, 'test_app/AddNewMeeting.html')
+
+
+# Edit quote view
+
+class EditQuoteView(TemplateView):
+    template_name="test_app/EditQuote.html"
+    
+    def get(self, req):
+        #meeting = get_object_or_404(Meeting, pk=id)
+        return render(req, 'test_app/EditQuote.html')
 
 
 

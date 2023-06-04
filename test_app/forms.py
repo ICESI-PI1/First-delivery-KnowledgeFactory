@@ -90,5 +90,27 @@ class crateMeetingBinacle(forms.Form):
                 'style':"width: 270px;"
             })
         }
+        
+        
+class editMeetingForm(forms.Form):
+    class Meta:
+        fields=['date', 'hour', 'summary']
+        widgets={
+            'date': forms.widgets.DateInput(attrs={
+                'type':"date",
+               'class':"form-control",
+               'id':"InputDate",
+               'style':"width: 270px;"
+            }),
+            'hour': forms.widgets.TimeInput(attrs={
+                'type':"time",
+                'step':"7200",
+                'list':"time_list",
+                'class':"form-control",
+                'id':"InputTime",
+                'style':"width: 270px;"
+            })
+        }
+
 #class registerForm(forms.Form): 
  #   companyNit = forms.CharField(max_length=9, widget = forms.CharField(attrs={'class': 'form-control enter_input'}))
