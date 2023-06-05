@@ -56,6 +56,8 @@ class LoginView(TemplateView):
     
     def get(self, req):
         form=self.form_class()
+        if req.user.is_authenticated: 
+            logout(req)
         message=''
         return render(req, self.template_name, context={'form': form, 'message': message})
 
@@ -108,6 +110,11 @@ class RegisterView(TemplateView):
         login(req, companyUser)
         message=''
         return redirect('homePage')
+
+#no se usa pero no borrar
+def signout(req):
+    logout(req)
+    return redirect('home')
 
 #Home view
 
@@ -311,9 +318,6 @@ def signup(req):
 def tasks(req): 
     return render(req, 'test_app/tasks.html')
 
-def signout(req):
-    logout(req)
-    return redirect('home')
 
 def signin(req): 
     if req.method == "GET":
