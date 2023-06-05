@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting, Role, Roles, Quotation, Binnacle
-from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm ,editMeetingForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
@@ -276,6 +276,7 @@ class MeetingBinnacleView(TemplateView):
         binnacle = get_object_or_404(Binnacle, pk=id)
         meetings = Meeting.objects.filter(binnacle=id)
         return render(req, 'test_app/MeetingBinnacleProfile.html',{'binnacle': binnacle, 'meetings':meetings})
+    
 
 
 #Edit Meeting view
@@ -283,10 +284,18 @@ class MeetingBinnacleView(TemplateView):
 class EditMeetingView(TemplateView):
     template_name="test_app/EditMeeting.html"
     
-    def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/EditMeeting.html')
+    def get(self, req, id):
+        meeting = get_object_or_404(Meeting, pk=id)
+        formM = editMeetingForm(instance=meeting)
+        return render(req, 'test_app/EditMeeting.html', {'meeting':meeting, 'formM':formM})
     
+    def post(self, req, id):
+        print(req.POST)
+        meeting=get_object_or_404(Meeting, pk=id)
+        formM = editMeetingForm(req.POST, instance=meeting)
+        formM.save()
+        return redirect('meetingBinnacle', meeting.binnacle.id)
+
 
 # Add new meeting view
 

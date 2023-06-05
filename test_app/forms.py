@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, TextInput, EmailInput
-from .models import User, Company
+from .models import User, Company, Meeting
 
 
 class loginForm(forms.Form): 
@@ -35,7 +35,26 @@ class registerForm(forms.Form):
     #YYY-MMM-DDD
     userBirthday = forms.DateField(label = "Fecha de nacimiento del representante")
 
-
+class editMeetingForm(ModelForm):
+    state = forms.ChoiceField(choices=[
+        ('Pendiente', 'Pendiente'),
+        ('Realizada', 'Realizada'),
+        ('Cancelada', 'Cancelada'),
+    ], widget=forms.Select(attrs={
+        'class': 'form-control',
+    }))
+    class Meta:
+        model=Meeting
+        fields=['summary', 'state']
+        widgets = {
+            'summary': forms.Textarea(attrs={
+                'class':"form-control",
+                'name':"FormControlTextarea1",
+                'id':"FormControlTextarea1",
+                'rows':"4",
+                'style':"width: 68%;margin-left: 1%"
+            })
+        }
 
 class editProfileForm(ModelForm):
     class Meta:
@@ -92,25 +111,25 @@ class crateMeetingBinacle(forms.Form):
         }
         
         
-class editMeetingForm(forms.Form):
-    class Meta:
-        fields=['date', 'hour', 'summary']
-        widgets={
-            'date': forms.widgets.DateInput(attrs={
-                'type':"date",
-               'class':"form-control",
-               'id':"InputDate",
-               'style':"width: 270px;"
-            }),
-            'hour': forms.widgets.TimeInput(attrs={
-                'type':"time",
-                'step':"7200",
-                'list':"time_list",
-                'class':"form-control",
-                'id':"InputTime",
-                'style':"width: 270px;"
-            })
-        }
+#class editMeetingForm(forms.Form):
+ #   class Meta:
+  #      fields=['date', 'hour', 'summary']
+   #     widgets={
+    #        'date': forms.widgets.DateInput(attrs={
+     #           'type':"date",
+      #         'class':"form-control",
+       #        'id':"InputDate",
+        #       'style':"width: 270px;"
+         #   }),
+          #  'hour': forms.widgets.TimeInput(attrs={
+           #     'type':"time",
+            #    'step':"7200",
+             #   'list':"time_list",
+              #  'class':"form-control",
+               # 'id':"InputTime",
+                #'style':"width: 270px;"
+#            })
+ #       }
 
 #class registerForm(forms.Form): 
  #   companyNit = forms.CharField(max_length=9, widget = forms.CharField(attrs={'class': 'form-control enter_input'}))
