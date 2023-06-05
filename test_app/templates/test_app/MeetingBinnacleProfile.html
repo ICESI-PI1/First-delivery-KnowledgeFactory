@@ -85,14 +85,14 @@
           <div class="col-4" style="padding-right: 50px">
             <div class="ActBox">
               <div class="row">
-                  <h2 class="titleDescription">Proyecto {{project.name}}</h2>
+                  <h2 class="titleDescription">Proyecto {{binnacle.project.name}}</h2>
               </div>
               <div class="row">
                   <div class="col-4">
                       <h5 style="color: grey">Dueño</h5>
                   </div>
                   <div class="col-8" style="text-align: end;">
-                      <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                      <h5 class="textOwners">{{binnacle.project.ownerCompany.user.fullname}}</h5>
                   </div>
               </div>
               <div class="row">
@@ -100,7 +100,7 @@
                     <h5 style="color: grey">Empresa</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
-                    <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                    <h5 class="textOwners">{{binnacle.project.ownerCompany.name}}</h5>
                 </div>
               </div>
               <div class="row">
@@ -108,19 +108,19 @@
                     <h5 style="color: grey">Administrador</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
-                    <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                    <h5 class="textOwners">{{binnacle.admin.fullname}}</h5>
                 </div>
               </div>
               <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
-                  <a href="{% url "editQuote" %}" type="button" class="btn btn-warning editQuote">
+                  <a href="{% url 'editQuote' %}" type="button" class="btn btn-warning editQuote">
                     Editar cotización
                   </a>
                 </div>
               </div>
               <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
-                  <a href="{% url "addNewMeeting" %}" type="button" class="btn btn-warning addMeeting">
+                  <a href="{% url 'addNewMeeting' binnacle.id  %}" type="button" class="btn btn-warning addMeeting">
                     Añadir cita
                   </a>
                 </div>
@@ -129,10 +129,10 @@
             <div>
               <div class="row" style="margin-top: 25px">
                 <div class="row">
-                  <h2 class="titleDescription">Características</h2>
+                  <h2 class="titleDescription">Objetivos</h2>
                 </div>
                 <div class="row">
-                  <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+                  <p class="textInfoProject">{{binnacle.project.objective | linebreaks}}</p>
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@
               <h2 class="titleDescription">Resultados</h2>
             </div>
             <div class="container-textResults">
-              <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+              <p class="textInfoProject">{{binnacle.project.results|linebreaks}}</p>
             </div>
           </div>
         </div>

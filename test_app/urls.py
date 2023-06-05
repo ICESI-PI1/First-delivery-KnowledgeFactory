@@ -18,12 +18,16 @@ urlpatterns = [
     path('Proyectos$Favoritos/',views.ProfileFavoritesView.as_view(), name="profileFavorites"),
     path('Bitácora$de$<int:id>/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
     path('Editar$cita/',views.EditMeetingView.as_view(), name="editMeeting"),
-    path('Añadir$nueva$cita/',views.AddNewMeetingView.as_view(), name="addNewMeeting"),
+    path('Añadir$nueva$cita$a$<int:id>/',views.AddNewMeetingView.as_view(), name="addNewMeeting"),
     path('Editar$cotización/',views.EditQuoteView.as_view(), name="editQuote"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
     path('get_available_admins/', views.get_available_admins, name='get_available_admins'),
+    path('getFreeHours/', views.getFreeHours, name='getFreeHours'),
+    path('freeDate/', views.freeDate, name='freeDate'),
+
+
     
     path('home/', views.home, name="home"), 
     path('signup/', views.signup, name='signup'), 

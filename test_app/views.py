@@ -12,6 +12,37 @@ from django.views.decorators.http import require_GET
 from django.db.models import Q
 
 
+@require_GET
+def freeDate(request):
+    ans=True
+    date = request.GET.get('date')
+    binnacle = request.GET.get('binnacle')
+    binacleOb=get_object_or_404(Binnacle, pk=binnacle)
+    admin=binacleOb.admin
+    binnacles = Binnacle.objects.filter(admin=admin)
+    meetings = Meeting.objects.filter(binnacle__in=binnacles)
+    meetings = meetings.filter(date=date)
+    if meetings.count()==5:
+        ans=False
+    print(ans)
+    response_data = {'ans': ans}
+    return JsonResponse(response_data)
+
+@require_GET
+def getFreeHours(request):
+    date = request.GET.get('date')
+    binnacle = request.GET.get('binnacle')
+    binacleOb=get_object_or_404(Binnacle, pk=binnacle)
+    admin=binacleOb.admin
+    binnacles = Binnacle.objects.filter(admin=admin)
+    meetings = Meeting.objects.filter(binnacle__in=binnacles)
+    meetings = meetings.filter(date=date)
+    bussy_hours = meetings.values_list('hour', flat=True)
+    hours=['08:00', '10:00', '14:00', '16:00', '18:00']
+    freeHours = [hour for hour in hours if hour not in [time.strftime('%H:%M') for time in bussy_hours]]
+    response_data = {'freeHours': freeHours}
+    return JsonResponse(response_data)
+
 
 @require_GET
 def get_available_admins(request):
@@ -201,7 +232,6 @@ class RequestMeetingView(TemplateView):
             quotation = quotation
         )
         binnacle.save()
-
         date = req.POST.get('InputDate')
         time = req.POST.get('InputTime')
         summary = req.POST.get('FormControlTextarea1')
@@ -263,9 +293,24 @@ class EditMeetingView(TemplateView):
 class AddNewMeetingView(TemplateView):
     template_name="test_app/AddNewMeeting.html"
     
-    def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/AddNewMeeting.html')
+    def get(self, req, id):
+        binnacle = get_object_or_404(Binnacle, pk=id)
+        return render(req, 'test_app/AddNewMeeting.html', {'binnacle': binnacle})
+    
+    def post(self, req, id):
+        binnacle = get_object_or_404(Binnacle, pk=id)
+        date = req.POST.get('InputDate')
+        time = req.POST.get('InputTime')
+        summary = req.POST.get('FormControlTextarea1')
+        meeting = Meeting.objects.create(
+            state='Pendiente',
+            date=date,
+            hour=time,
+            summary=summary,
+            binnacle=binnacle
+        )
+        meeting.save()
+        return redirect('meetingBinnacle',id)
 
 
 # Edit quote view
