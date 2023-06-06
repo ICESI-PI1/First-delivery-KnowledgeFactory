@@ -18,7 +18,7 @@ urlpatterns = [
     path('Bitácora$de$<int:id>/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
     path('Editar$cita$<int:id>/',views.EditMeetingView.as_view(), name="editMeeting"),
     path('Añadir$nueva$cita$a$<int:id>/',views.AddNewMeetingView.as_view(), name="addNewMeeting"),
-    path('Editar$cotización$/',views.EditQuoteView.as_view(), name="editQuote"),
+    path('Editar$cotización$<int:id>/',views.EditQuoteView.as_view(), name="editQuote"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),

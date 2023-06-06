@@ -333,12 +333,20 @@ class AddNewMeetingView(TemplateView):
 
 class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
-    form_class=editQuoteForm
 
-    def get(self, req):
-            form=self.form_class(req.POST)
-            message=''
-            return render(req, self.template_name, context={'form': form, 'message': message})
+    def get(self, req, id):
+        quotation= get_object_or_404(Quotation, pk=id)
+        formQ=editQuoteForm(instance=quotation)
+        return render(req, self.template_name, context={'formQ': formQ, 'quotation': quotation})
+    
+    def post(self, req, id):
+        print(req.POST)
+        quotation= get_object_or_404(Quotation, pk=id)
+        formQ=editQuoteForm(req.POST,instance=quotation)
+        formQ.save()
+        binnacle=get_object_or_404(Binnacle,quotation=quotation.id)
+        return redirect('meetingBinnacle', binnacle.id)
+
 
 
 #Vistas por defecto de Django

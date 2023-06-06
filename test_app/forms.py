@@ -66,7 +66,7 @@ class editQuoteForm(ModelForm):
                 'class':"form-control",
                 'id':"InputText",
                 'label': "Precio de la cotización",
-                'style':"width: 270px;"
+                'style':"width: 270px;margin-left: 1%"
             }),
             'description': forms.widgets.Textarea(attrs={
                 'class':"form-control",
