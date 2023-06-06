@@ -33,52 +33,17 @@
             </form>
           </div>
           <div class="col-2" style="display: flex; justify-content: end;">
-            <button class="btn btn-link">
-              <i class="bi bi-cart-fill" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
+            <a href="{% url 'profileFavorites' %}" class="bi bi-star-fill" style="color: #fff; font-size: 1.8em;text-decoration:none;"></a>
           </div>
         </div>
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <div class="icon_menu_bar">
-              <button class="btn btn-link" style="padding: 0;">
-                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
-              </button>
-            </div>
-            <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
-      </header>
-      <div class="cont_menu active" id="menu">
-        <div class="row" style="background-color: #093D5E;width: 412px;">
-            <div class="col-3 profile_col">
-                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
-            </div>
-            <div class="col-9 profile_name_col">
-                <!--Debe aparecer el nombre-->
-                <h3 class="profile_name">Nombre</h3>
-            </div>
+          <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
+          <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+          <a href="{% url 'profileMeeting' %}" class="menu-item">Mis proyectos</a>
         </div>
-        <ul>
-            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
-            <a>Automóviles</a>
-            <a>Hogar</a>
-            <a>Dispositivos electrónicos</a>
-            <a>Cuidado personal</a>
-            <a>Ciencia</a>
-            <a>Entretenimiento y multimedia</a>
-            <a>Mostrar más</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Cuenta</h4>
-            <a href="{% url 'profile' %}">Perfil</a>
-            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
-            <a href="{% url "profileFavorites" %}">Favoritos</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Ayuda y configuración</h4>
-            <a>Servicio al cliente</a>
-            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
-        </ul>
-    </div>
+      </header>
     <div class="PrimaryBox">
       <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">

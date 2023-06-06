@@ -28,7 +28,7 @@ class registerForm(forms.Form):
     
     userEmail = forms.EmailField(label = "Email del representante", max_length=100, widget=forms.EmailInput(attrs={'class': 'form-control enter_input'}))
     
-    userPassword = forms.CharField(label = "Contraseña de usuairo del representante", max_length=16, widget = forms.TextInput(attrs={'class': 'form-control enter_input'}))
+    userPassword = forms.CharField(label = "Contraseña del representante", max_length=16, widget = forms.TextInput(attrs={'class': 'form-control enter_input'}))
     
     userPhone = forms.CharField(label = "Teléfono del representante", max_length=15, widget = forms.NumberInput(attrs={'class': 'form-control enter_input'}))
     

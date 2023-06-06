@@ -25,18 +25,13 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     
-                    <input  target="_self" class="btn btn login_button active" type="submit" style="background-color: #F9B100; color: #fff; margin-bottom: 20px;" value="Iniciar Sesión">
+                    <input target="_self" class="btn btn-warning" id="login_button" type="submit" value="Iniciar Sesión">
                 </form>
-        
-                <div class="row" style="display: flex; align-items: center;">
-                    <a href="#" target="_self" class="btn btn-link forgot_password" type="button">¿Olvidaste tu contraseña?</a>
-                </div>
                
                 <hr class="line1">
-                <a href="{% url 'register' %}" target="_self" class="btn btn create_acc_button" type="button" style="background-color: #E5E5E5;color: #000;">Crea tu cuenta</a>
+                <a href="{% url 'register' %}" target="_self" class="btn" id="create_acc_button" type="button">Crea tu cuenta</a>
             </div>
         </div>
-        <script>src='{% static "..\\..\\static\\JS\\loginFunctions.js" %}'</script>
     </body>
 </html>
 {% endblock %}

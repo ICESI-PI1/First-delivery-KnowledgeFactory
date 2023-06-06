@@ -147,7 +147,8 @@ class homePageView(TemplateView):
     
     def get(self, req):
         projects = Project.objects.all()
-        return render(req, 'test_app/MainPageEnterprise.html', {'projects':projects})
+        user=get_object_or_404(User,pk=req.user.cc)
+        return render(req, 'test_app/MainPageEnterprise.html', {'user':user,'projects':projects})
 
 #Profile view    
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
 #Primarybox {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -20,7 +22,7 @@
 
 #container_loginAcc{
     width: 500px;
-    height: 500px;
+    height: 470px;
     margin-top: 30px;
     padding-top: 30px;
     padding-left: 40px;
@@ -58,23 +60,16 @@
     font-size: medium;
 }
 
-.login_button {
+#login_button {
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto Flex", "Arial", sans-serif;
-    font-weight: bold;
+    background-color: #F9B100; 
+    color: #fff; 
     margin-bottom: 15px;
-    border: 0px;
     box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);
-}
-
-.forgot_password {
-    text-align: center;
-    font-size: 15px;
-    font-family: "Roboto Flex", "Arial", sans-serif;
-    color: #126BA4;
 }
 
 .line1 {
@@ -84,15 +79,13 @@
     margin-bottom: 25px;
 }
 
-.create_acc_button {
+#create_acc_button {
     width: 100%;
     height: 40px;
     border-radius: 5px;
     background-color: #E5E5E5;
     color: #000;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto Flex", "Arial", sans-serif;
-    font-weight: bold;
-    border: 0px;
     box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);
 }

@@ -33,21 +33,16 @@
             </form>
           </div>
           <div class="col-2" style="display: flex; justify-content: end;">
-            <button class="btn btn-link">
-              <i class="bi bi-cart-fill" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
+            <a href="{% url 'profileFavorites' %}" class="bi bi-star-fill" style="color: #fff; font-size: 1.8em;text-decoration:none;"></a>
           </div>
         </div>
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <div class="icon_menu_bar">
-              <button class="btn btn-link" style="padding: 0;">
-                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
-              </button>
-            </div>
-            <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+          <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
+          <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+          <a href="{% url 'profileMeeting' %}" class="menu-item">Mis proyectos</a>
+        </div>
       </header>
       <div class="cont_menu active" id="menu">
         <div class="row" style="background-color: #093D5E;width: 412px;">
