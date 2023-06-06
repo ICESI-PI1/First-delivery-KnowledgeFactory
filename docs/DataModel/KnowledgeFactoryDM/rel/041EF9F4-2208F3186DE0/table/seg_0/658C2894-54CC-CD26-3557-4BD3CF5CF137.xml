@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="658C2894-54CC-CD26-3557-4BD3CF5CF137" name="Company">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:18:18 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nit" id="6CA09A5D-2EE2-A604-A8C8-44C9196C7B3A">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:20:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phoneNumber" id="BAD8064A-BF4D-8FBC-80B5-B62FA8A47980">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:20:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address" id="CB048EFF-8012-F710-6046-409A0C6A8737">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:20:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="D6547AC8-5BE5-063D-585E-51BC631DAFF8">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:20:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_cc" id="96947945-DBEF-F058-92FA-D0F038383BF2">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:21:09 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="246FFEF4-1F80-26F6-12D9-9A916D52297B" referredColumn="B4C37857-F209-F609-688B-C5255C1E58B5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1F68DABE-C887-CC8D-366D-50AA3C686EB1" name="Company_PK">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:20:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6CA09A5D-2EE2-A604-A8C8-44C9196C7B3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="372725D5-1636-51BD-A4A4-59AE4F785DEE" name="User_ccv1">
+<createdBy>usuario</createdBy>
+<createdTime>2023-04-05 19:21:09 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="96947945-DBEF-F058-92FA-D0F038383BF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="proyecto_cotizado" directorySegmentName="seg_0" id="E6F1C0A8-6664-7018-6E27-844A10B0EB5D">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 21:06:10 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<sourcePk>4C7A0ACF-54A6-6677-46D3-98F555653CE6</sourcePk>
+<targetPk>921CD3A0-DC88-A52E-4845-FF9E768BA0F3</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4062C57F-383B-E33E-B96D-E293BA831834</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>951AB77C-439B-C954-768E-91096767BE06</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

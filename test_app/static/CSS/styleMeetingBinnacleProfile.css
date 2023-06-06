@@ -95,16 +95,64 @@
 }
 
 .binnacle-box{
-    margin: 20px 40px 60px 60px;
+    margin: 20px 40px 0px 0px;
     border: #363434;
     border-radius: 10px;
     border-style: solid;
     border-width: 2px;
-    height: 720px;
+    height: 700px;
     background-color: #c3c3c343;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.addMeeting{
+    font-size: 20px;
+    background-color: #FFCD00;
+    width: 100%;
+    color: white;
+    border: 0px;
+    border-radius: 20px;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+}
+    .addMeeting:hover{
+        background-color: #FFCD00;
+        color: rgb(243, 239, 239);
+        border: 0px;
+        font-family: "Roboto Flex", "Arial", sans-serif;
+    }
+        .addMeeting:active{
+            background-color: #FFCD00;
+            color: rgb(243, 239, 239);
+            border: 0px;
+            font-family: "Roboto Flex", "Arial", sans-serif;
+        }
+
+
+
+
+.editQuote{
+    font-size: 20px;
+    background-color: #F9B100;
+    width: 100%;
+    color: white;
+    border: 0px;
+    border-radius: 20px;
+    font-family: "Roboto Flex", "Arial", sans-serif;
+}
+    .editQuote:hover{
+        background-color: #F9B100;
+        color: rgb(243, 239, 239);
+        border: 0px;
+        font-family: "Roboto Flex", "Arial", sans-serif;
+    }
+        .editQuote:active{
+            background-color: #F9B100;
+            color: rgb(243, 239, 239);
+            border: 0px;
+            font-family: "Roboto Flex", "Arial", sans-serif;
+        }
+
 
 .profile_col{
     padding-left: 20px;

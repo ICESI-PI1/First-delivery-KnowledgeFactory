@@ -1,26 +1,33 @@
 from django.urls import path 
 from . import views
+from django.contrib import admin
+
+# tocó quitarlo porque al cambiar a clase no funcionaba
 
 urlpatterns = [
-    path('', views.LoginView.as_view(), name="login"),
+    path('admin/', admin.site.urls),
+    path('', views.LoginView.as_view(), name="signin"),
     path('Registro/', views.RegisterView.as_view(), name="register"),
-    path('Inicio/',views.homePage, name="homePage"),
+    path('Inicio/',views.homePageView.as_view(), name="homePage"),
     path('Perfil/',views.ProfileView.as_view(), name="profile"),
-    path('Editar Perfil/',views.editProfile,name="editProfile"),
-    path('Proyecto /<int:id>/',views.infoProject,name="productInformation"),
-    path('Cotización de proyecto/',views.requestAppointment, name="requestAppointment"),
-    path('Solicitar cita/',views.requestMeeting, name="requestMeeting"),
-    path('Cotizaciones/',views.profileMeeting,name="profileMeeting"),
-    path('Proyectos Favoritos/',views.profileFavorites, name="profileFavorites"),
-    path('Bitácora de /',views.meetingBinnacle, name="meetingBinnacle"),
+    path('EditarPerfil/',views.EditProfileView.as_view(), name="editProfile"),
+    path('Proyecto$<int:id>/',views.InfoProjectView.as_view(), name="projectInformation"),
+    path('Cotización$de$proyecto/',views.RequestAppointmentView.as_view(), name="requestAppointment"),
+    path('Solicitar$cita$<int:id>/', views.RequestMeetingView.as_view(), name="requestMeeting"),
+    path('Cotizaciones/',views.ProfileMeetingView.as_view(), name="profileMeeting"),
+    path('Proyectos$Favoritos/',views.ProfileFavoritesView.as_view(), name="profileFavorites"),
+    path('Bitácora$de$<int:id>/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
+    path('Editar$cita/',views.EditMeetingView.as_view(), name="editMeeting"),
+    path('Añadir$nueva$cita/',views.AddNewMeetingView.as_view(), name="addNewMeeting"),
+    path('Editar$cotización/',views.EditQuoteView.as_view(), name="editQuote"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
-    
+    path('get_available_admins/', views.get_available_admins, name='get_available_admins'),
     
     path('home/', views.home, name="home"), 
     path('signup/', views.signup, name='signup'), 
     path('tasks/', views.tasks, name='tasks'), 
     path('logout/', views.signout, name='logout'),
-    path('signin/', views.signin, name='signin')
+   # path('signin/', views.signin, name='signin')
 ]

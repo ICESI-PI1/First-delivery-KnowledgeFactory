@@ -47,7 +47,6 @@
               </button>
             </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
           </div>
       </header>
@@ -57,7 +56,6 @@
                 <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
             </div>
             <div class="col-9 profile_name_col">
-                <!--Debe aparecer el nombre-->
                 <h3 class="profile_name">Nombre</h3>
             </div>
         </div>
@@ -84,7 +82,7 @@
     <div class="Primarybox">
       <div class="col">
         <div class="row">
-          <div class="col-3">
+          <div class="col-4" style="padding-right: 50px">
             <div class="ActBox">
               <div class="row">
                   <h2 class="titleDescription">Proyecto {{project.name}}</h2>
@@ -94,7 +92,6 @@
                       <h5 style="color: grey">Dueño</h5>
                   </div>
                   <div class="col-8" style="text-align: end;">
-                      <!--Debe ir el dueño del proyecto-->
                       <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
                   </div>
               </div>
@@ -111,8 +108,21 @@
                     <h5 style="color: grey">Administrador</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
-                    <!--Debe aparecer el administrador de las citas-->
                     <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
+                <div class="col" style="display:flex; justify-content: end">
+                  <a href="{% url "editQuote" %}" type="button" class="btn btn-warning editQuote">
+                    Editar cotización
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
+                <div class="col" style="display:flex; justify-content: end">
+                  <a href="{% url "addNewMeeting" %}" type="button" class="btn btn-warning addMeeting">
+                    Añadir cita
+                  </a>
                 </div>
               </div>
             </div>
@@ -127,38 +137,40 @@
               </div>
             </div>
           </div>
-          <div class="col-9">
+          <div class="col-8">
             <div class="binnacle-box">
-              <div class="card">
+              {% for meeting in meetings %}
+              <div class="card" id="{{meeting.id}}">
                 <div class="row">
                   <div class="col-4">
                     <div class="row">
                       <div class=" card_content">
                           <!--Nombre de la cita completa-->
-                        <h1 class="card_title">hola</h1>
+                        <h1 class="card_title">Reunion #{{meeting.id}}</h1>
                           <!--Fecha de la cita-->
-                        <h3 class="card_text">Fecha: Adios</h3>
+                        <h3 class="card_text">Fecha: {{meeting.date}} at {{meeting.hour}}</h3>
                           <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
                         <div class="row">
                           <div class="col" style="display: flex;">
                             <h3 class="card_text" style="margin-right: 2px">Estado: </h3>
-                            <h3 class="card_text" style="color: #F9B100">EN PROCESO</h3>
+                            <h3 class="card_text" style="color: #F9B100">{{meeting.state}}</h3>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-8" style="justify-content: right; align-items: center; display: flex">
-                    <button type="button" class="btn btn-secondary infoMeeting" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn btn-secondary infoMeeting" data-title="Reunion #{{meeting.id}}" data-date="{{meeting.date}} at {{meeting.hour}}" data-status="{{meeting.state}}" data-description="{{meeting.summary}}" data-id={{meeting.id}}>
                       Información de la cita
                     </button>
-                  </div>
+                  </div>  
                 </div>
               </div>
+              {% endfor %}
             </div>
           </div>
         </div>
-        <div class="row" style="margin-bottom: 15px; margin-top: 0px">
+        <div class="row" style="margin-bottom: 15px; margin-top: 35px">
           <div class="col-7">
             <img id="imageCol" src="{% static "/Images/galaxyWallpaper.jpg" %}" alt="Foto referencia">
           </div>
@@ -174,30 +186,31 @@
       </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal Dinamico --> 
+    <div class="modal fade" id="dynamic-modal" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">                           
-        <div class="modal-content">
+        <div class="modal-content">  
           <div class="modal-header">
-            <!--Nombre de la cita completa-->
+            <!--Titulo-->
             <h1 class="modal-title fs-3 titleMODAL" id="staticBackdropLabel">Modal title</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <!--Fecha de la cita-->
+            <!--Fecha de la cita-->
             <div class="row">
               <div class="col" style="display: flex;">
                 <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Fecha: </p>
                 <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
               </div>
             </div>
-              <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
+            <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
             <div class="row">
               <div class="col" style="display: flex;">
                 <p class="card_text_modal" style="margin-right: 2px; margin-bottom: 4px">Estado: </p>
                 <p class="card_text_modal" style="color: #F9B100; margin-bottom: 4px; font-weight: bold;">EN PROCESO</p>
               </div>
             </div>
-              <!--Descripción de la cita-->
+            <!--Descripción de la cita-->
             <div class="row">
               <div class="col">
                 <p class="card_text_modal" style="margin-bottom: 1px;font-size: 20px">Descripción:</p>
@@ -209,65 +222,17 @@
             <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary editConfirmMeeting" data-bs-target="#staticBackdropEdit" data-bs-toggle="modal">
+            <a href="{% url "editMeeting" %}" type="button" class="btn btn-warning editConfirmMeeting">
               Editar cita
-            </button>
-          </div>
+            </a>
+          </div>  
         </div>
       </div>
     </div>
-
-    <div class="modal fade" id="staticBackdropEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">                           
-        <div class="modal-content">
-          <div class="modal-header">
-            <!--Nombre de la cita completa-->
-            <h1 class="modal-title fs-3 titleMODAL" id="staticBackdropLabel">Editar cita</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <!--Nombre de la cita-->
-              <div class="row">
-                <div class="col" style="display: flex;">
-                  <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Nombre: </p>
-                  <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
-                </div>
-              </div>
-              <!--Fecha de la cita-->
-            <div class="row">
-              <div class="col" style="display: flex;">
-                <p class="card_text_modal" style="margin-bottom: 4px; margin-right: 2px;">Fecha: </p>
-                <p class="card_text_modal" style="margin-bottom: 4px; font-weight: bold;">Adios</p>
-              </div>
-            </div>
-              <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
-            <div class="row">
-              <div class="col" style="display: flex;">
-                <p class="card_text_modal" style="margin-right: 2px; margin-bottom: 4px">Estado: </p>
-                <p class="card_text_modal" style="color: #F9B100; margin-bottom: 4px; font-weight: bold;">EN PROCESO</p>
-              </div>
-            </div>
-              <!--Descripción de la cita-->
-            <div class="row">
-              <div class="col">
-                <p class="card_text_modal" style="margin-bottom: 1px;font-size: 20px">Descripción:</p>
-                <form>
-                  <textarea class="form-control" id="meetDescription" rows="3"></textarea>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary editConfirmMeeting" data-bs-dismiss="modal">Confirmar edición</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src='{% static "JS/PopupInfoMeeting.js" %}'></script>
     <script src='{% static "JS/SideMenu.js" %}'></script>
 </body>
 </html>
 {% endblock %}
-

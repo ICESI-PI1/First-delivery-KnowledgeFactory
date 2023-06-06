@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/d86547990e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="container-fluid text-center headerMenu">
+    <header class="container-fluid text-center" style="padding: 10px;  background-color: #0A4D77;">
         <div class="row align-items-center" style="padding-left: 10px; padding-right: 10px;">
           <div class="col-2 image_locate">
             <img src='{% static "/Images/Logo_DreamsBank.png" %}' alt="Logo de DreamsBank" style="width: 100px;">
@@ -25,8 +25,8 @@
               <div class="input-group" style="flex-shrink: 0;">
                 <input id="input_search" type="text" class="form-control" placeholder="Buscar en KnowledgeFactoty" style="width: 700px;">
                 <div class="input-group-append">
-                  <button class="btn btn-warning searchBTN" type="button">
-                    <i class="bi bi-search" style="font-size: 1.5em;color: white"></i>
+                  <button class="btn btn-secondary" type="button" style="background-color: #F9B100; border: 0; border-radius: 0px ; border-top-right-radius: 5px; border-bottom-right-radius: 5px; width: 100%; height: 100%;">
+                    <i class="bi bi-search" style="font-size: 1.5em;"></i>
                   </button>
                 </div>
               </div>
@@ -39,7 +39,7 @@
           </div>
         </div>
       </header>
-      <header class="row-fluid text-center menubar_div">
+      <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
             <div class="icon_menu_bar">
               <button class="btn btn-link" style="padding: 0;">
@@ -47,7 +47,6 @@
               </button>
             </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
           </div>
       </header>
@@ -82,54 +81,55 @@
         </ul>
       </div>
       <div class="PrimaryBox">
-        <div id="ActionInfoProduct" class="row">
+        <div id="ActionInfoProduct" class="row" style="height: auto;padding-left: 20px;padding-right: 20px">
           <div class="col-7" style="justify-content: center;margin: 50px; height: 100%">
-            <img src="{{project.photo.url}}" class="imageProject" alt="Foto referencia">
+            <img src="{{project.photo.url}}" alt="Foto referencia" style="width: 100%;height: 100%; border-radius: 15px;">
             <div class="row" style="margin-top: 25px">
               <div class="row">
-                <h2 class="titleDescription">Descripción</h2>
+                <h2 style="font-weight: bold;color: #093D5E">Resultados</h2>
               </div>
               <div class="row">
-                <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+                <p class="textInfoProject">{{project.results|linebreaks}}</p>
               </div>
             </div>
           </div>
           <div class="col-4">
             <div class="ActBox">
                   <div class="row">
-                      <h2 class="titleDescription">{{project.name}}</h2>
+                      <h1 style="font-weight: bold;color: #093D5E;">{{project.name}}</h1>
                   </div>
                   <div class="row">
                       <div class="col-4">
-                          <h5 style="color: grey">Dueño</h5>
+                          <h4 style="color: grey">Dueño</h4>
                       </div>
                       <div class="col-8" style="text-align: end;">
                           <!--Debe ir el dueño del proyecto-->
-                          <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                          <h4 class="textOwners">{{project.ownerCompany.user.fullname}}</h4>
                       </div>
                   </div>
                   <div class="row">
                     <div class="col-4">
-                        <h5 style="color: grey">Empresa</h5>
+                        <h4 style="color: grey">Empresa</h4>
                     </div>
                     <div class="col-8" style="text-align: end;">
-                        <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                        <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
                     </div>
                 </div>
                   <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
+                      <!--Debe haber un "IF" para que aparezca este botón solo si NO tiene el proyecto añadido a fav-->
                       <a href="#" target="_self" class="btn btn-warning favoritesBTN" type="button" >Añadir a favoritos</a>
                   </div>
                   <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
-                    <a href="{% url 'requestMeeting' %}" target="_self" class="btn btn-warning meetingBTN" type="button">Solicitar cita</a>
+                    <a href="{% url 'requestMeeting' project.id %}" target="_self" class="btn btn-warning meetingBTN" type="button" >Solicitar cita</a>
                   </div>
               </div>
               <div class="DescriptionInfoProduct">
                   <div class="row">
-                      <h2 class="titleDescription">Características</h2>
+                      <h2 style="font-weight: bold;color: #093D5E">Objetivo del proyecto</h2>
                   </div>
                   <div class="row">
                       <!--{{project.description}}-->
-                      <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+                      <p class="textInfoProject">{{project.objective|linebreaks}}</p>
                   </div>
                 </div>
           </div>
@@ -139,4 +139,3 @@
   </body>
 </html>
 {% endblock %}
-

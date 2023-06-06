@@ -1,0 +1,246 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="951AB77C-439B-C954-768E-91096767BE06" name="PROYECTO">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:55:56 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_PROYECTO" id="E6058BAA-CF3A-0F13-EDEA-061B7D486C09">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:56:03 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE" id="33E153DD-30C5-F735-CB1B-DB195FA7B523">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:56:13 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESCRIPCION" id="C6C2CE08-451C-7475-0500-26580467A480">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:56:17 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EMAIL_DUEÑO" id="724BE5EA-11AE-3AD1-937D-1258D9113F88">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:56:24 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TEL_DUEÑO" id="B3864D55-C009-3BC3-0B87-48B17AA579AE">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 20:56:45 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_COTIZACION" id="42D69A04-DFC2-848A-CFE6-417DB6101993">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 21:06:10 UTC</createdTime>
+<generatorID>E6F1C0A8-6664-7018-6E27-844A10B0EB5D</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>CA24238F-A801-3CE0-8748-BC78A6B041FE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_BITACORA" id="BE260C88-F9BC-5B59-2139-DB4A5FDB2130">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 18:16:25 UTC</createdTime>
+<generatorID>E6F1C0A8-6664-7018-6E27-844A10B0EB5D</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>CFD318EF-CD47-08BB-4329-54DEC5631606</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_BITACORA1" id="E2035198-26EB-18CD-6A80-89E22904DF53">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 18:16:25 UTC</createdTime>
+<generatorID>F5DCDDEA-BC94-27F5-2E59-80B3C8C48476</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>8C855551-A696-8F5E-2835-7279A6871B6F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIT" id="B629304D-C689-BCCF-10D7-E9DD201C41DD">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:21:58 UTC</createdTime>
+<generatorID>E6F1C0A8-6664-7018-6E27-844A10B0EB5D</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>329DC79D-9A92-680D-00B1-650ACE15945D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIT1" id="D131263E-2B2C-498A-5D4B-AC1AE3371268">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:21:58 UTC</createdTime>
+<generatorID>F5DCDDEA-BC94-27F5-2E59-80B3C8C48476</generatorID>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<referedAttribute>7A02B205-8581-902E-7D03-AE7CC6C1DA02</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RESULTADO" id="3BB644DD-CC00-BC8A-18B3-47AA8D33FE97">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:30:58 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRESUPUESTO" id="A8F4ED6B-FBB3-4505-32CF-7D58BC2939D8">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:54:42 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRESUPUESTO_HUMANO" id="C73E249B-AC65-DF36-24CC-EFFF347F1B67">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 21:55:53 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RECURSOS_ASIGNADOS" id="0BA191FF-918A-D235-DCBB-8D820AFCEA43">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 22:00:34 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="META" id="EE282E9B-5EF2-3A81-BB51-7D4A71519831">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 22:10:46 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CATEGORIA" id="78F4CE28-343A-072D-9486-98565A7110FD">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 22:11:06 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PLAN_DE_TRABAJO" id="F457D610-BAFC-FB6F-7329-9996CD34F073">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-27 22:11:47 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="921CD3A0-DC88-A52E-4845-FF9E768BA0F3" name="PROYECTO PK">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 21:07:19 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E6058BAA-CF3A-0F13-EDEA-061B7D486C09</attributeRef>
+<attributeRef>E2035198-26EB-18CD-6A80-89E22904DF53</attributeRef>
+<attributeRef>D131263E-2B2C-498A-5D4B-AC1AE3371268</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

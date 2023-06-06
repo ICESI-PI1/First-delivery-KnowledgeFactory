@@ -45,7 +45,6 @@
               <i class="bi bi-list" id="sideMenu" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
             </button>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
-            <a href="#" class="menu-item">Servicio al cliente</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
       </header>
       <div class="cont_menu active" id="menu">
@@ -88,7 +87,7 @@
             </div>
             <div class="col-9" style="display: flex; align-items: center,start; justify-content: left ;flex-direction: column; padding-top: 10px;">
               <div class="row" style="flex: 1; align-items: end;">
-                <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;">Miguel Hernandez</h5>
+                <h5 style="font-family: 'Roboto Flex', 'Arial', 'sans-serif'; font-weight: bold; font-size: 22px;">{{user.fullname}}</h5>
               </div>
               <div class="row" style="flex: 1;align-items: start; display: flex;">
                 <div class="col-8" style="align-items: start">
@@ -123,27 +122,30 @@
             </div>
           </div>
         </div>
+
       <div class="col-9">
           <div class="gridProducts">
-              <div class="card">
-                  <a href="{% url "meetingBinnacle" %}" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
+            {% for bin in binnacles %}
+              <div class="card" id="{{bin.id}}">
+                  <a href="{% url 'meetingBinnacle' bin.id %}" style="z-index:5;position: absolute;width: 100%;height: 100%;"></a>
                   <div class="row">
                       <div class="col-3 card_image">
                           <!--Debe ir la imagen del proyecto-->
-                          <img src="{% static "/Images/galaxyWallpaper.jpg" %}" style="width: 95%;height: 95%; border-radius: 5px;;">
+                          <img src="{{bin.project.photo.url}}" style="width: 95%;height: 95%; border-radius: 5px;;">
                       </div>
                       <div class="col-6 card_content">
                           <!--Nombre del proyecto cotizado-->
-                        <h1 class="card_title">hola</h1>
+                        <h1 class="card_title">{{bin.project.name}}</h1>
                           <!--Dueño del proyecto-->
-                        <h3 class="card_text">Dueño: Adios</h3>
-                          <!--Empresa dueña del proyecto-->
-                        <h3 class="card_text">Empresa: Adios</h3>
+                        <h3 class="card_text">Dueño: {{bin.project.ownerCompany.user.fullname}}</h3>
+                          <!--Empresa dueña del proyecto -->
+                        <h3 class="card_text">Empresa: {{bin.project.ownerCompany.name}}</h3>
                           <!--Estado de la cotización del proyecto. *Solicitada* #E82215, *En proceso* #F9B100 y *Validada* #0A4D77-->
-                        <h3 class="card_text" style="color: #F9B100">Estado: EN PROCESO</h3>
+                        <h3 class="card_text" style="color: #F9B100">Estado: {{bin.project.state}}</h3>
                       </div>
                   </div>
               </div>
+            {% endfor %}
           </div>
       </div>
     </div>

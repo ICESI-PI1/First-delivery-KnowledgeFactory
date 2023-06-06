@@ -71,6 +71,33 @@
         }
 
 /*
+View
+*/
+
+.name-profile-view{
+    font-family: 'Roboto Flex', 'Arial', 'sans-serif'; 
+    font-weight: bold; 
+    font-size: 22px;
+}
+
+/*
+Card
+*/
+
+.card-title{
+    font-size: 30px; 
+    font-weight: bold; font-family: 'Roboto Flex', 'Arial', 'sans-serif'; 
+    padding-left: 10px;
+}
+
+.card-text{
+    color: #454343; 
+    font-family: 'Roboto Flex', 'Arial', 'sans-serif'; 
+    font-size: 20px;
+    
+}
+
+/*
 App bar side menu
 */
 

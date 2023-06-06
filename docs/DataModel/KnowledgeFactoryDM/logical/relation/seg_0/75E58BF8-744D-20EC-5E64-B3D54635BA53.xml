@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Cotizacion_empresa" directorySegmentName="seg_0" id="75E58BF8-744D-20EC-5E64-B3D54635BA53">
+<createdBy>dvb20</createdBy>
+<createdTime>2023-03-17 21:06:29 UTC</createdTime>
+<ownerDesignName>KnowledgeFactoryDM</ownerDesignName>
+<engineerTo>
+<item key="041EF9F4-46D1-2B63-81D9-2208F3186DE0" value="true"/>
+</engineerTo>
+<sourcePk>59A1D4C1-63D8-519E-24E0-C1E8552288D6</sourcePk>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A287F0AD-09A2-1368-EC55-5EE3DBF21739</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4062C57F-383B-E33E-B96D-E293BA831834</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
