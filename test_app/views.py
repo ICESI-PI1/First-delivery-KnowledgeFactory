@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting, Role, Roles, Quotation, Binnacle
-from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm, editQuoteForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
@@ -279,11 +279,12 @@ class AddNewMeetingView(TemplateView):
 
 class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
-    
-    def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/EditQuote.html')
+    form_class=editQuoteForm
 
+    def get(self, req):
+            form=self.form_class(req.POST)
+            message=''
+            return render(req, self.template_name, context={'form': form, 'message': message})
 
 
 #Vistas por defecto de Django

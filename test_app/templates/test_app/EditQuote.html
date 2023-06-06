@@ -83,34 +83,11 @@
       <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">
             <div class="card-body">
-                <h3 class="card-title title">Edita Cita</h3>
+                <h3 class="card-title title">Editar Cotización</h3>
                 <hr>
                 <div class="row">
-                    <div class="col" style="justify-content: left;text-align: left;align-items: center;">
-                        <div class="row" style="margin-top: 5px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Proyecto:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Nombre del proyecto-->
-                                <label id="projectName" class="textInput">{{project.name}}</label>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Precio de la cotización:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Intentar hacer que aparezca el precio actual de la cotización-->
-                                <input type="InputText" required class="form-control" name="InputText" id="InputText" style="width: 270px;">
-                            </div>
-                        </div>
-                          <div class="row" style="text-align: left; margin-top: 20px">
-                            <label for="InputText" class="textInput">Descripción de la cotización</label>
-                            <!--Intentar hacer que aparezca el resumen de la cotización-->
-                            <textarea class="form-control" name="FormControlTextarea1" id="FormControlTextarea1" rows="4" style="width: 68%;margin-left: 1%"></textarea>
-                        </div>
-                    </div>
+                    {% csrf_token %}
+                    {{ form.as_p }}
                 </div>
                 <div class="row" style="margin-top: 20px; margin-bottom: 10px;display:flex;justify-content: end;">
                     <div class="col-2" style="text-align: center; width: auto;">
