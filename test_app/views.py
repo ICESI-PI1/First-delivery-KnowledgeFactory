@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting, Role, Roles, Quotation, Binnacle
-from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm ,editMeetingForm
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm ,editMeetingForm, editQuoteForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
@@ -87,6 +87,8 @@ class LoginView(TemplateView):
     
     def get(self, req):
         form=self.form_class()
+        if req.user.is_authenticated: 
+            logout(req)
         message=''
         return render(req, self.template_name, context={'form': form, 'message': message})
 
@@ -139,6 +141,11 @@ class RegisterView(TemplateView):
         login(req, companyUser)
         message=''
         return redirect('homePage')
+
+#no se usa pero no borrar
+def signout(req):
+    logout(req)
+    return redirect('home')
 
 #Home view
 
@@ -326,11 +333,12 @@ class AddNewMeetingView(TemplateView):
 
 class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
-    
-    def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/EditQuote.html')
+    form_class=editQuoteForm
 
+    def get(self, req):
+            form=self.form_class(req.POST)
+            message=''
+            return render(req, self.template_name, context={'form': form, 'message': message})
 
 
 #Vistas por defecto de Django
@@ -365,9 +373,6 @@ def signup(req):
 def tasks(req): 
     return render(req, 'test_app/tasks.html')
 
-def signout(req):
-    logout(req)
-    return redirect('home')
 
 def signin(req): 
     if req.method == "GET":
