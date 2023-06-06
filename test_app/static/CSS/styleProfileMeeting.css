@@ -16,6 +16,15 @@
     justify-content: center;
 }
 
+#btn_lgout{
+    background-color: #d41a1a;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #F8F8F8;
+}
+
 .image_locate{
     text-align: left;
 }

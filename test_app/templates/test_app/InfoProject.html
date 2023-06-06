@@ -32,9 +32,6 @@
               </div>
             </form>
           </div>
-          <div class="col-2" style="display: flex; justify-content: end;">
-            <a href="{% url 'profileFavorites' %}" class="bi bi-star-fill" style="color: #fff; font-size: 1.8em;text-decoration:none;"></a>
-          </div>
         </div>
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
@@ -79,10 +76,6 @@
                         <h4 class="textOwners">{{project.ownerCompany.name}}</h4>
                     </div>
                 </div>
-                  <div class="row" style="padding-left: 5px;padding-right: 5px;padding-top: 10px;">
-                      <!--Debe haber un "IF" para que aparezca este botón solo si NO tiene el proyecto añadido a fav-->
-                      <a href="#" target="_self" class="btn btn-warning favoritesBTN" type="button" >Añadir a favoritos</a>
-                  </div>
                   <div class="row" style="padding-top: 15px;padding-left: 5px;padding-right: 5px;">
                     <a href="{% url 'requestMeeting' project.id %}" target="_self" class="btn btn-warning meetingBTN" type="button" >Solicitar cita</a>
                   </div>

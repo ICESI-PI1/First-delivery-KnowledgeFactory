@@ -159,6 +159,7 @@ class homePageView(TemplateView):
 
 #Profile view    
 
+
 class ProfileView(TemplateView): 
     template_name="test_app/Profile.html"
     
@@ -171,6 +172,8 @@ class ProfileView(TemplateView):
         return render(req, 'test_app/Profile.html', {'user':user,'company':company})
 
 #Edit profile view
+
+
 class EditProfileView(TemplateView): 
     template_name="test_app/EditProfile.html"
     
@@ -208,10 +211,13 @@ class InfoProjectView(TemplateView):
     
 #Request Appointment view
 
+
 class RequestAppointmentView(TemplateView):
     template_name="test_app/RequestAppointment.html" 
     
 #Request meeting view
+
+
 class RequestMeetingView(TemplateView):
     template_name="test_app/RequestMeeting.html"
     
@@ -257,6 +263,7 @@ class RequestMeetingView(TemplateView):
 
 #Profile Meeting view
 
+
 class ProfileMeetingView(TemplateView):
     template_name="test_app/ProfileMeeting.html"
 
@@ -269,13 +276,13 @@ class ProfileMeetingView(TemplateView):
             if user.cc==i:
                 binnacles=Binnacle.objects.filter(admin=user)
                 return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
-        
-        
+    
         company=get_object_or_404(Company,user=user)
         binnacles=Binnacle.objects.filter(buyer=company)
         return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
 
 #Profile Favorites view
+
 
 class ProfileFavoritesView(TemplateView):
     template_name="test_app/ProfileFavorites.html"
@@ -286,6 +293,7 @@ class ProfileFavoritesView(TemplateView):
 
 
 #Meeting Binnacle profile view
+
 
 class MeetingBinnacleView(TemplateView):
     template_name="test_app/MeetingBinnacleProfile.html"
@@ -307,6 +315,7 @@ class MeetingBinnacleView(TemplateView):
 
 #Edit Meeting view
 
+
 class EditMeetingView(TemplateView):
     template_name="test_app/EditMeeting.html"
     
@@ -324,6 +333,7 @@ class EditMeetingView(TemplateView):
 
 
 # Add new meeting view
+
 
 class AddNewMeetingView(TemplateView):
     template_name="test_app/AddNewMeeting.html"
@@ -360,7 +370,7 @@ class EditQuoteView(TemplateView):
                 projects = Project.objects.all()
             quotation= get_object_or_404(Quotation, pk=id)
             formQ=editQuoteForm(instance=quotation)
-            return render(req, self.template_name, context={'formQ': formQ, 'quotation': quotation, 'projects': projects})
+            return render(req, self.template_name, context={'formQ': formQ, 'quotation': quotation})
         return redirect('profileMeeting')
     
     def post(self, req, id):

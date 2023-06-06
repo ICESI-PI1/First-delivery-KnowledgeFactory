@@ -32,9 +32,6 @@
               </div>
             </form>
           </div>
-          <div class="col-2" style="display: flex; justify-content: end;">
-            <a href="{% url 'profileFavorites' %}" class="bi bi-star-fill" style="color: #fff; font-size: 1.8em;text-decoration:none;"></a>
-          </div>
         </div>
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
@@ -80,12 +77,9 @@
                 <a href="{% url "profileMeeting" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Mis proyectos</a>
               </div>
             </div>
-            <div class="row" style="margin: 0px; margin-bottom: 10px;">
-              <div class="col-3"  style="display: flex ;align-items: center; justify-content:center ;">
-                <a href="{% url "profileFavorites" %}" target="_self" class="bi bi-star-fill" style="color: #F9B100; font-size: 2.7em;"></a>
-              </div>
-              <div class="col" style="align-items: center; display: flex;">
-                <a href="{% url "profileFavorites" %}" target="_self" style="color: #1b1b1c; font-size: 23px; text-decoration: none; font-weight: bold;">Favoritos</a>
+            <div class="col" style="display: flex;align-items: end;height: 250px;padding-left: 30px;">
+              <div class="row" style="text-align: end; align-items: end; display: flex;">
+                <a href="{% url 'signin' %}" id="btn_lgout" class="btn btn-link" style="font-size: 20px;">Cerrar sesión</a>
               </div>
             </div>
           </div>

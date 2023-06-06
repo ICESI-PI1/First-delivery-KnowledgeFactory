@@ -32,100 +32,75 @@
               </div>
             </form>
           </div>
-          <div class="col-2" style="display: flex; justify-content: end;">
-            <button class="btn btn-link">
-              <i class="bi bi-cart-fill" style="color: #fff; font-size: 1.8em;"></i>
-            </button>
-          </div>
         </div>
       </header>
       <header class="row-fluid text-center" style="padding: 10px; padding-left: 15px; padding-right: 15px; background-color: #093D5E;">
         <div class="menu-bar">
-            <div class="icon_menu_bar">
-              <button class="btn btn-link" style="padding: 0;">
-                <i id="sideMenu" class="bi bi-list" style="color: #fff; font-size: 1.8em;z-index: 1;"></i>
-              </button>
-            </div>
             <a href="{% url 'homePage' %}" class="menu-item">Proyectos</a>
             <a href="{% url 'profile' %}" class="menu-item">Perfil</a>
+            <a href="{% url 'profileMeeting' %}" class="menu-item">Mis proyectos</a>
           </div>
       </header>
-      <div class="cont_menu active" id="menu">
-        <div class="row" style="background-color: #093D5E;width: 412px;">
-            <div class="col-3 profile_col">
-                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
-            </div>
-            <div class="col-9 profile_name_col">
-                <h3 class="profile_name">Nombre</h3>
-            </div>
-        </div>
-        <ul>
-            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
-            <a>Automóviles</a>
-            <a>Hogar</a>
-            <a>Dispositivos electrónicos</a>
-            <a>Cuidado personal</a>
-            <a>Ciencia</a>
-            <a>Entretenimiento y multimedia</a>
-            <a>Mostrar más</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Cuenta</h4>
-            <a href="{% url 'profile' %}">Perfil</a>
-            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
-            <a href="{% url "profileFavorites" %}">Favoritos</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Ayuda y configuración</h4>
-            <a>Servicio al cliente</a>
-            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
-        </ul>
-    </div>
     <div class="Primarybox">
       <div class="col">
         <div class="row">
           <div class="col-4" style="padding-right: 50px">
             <div class="ActBox">
               <div class="row">
-                  <h2 class="titleDescription">Proyecto {{project.name}}</h2>
-              </div>
-              <div class="row">
+                  <h2 class="titleDescription">Proyecto {{binnacle.project.name}}</h2>
+                </div>
+              <div class="row" style="margin-top: 7px;">
                   <div class="col-4">
-                      <h5 style="color: grey">Dueño</h5>
+                      <h5 style="color: #464343">Dueño</h5>
                   </div>
                   <div class="col-8" style="text-align: end;">
-                      <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                      <h5 class="textOwners">{{binnacle.project.ownerCompany.user.fullname}}</h5>
                   </div>
-              </div>
-              <div class="row">
+                </div>
+              <div class="row" style="margin-top: 7px;">
                 <div class="col-4">
-                    <h5 style="color: grey">Empresa</h5>
+                    <h5 style="color: #464343">Empresa</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
-                    <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                    <h5 class="textOwners">{{binnacle.project.ownerCompany.name}}</h5>
                 </div>
               </div>
-              <div class="row">
+              <div class="row" style="margin-top: 7px;">
                 <div class="col-4">
-                    <h5 style="color: grey">Administrador</h5>
+                    <h5 style="color: #464343">Administrador</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
-                    <h5 class="textOwners">{{project.ownerCompany.name}}</h5>
+                    <h5 class="textOwners">{{binnacle.admin.fullname}}</h5>
                 </div>
               </div>
-              <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
+              <div class="row" style="margin-top: 10px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
-                  <a href="{% url "addNewMeeting" %}" type="button" class="btn btn-warning addMeeting">
+                  <a href="{% url 'addNewMeeting' binnacle.id  %}" type="button" class="btn btn-warning addMeeting">
                     Añadir cita
                   </a>
                 </div>
               </div>
             </div>
-            <div>
-              <div class="row" style="margin-top: 25px">
-                <div class="row">
-                  <h2 class="titleDescription">Características</h2>
+            <div class="ActBoxQuote">
+              <div class="row">
+                <h2 class="titleDescription">Cotización de {{binnacle.project.name}}</h2>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                  <div class="col-6">
+                      <h5 style="color: #464343">Precio de la cotización</h5>
+                  </div>
+                  <div class="col-6" style="text-align: end;">
+                      <h5 class="textOwners">{{binnacle.quotation.price}}</h5>
+                  </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-8">
+                    <h5 style="color: #464343">Descripción de la cotización</h5>
                 </div>
-                <div class="row">
-                  <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
+              </div>
+              <div class="row" style="margin-top: 0px;">
+                <div class="col">
+                  <p class="textInfoProject">{{binnacle.quotation.description}}</p>
                 </div>
               </div>
             </div>
@@ -160,19 +135,6 @@
                 </div>
               </div>
               {% endfor %}
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom: 15px; margin-top: 35px">
-          <div class="col-7">
-            <img id="imageCol" src="{% static "/Images/galaxyWallpaper.jpg" %}" alt="Foto referencia">
-          </div>
-          <div class="col-5">
-            <div class="row">
-              <h2 class="titleDescription">Resultados</h2>
-            </div>
-            <div class="container-textResults">
-              <p class="textInfoProject">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius odio a ullamcorper lacinia. Nullam facilisis et arcu eget tincidunt. Suspendisse potenti. Nam at commodo leo. Quisque lacinia, elit at viverra eleifend, sem tellus malesuada est, vel aliquet arcu turpis vel turpis. Morbi eget posuere tellus, at euismod velit. Etiam nisl tellus, aliquet sit amet fringilla a, scelerisque et tellus. In risus tellus, varius ut eleifend in, vehicula ut ex. Curabitur id eros nibh. Cras mi ex, elementum in aliquet a, rutrum eget lacus. Etiam ut mauris massa. Fusce dignissim sapien at eros dapibus auctor. Curabitur rutrum odio risus. Suspendisse nec ligula purus.</p>
             </div>
           </div>
         </div>
@@ -215,7 +177,7 @@
             <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">
               Cerrar
             </button>
-            <a href="{% url "editMeeting" %}" type="button" class="btn btn-warning editConfirmMeeting">
+            <a href="{% url 'editMeeting' 1 %}" type="button" class="btn btn-warning editConfirmMeeting">
               Editar cita
             </a>
           </div>  
