@@ -78,7 +78,7 @@
               </div>
               <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
-                  <a href="{% url 'editQuote' %}" type="button" class="btn btn-warning editQuote">
+                  <a href="{% url 'editQuote' binnacle.quotation.id %}" type="button" class="btn btn-warning editQuote">
                     Editar cotización
                   </a>
                 </div>
@@ -187,7 +187,7 @@
             <button type="button" class="btn btn-danger cancelMeeting" data-bs-dismiss="modal">
               Cerrar
             </button>
-            <a href="{% url "editMeeting" %}" type="button" class="btn btn-warning editConfirmMeeting">
+            <a href="{% url 'editMeeting' 1 %}" type="button" class="btn btn-warning editConfirmMeeting">
               Editar cita
             </a>
           </div>  

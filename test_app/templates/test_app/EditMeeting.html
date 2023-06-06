@@ -45,6 +45,9 @@
         </div>
       </header>
     <div class="PrimaryBox">
+      <form method="post">
+      {% csrf_token %}
+      {{ formM.non_field_errors }}
       <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">
             <div class="card-body">
@@ -52,54 +55,32 @@
                 <hr>
                 <div class="row">
                     <div class="col" style="justify-content: left;text-align: left;align-items: center;">
-                        <div class="row" style="margin-top: 5px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Proyecto:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Nombre del proyecto-->
-                                <label id="projectName" class="textInput">{{project.name}}</label>
-                            </div>
-                        </div>
+                    
                         <div class="row" style="margin-top: 15px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Fecha de la reunión:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Intentar hacer que aparezca la fecha de reunión de la cita-->
-                                <input type="date" required class="form-control" name="InputDate" id="InputDate" style="width: 270px;">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 15px">
-                          <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <!--Intentar hacer que aparezca la hora de reunión de la cita-->
-                              <label for="InputTime" class="textInput">Hora de la reunión:</label>
-                          </div>
-                          <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                              <input type="time" required step="7200" list="time_list" class="form-control" name="InputTime" id="InputTime" style="width: 270px;">
-                              <datalist id="time_list">
-                                <option value="08:00">
-                                <option value="10:00">
-                                <option value="14:00">
-                                <option value="16:00">
-                                <option value="18:00">
-                              </datalist>
-                          </div>
                           <div class="row" style="text-align: left; margin-top: 20px">
                             <label for="InputText" class="textInput">Resumen de la cita</label>
                             <!--Intentar hacer que aparezca el resumen de la cita-->
-                            <textarea class="form-control" name="FormControlTextarea1" id="FormControlTextarea1" rows="4" style="width: 68%;margin-left: 1%"></textarea>
+                            {{formM.summary.errors}}
+                            {{formM.summary}}
                         </div>
                     </div>
+                    <div class="row" style="margin-top: 15px">
+                      <div class="row" style="text-align: left; margin-top: 20px">
+                        <label for="InputText" class="textInput">Estado</label>
+                        <!--Intentar hacer que aparezca el resumen de la cita-->
+                        {{formM.state.errors}}
+                        {{formM.state}}
+                    </div>
+                </div>
                 </div>
                 <div class="row" style="margin-top: 20px; margin-bottom: 10px;display:flex;justify-content: end;">
                     <div class="col-2" style="text-align: center; width: auto;">
-                        <a href="{% url 'profileMeeting' %}" type="button" class="btn btn-danger cancelBTN">Cancelar edición</a>
+                        <a href="{% url 'meetingBinnacle' meeting.binnacle.id %}" type="button" class="btn btn-danger cancelBTN">Cancelar edición</a>
                     </div>
                     <div class="col-2" style="text-align: center; width: auto;">
                       <div class="col-2" style="text-align: center; width: auto;">
                         <!--Primero será en a por beneficios de mandar a la ventana, luego toca cambiarlo a button pero no se como hacer q cambie de ventana siendo button-->
-                        <a href="{% url 'profileMeeting' %}" type="button" class="btn btn-warning sendBTN">Confirmar edición</a>
+                        <button class="btn btn-warning sendBTN">Confirmar edición</button>
                       </div>
                     </div>
                 </div>
@@ -107,6 +88,7 @@
         </div>
       </div>
     </div>
+  </form>
   <script src='{% static "JS/RequestMeeting.js" %}'></script>
   <script src='{% static "JS/SideMenu.js" %}'></script>
 </body>

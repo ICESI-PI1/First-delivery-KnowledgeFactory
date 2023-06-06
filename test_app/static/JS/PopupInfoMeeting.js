@@ -8,14 +8,15 @@ infoMeetingButtons.forEach(button => {
       const date = button.getAttribute('data-date');
       const status = button.getAttribute('data-status');
       const description = button.getAttribute('data-description');
+      const id = button.getAttribute('data-id');
   
       // Llamar a la función createDynamicModal con los datos de la cita
-      createDynamicModal(title, date, status, description);
+      createDynamicModal(title, date, status, description, id);
     });
   });
   
 
-function createDynamicModal(title, date, status, description) {
+function createDynamicModal(title, date, status, description, id) {
     const dynamicModal = document.querySelector('#dynamic-modal');
 
     // Actualiza los elementos del modal con los datos de la cita
@@ -31,6 +32,8 @@ function createDynamicModal(title, date, status, description) {
     const modalDescription = dynamicModal.querySelector('.row:nth-child(3) .card_text_modal:nth-child(2)');
     modalDescription.textContent = description;
 
+    const editLink = document.querySelector('.editConfirmMeeting');
+    editLink.href = "/Editar$cita$"+id+"/";
 
     // Abre el modal usando Bootstrap
     const modal = new bootstrap.Modal(dynamicModal);
