@@ -320,8 +320,8 @@ class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
     
     def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/EditQuote.html')
+        projects = Project.objects.all()
+        return render(req, 'test_app/EditQuote.html',{'projects': projects})
 
 
 

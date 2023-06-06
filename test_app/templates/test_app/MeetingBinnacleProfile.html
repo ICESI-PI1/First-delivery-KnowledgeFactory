@@ -51,39 +51,39 @@
             <div class="ActBox">
               <div class="row">
                   <h2 class="titleDescription">Proyecto {{binnacle.project.name}}</h2>
-              </div>
-              <div class="row">
+                </div>
+              <div class="row" style="margin-top: 7px;">
                   <div class="col-4">
-                      <h5 style="color: grey">Dueño</h5>
+                      <h5 style="color: #464343">Dueño</h5>
                   </div>
                   <div class="col-8" style="text-align: end;">
                       <h5 class="textOwners">{{binnacle.project.ownerCompany.user.fullname}}</h5>
                   </div>
-              </div>
-              <div class="row">
+                </div>
+              <div class="row" style="margin-top: 7px;">
                 <div class="col-4">
-                    <h5 style="color: grey">Empresa</h5>
+                    <h5 style="color: #464343">Empresa</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
                     <h5 class="textOwners">{{binnacle.project.ownerCompany.name}}</h5>
                 </div>
               </div>
-              <div class="row">
+              <div class="row" style="margin-top: 7px;">
                 <div class="col-4">
-                    <h5 style="color: grey">Administrador</h5>
+                    <h5 style="color: #464343">Administrador</h5>
                 </div>
                 <div class="col-8" style="text-align: end;">
                     <h5 class="textOwners">{{binnacle.admin.fullname}}</h5>
                 </div>
               </div>
-              <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
+              <div class="row" style="margin-top: 15px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
                   <a href="{% url 'editQuote' %}" type="button" class="btn btn-warning editQuote">
                     Editar cotización
                   </a>
                 </div>
               </div>
-              <div class="row" style="margin-top: 5px; display:flex; justify-content: end">
+              <div class="row" style="margin-top: 10px; display:flex; justify-content: end">
                 <div class="col" style="display:flex; justify-content: end">
                   <a href="{% url 'addNewMeeting' binnacle.id  %}" type="button" class="btn btn-warning addMeeting">
                     Añadir cita
@@ -91,13 +91,26 @@
                 </div>
               </div>
             </div>
-            <div>
-              <div class="row" style="margin-top: 25px">
-                <div class="row">
-                  <h2 class="titleDescription">Objetivos</h2>
+            <div class="ActBoxQuote">
+              <div class="row">
+                <h2 class="titleDescription">Cotización de {{binnacle.project.name}}</h2>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                  <div class="col-6">
+                      <h5 style="color: #464343">Precio de la cotización</h5>
+                  </div>
+                  <div class="col-6" style="text-align: end;">
+                      <h5 class="textOwners">{{binnacle.project.ownerCompany.user.fullname}}</h5>
+                  </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-8">
+                    <h5 style="color: #464343">Descripción de la cotización</h5>
                 </div>
-                <div class="row">
-                  <p class="textInfoProject">{{binnacle.project.objective | linebreaks}}</p>
+              </div>
+              <div class="row" style="margin-top: 0px;">
+                <div class="col">
+                  <p class="textInfoProject">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
               </div>
             </div>
@@ -132,19 +145,6 @@
                 </div>
               </div>
               {% endfor %}
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom: 15px; margin-top: 35px">
-          <div class="col-7">
-            <img id="imageCol" src="{% static "/Images/galaxyWallpaper.jpg" %}" alt="Foto referencia">
-          </div>
-          <div class="col-5">
-            <div class="row">
-              <h2 class="titleDescription">Resultados</h2>
-            </div>
-            <div class="container-textResults">
-              <p class="textInfoProject">{{binnacle.project.results|linebreaks}}</p>
             </div>
           </div>
         </div>

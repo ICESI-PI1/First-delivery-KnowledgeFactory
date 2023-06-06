@@ -44,41 +44,11 @@
           <a href="{% url 'profileMeeting' %}" class="menu-item">Mis proyectos</a>
         </div>
       </header>
-      <div class="cont_menu active" id="menu">
-        <div class="row" style="background-color: #093D5E;width: 412px;">
-            <div class="col-3 profile_col">
-                <i class="bi bi-person-circle" style="font-size: 3.5em;color: #F8F8F8;"></i>
-            </div>
-            <div class="col-9 profile_name_col">
-                <!--Debe aparecer el nombre-->
-                <h3 class="profile_name">Nombre</h3>
-            </div>
-        </div>
-        <ul>
-            <h4 class="title_side_menu">Buscar proyecto por categorías</h4>
-            <a>Automóviles</a>
-            <a>Hogar</a>
-            <a>Dispositivos electrónicos</a>
-            <a>Cuidado personal</a>
-            <a>Ciencia</a>
-            <a>Entretenimiento y multimedia</a>
-            <a>Mostrar más</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Cuenta</h4>
-            <a href="{% url 'profile' %}">Perfil</a>
-            <a href="{% url "profileMeeting" %}">Mis cotizaciones</a>
-            <a href="{% url "profileFavorites" %}">Favoritos</a>
-            <hr style="margin: 0px;">
-            <h4 class="title_side_menu">Ayuda y configuración</h4>
-            <a>Servicio al cliente</a>
-            <a style="color: red;font-weight: bold;">Cerrar sesión</a>
-        </ul>
-    </div>
     <div class="PrimaryBox">
       <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">
             <div class="card-body">
-                <h3 class="card-title title">Edita Cita</h3>
+                <h3 class="card-title title">Editar cotización</h3>
                 <hr>
                 <div class="row">
                     <div class="col" style="justify-content: left;text-align: left;align-items: center;">
@@ -87,7 +57,6 @@
                                 <label for="InputDate" class="textInput">Proyecto:</label>
                             </div>
                             <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Nombre del proyecto-->
                                 <label id="projectName" class="textInput">{{project.name}}</label>
                             </div>
                         </div>
