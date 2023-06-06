@@ -45,36 +45,42 @@
         </div>
       </header>
     <div class="PrimaryBox">
+      <form method="post">
+        {% csrf_token %}
+        {{ formQ.non_field_errors }}
       <div class="container-fluid" style="padding: 30px;">
         <div class="card" style="padding: 10px;width: 80%;height: auto;background-color: #EEEEEE;box-shadow: 0px 3px 4px rgba(123, 123, 123, 0.8);border-radius: 5px;border-weight: 10px;border-color: #B8B8B8;">
             <div class="card-body">
                 <h3 class="card-title title">Editar cotización</h3>
                 <hr>
                 <div class="row">
-                    <div class="col" style="justify-content: left;text-align: left;align-items: center;">
-                        <div class="row" style="margin-top: 5px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Proyecto:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <label id="projectName" class="textInput">{{project.name}}</label>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
-                                <label for="InputDate" class="textInput">Precio de la cotización:</label>
-                            </div>
-                            <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
-                                <!--Intentar hacer que aparezca el precio actual de la cotización-->
-                                <input type="InputText" required class="form-control" name="InputText" id="InputText" style="width: 270px;">
-                            </div>
-                        </div>
-                          <div class="row" style="text-align: left; margin-top: 20px">
-                            <label for="InputText" class="textInput">Descripción de la cotización</label>
-                            <!--Intentar hacer que aparezca el resumen de la cotización-->
-                            <textarea class="form-control" name="FormControlTextarea1" id="FormControlTextarea1" rows="4" style="width: 68%;margin-left: 1%"></textarea>
-                        </div>
+                  <div class="col" style="justify-content: left;text-align: left;align-items: center;">
+                    <div class="row" style="margin-top: 5px">
+                      <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex; width: auto">
+                          <label for="InputDate" class="textInput">Proyecto:</label>
+                      </div>
+                      <div class="col" style="justify-content: left;text-align: left;align-items: center;display: flex">
+                          <label id="projectName" class="textInput">{{project.name}}</label>
+                      </div>
                     </div>
+                    <div class="row" style="margin-top: 5px">
+                      <div class="col-3" style="justify-content: left;text-align: left;align-items: center;display: flex;; margin-top: 15px">
+                        <label for="InputText" class="textInput">Precio de la cotización</label>
+                      </div>
+                      <div class="col" style="display: flex; align-items: center">
+                        {{formQ.price.errors}}
+                        {{formQ.price}}
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px">
+                      <div class="row" style="text-align: left; margin-top: 15px">
+                        <label for="InputText" class="textInput">Resumen de la cotización</label>
+                        {{formQ.description.errors}}
+                        {{formQ.description}}
+                      </div>
+                    </div>
+                  </div>
+                   
                 </div>
                 <div class="row" style="margin-top: 20px; margin-bottom: 10px;display:flex;justify-content: end;">
                     <div class="col-2" style="text-align: center; width: auto;">
@@ -82,13 +88,14 @@
                     </div>
                     <div class="col-2" style="text-align: center; width: auto;">
                       <div class="col-2" style="text-align: center; width: auto;">
-                        <a href="{% url 'profileMeeting' %}" type="button" class="btn btn-warning sendBTN">Confirmar edición</a>
+                        <button class="btn btn-warning sendBTN">Confirmar edición</button>
                       </div>
                     </div>
                 </div>
             </div>
         </div>
       </div>
+    </form>
     </div>
   <script src='{% static "JS/RequestMeeting.js" %}'></script>
   <script src='{% static "JS/SideMenu.js" %}'></script>

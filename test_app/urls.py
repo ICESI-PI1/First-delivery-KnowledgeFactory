@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 from django.contrib import admin
 
-# tocó quitarlo porque al cambiar a clase no funcionaba
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,9 +16,9 @@ urlpatterns = [
     path('Cotizaciones/',views.ProfileMeetingView.as_view(), name="profileMeeting"),
     path('Proyectos$Favoritos/',views.ProfileFavoritesView.as_view(), name="profileFavorites"),
     path('Bitácora$de$<int:id>/',views.MeetingBinnacleView.as_view(), name="meetingBinnacle"),
-    path('Editar$cita/',views.EditMeetingView.as_view(), name="editMeeting"),
+    path('Editar$cita$<int:id>/',views.EditMeetingView.as_view(), name="editMeeting"),
     path('Añadir$nueva$cita$a$<int:id>/',views.AddNewMeetingView.as_view(), name="addNewMeeting"),
-    path('Editar$cotización/',views.EditQuoteView.as_view(), name="editQuote"),
+    path('Editar$cotización$<int:id>/',views.EditQuoteView.as_view(), name="editQuote"),
     
     
     path('TestDB/',views.testLitView.as_view(),name="testDB"),
@@ -33,5 +32,4 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'), 
     path('tasks/', views.tasks, name='tasks'), 
     path('logout/', views.signout, name='logout'),
-   # path('signin/', views.signin, name='signin')
 ]
