@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.views.generic.base import View, TemplateView
 from test_app.models import Project, Company, User, Meeting, Role, Roles, Quotation, Binnacle
-from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm
+from .forms import loginForm, editCompanyForm, editProfileForm, crateMeetingBinacle, registerForm, editQuoteForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
@@ -20,7 +20,7 @@ def get_available_admins(request):
     meetings = Meeting.objects.filter(date=date ,hour=time)
     busy_admin = [meeting.binnacle.admin.cc for meeting in meetings]
 
-    admin_id = Role.objects.get(rolName='Admin')
+    admin_id = Role.objects.get(rolName='Admin')        
     admin_role = Roles.objects.filter(role=admin_id.id)
     admin_role_id = [admin.user.cc for admin in admin_role]
     available_admins = User.objects.filter(
@@ -231,6 +231,15 @@ class ProfileMeetingView(TemplateView):
 
     def get(self, req):
         user=req.user
+        ids = Role.objects.get(rolName='Admin')
+        admins=Roles.objects.filter(role_id=ids.id)
+        admin_ccs=[admin.user.cc for admin in admins]
+        for i in admin_ccs: 
+            if user.cc==i:
+                binnacles=Binnacle.objects.filter(admin=user)
+                return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
+        
+        
         company=get_object_or_404(Company,user=user)
         binnacles=Binnacle.objects.filter(buyer=company)
         return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
@@ -252,7 +261,16 @@ class MeetingBinnacleView(TemplateView):
     def get(self, req, id):
         binnacle = get_object_or_404(Binnacle, pk=id)
         meetings = Meeting.objects.filter(binnacle=id)
-        return render(req, 'test_app/MeetingBinnacleProfile.html',{'binnacle': binnacle, 'meetings':meetings})
+
+        ids = Role.objects.get(rolName='Admin')
+        admins=Roles.objects.filter(role_id=ids.id)
+        for i in admins: 
+            print(i.__str__)
+        print(req.user.__str__)
+        for i in admins: 
+            if i.user==req.user: 
+                return render(req, self.template_name,{'binnacle': binnacle, 'meetings':meetings})
+        return render(req, "test_app/MeetingBinnacleProfileNotAdmin.html",{'binnacle': binnacle, 'meetings':meetings})
 
 
 #Edit Meeting view
@@ -279,11 +297,19 @@ class AddNewMeetingView(TemplateView):
 
 class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
-    
-    def get(self, req):
-        #meeting = get_object_or_404(Meeting, pk=id)
-        return render(req, 'test_app/EditQuote.html')
+    form_class=editQuoteForm
 
+    def get(self, req):
+            form=self.form_class()
+            message=''
+            ids = Role.objects.get(rolName='Admin')
+            admins=Roles.objects.filter(role_id=ids.id)
+            for i in admins: 
+                print(i.__str__)
+            for i in admins: 
+                if i.user==req.user: 
+                    return render(req, self.template_name, context={'form': form, 'message': message})
+            return redirect('profileMeeting')
 
 
 #Vistas por defecto de Django

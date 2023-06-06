@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, TextInput, EmailInput
-from .models import User, Company
+from .models import User, Company, Quotation
 
 
 class loginForm(forms.Form): 
@@ -111,6 +111,29 @@ class editMeetingForm(forms.Form):
                 'style':"width: 270px;"
             })
         }
+
+
+class editQuoteForm(ModelForm): 
+    class Meta: 
+        model=Quotation
+        fields=['description', 'price']
+        widgets={
+            'price': forms.widgets.TextInput(attrs={
+                'type':"inputText",
+                'class':"form-control",
+                'id':"InputText",
+                'label': "Precio de la cotización",
+                'style':"width: 270px;"
+            }),
+            'description': forms.widgets.Textarea(attrs={
+                'class':"form-control",
+                'id':"FormControlTextarea1",
+                'rows':"4",
+                'label': "Descripción de la cotización",
+                'style':"width: 68%;margin-left: 1%"
+            })
+        }
+
 
 #class registerForm(forms.Form): 
  #   companyNit = forms.CharField(max_length=9, widget = forms.CharField(attrs={'class': 'form-control enter_input'}))
