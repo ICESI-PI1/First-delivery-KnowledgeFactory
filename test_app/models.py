@@ -106,6 +106,8 @@ class Role(models.Model):
 class Roles(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.user.fullname +"  "+self.role.rolName
 
 class Quotation(models.Model):
     description = models.TextField()

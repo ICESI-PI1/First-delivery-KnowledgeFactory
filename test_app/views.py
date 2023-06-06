@@ -51,7 +51,7 @@ def get_available_admins(request):
     meetings = Meeting.objects.filter(date=date ,hour=time)
     busy_admin = [meeting.binnacle.admin.cc for meeting in meetings]
 
-    admin_id = Role.objects.get(rolName='Admin')
+    admin_id = Role.objects.get(rolName='Admin')        
     admin_role = Roles.objects.filter(role=admin_id.id)
     admin_role_id = [admin.user.cc for admin in admin_role]
     available_admins = User.objects.filter(
@@ -262,6 +262,15 @@ class ProfileMeetingView(TemplateView):
 
     def get(self, req):
         user=req.user
+        ids = Role.objects.get(rolName='Admin')
+        admins=Roles.objects.filter(role_id=ids.id)
+        admin_ccs=[admin.user.cc for admin in admins]
+        for i in admin_ccs: 
+            if user.cc==i:
+                binnacles=Binnacle.objects.filter(admin=user)
+                return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
+        
+        
         company=get_object_or_404(Company,user=user)
         binnacles=Binnacle.objects.filter(buyer=company)
         return render(req, 'test_app/ProfileMeeting.html',{'binnacles': binnacles, 'user':user})
@@ -283,8 +292,17 @@ class MeetingBinnacleView(TemplateView):
     def get(self, req, id):
         binnacle = get_object_or_404(Binnacle, pk=id)
         meetings = Meeting.objects.filter(binnacle=id)
-        return render(req, 'test_app/MeetingBinnacleProfile.html',{'binnacle': binnacle, 'meetings':meetings})
-    
+
+        ids = Role.objects.get(rolName='Admin')
+        admins=Roles.objects.filter(role_id=ids.id)
+        for i in admins: 
+            print(i.__str__)
+        print(req.user.__str__)
+        for i in admins: 
+            if i.user==req.user: 
+                return render(req, self.template_name,{'binnacle': binnacle, 'meetings':meetings})
+        return render(req, "test_app/MeetingBinnacleProfileNotAdmin.html",{'binnacle': binnacle, 'meetings':meetings})
+
 
 
 #Edit Meeting view
@@ -334,12 +352,16 @@ class AddNewMeetingView(TemplateView):
 
 class EditQuoteView(TemplateView):
     template_name="test_app/EditQuote.html"
-
     def get(self, req, id):
-        projects = Project.objects.all()
-        quotation= get_object_or_404(Quotation, pk=id)
-        formQ=editQuoteForm(instance=quotation)
-        return render(req, self.template_name, context={'formQ': formQ, 'quotation': quotation, 'projects': projects})
+        ids = Role.objects.get(rolName='Admin')
+        admins=Roles.objects.filter(role_id=ids.id)
+        for i in admins: 
+            if i.user==req.user: 
+                projects = Project.objects.all()
+            quotation= get_object_or_404(Quotation, pk=id)
+            formQ=editQuoteForm(instance=quotation)
+            return render(req, self.template_name, context={'formQ': formQ, 'quotation': quotation, 'projects': projects})
+        return redirect('profileMeeting')
     
     def post(self, req, id):
         print(req.POST)
@@ -348,7 +370,6 @@ class EditQuoteView(TemplateView):
         formQ.save()
         binnacle=get_object_or_404(Binnacle,quotation=quotation.id)
         return redirect('meetingBinnacle', binnacle.id)
-
 
 
 #Vistas por defecto de Django
